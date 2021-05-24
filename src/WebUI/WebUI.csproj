@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>_2_gt4.WebUI</RootNamespace>
-    <AssemblyName>_2_gt4.WebUI</AssemblyName>
+    <RootNamespace>CloudyMobile.WebUI</RootNamespace>
+    <AssemblyName>CloudyMobile.WebUI</AssemblyName>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <IsPackable>true</IsPackable>

@@ -4,9 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
-using ValidationException = _2_gt4.Application.Common.Exceptions.ValidationException;
+using ValidationException = CloudyMobile.Application.Common.Exceptions.ValidationException;
 
-namespace _2_gt4.Application.Common.Behaviours
+namespace CloudyMobile.Application.Common.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

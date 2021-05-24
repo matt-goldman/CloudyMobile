@@ -1,11 +1,11 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using _2_gt4.Application.Common.Interfaces;
+using CloudyMobile.Application.Common.Interfaces;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.Common.Behaviours
+namespace CloudyMobile.Application.Common.Behaviours
 {
     public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
@@ -47,7 +47,7 @@ namespace _2_gt4.Application.Common.Behaviours
                     userName = await _identityService.GetUserNameAsync(userId);
                 }
 
-                _logger.LogWarning("_2_gt4 Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
+                _logger.LogWarning("CloudyMobile Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                     requestName, elapsedMilliseconds, userId, userName, request);
             }
 

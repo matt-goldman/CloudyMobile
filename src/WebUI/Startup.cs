@@ -1,9 +1,9 @@
-using _2_gt4.Application;
-using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Infrastructure;
-using _2_gt4.Infrastructure.Persistence;
-using _2_gt4.WebUI.Filters;
-using _2_gt4.WebUI.Services;
+using CloudyMobile.Application;
+using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Infrastructure;
+using CloudyMobile.Infrastructure.Persistence;
+using CloudyMobile.WebUI.Filters;
+using CloudyMobile.WebUI.Services;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,7 +16,7 @@ using NSwag;
 using NSwag.Generation.Processors.Security;
 using System.Linq;
 
-namespace _2_gt4.WebUI
+namespace CloudyMobile.WebUI
 {
     public class Startup
     {
@@ -62,7 +62,7 @@ namespace _2_gt4.WebUI
 
             services.AddOpenApiDocument(configure =>
             {
-                configure.Title = "_2_gt4 API";
+                configure.Title = "CloudyMobile API";
                 configure.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
                 {
                     Type = OpenApiSecuritySchemeType.ApiKey,

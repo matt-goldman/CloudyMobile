@@ -1,7 +1,7 @@
-﻿using _2_gt4.Domain.Common;
-using _2_gt4.Domain.Entities;
+﻿using CloudyMobile.Domain.Common;
+using CloudyMobile.Domain.Entities;
 
-namespace _2_gt4.Domain.Events
+namespace CloudyMobile.Domain.Events
 {
     public class TodoItemCreatedEvent : DomainEvent
     {

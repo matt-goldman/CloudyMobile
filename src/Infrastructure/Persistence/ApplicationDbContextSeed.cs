@@ -1,11 +1,11 @@
-﻿using _2_gt4.Domain.Entities;
-using _2_gt4.Domain.ValueObjects;
-using _2_gt4.Infrastructure.Identity;
+﻿using CloudyMobile.Domain.Entities;
+using CloudyMobile.Domain.ValueObjects;
+using CloudyMobile.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Infrastructure.Persistence
+namespace CloudyMobile.Infrastructure.Persistence
 {
     public static class ApplicationDbContextSeed
     {

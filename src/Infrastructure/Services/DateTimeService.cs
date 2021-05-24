@@ -1,7 +1,7 @@
-﻿using _2_gt4.Application.Common.Interfaces;
+﻿using CloudyMobile.Application.Common.Interfaces;
 using System;
 
-namespace _2_gt4.Infrastructure.Services
+namespace CloudyMobile.Infrastructure.Services
 {
     public class DateTimeService : IDateTime
     {

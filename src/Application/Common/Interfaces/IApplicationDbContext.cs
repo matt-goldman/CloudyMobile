@@ -1,9 +1,9 @@
-﻿using _2_gt4.Domain.Entities;
+﻿using CloudyMobile.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.Common.Interfaces
+namespace CloudyMobile.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {

@@ -1,9 +1,9 @@
-﻿using _2_gt4.Domain.Exceptions;
-using _2_gt4.Domain.ValueObjects;
+﻿using CloudyMobile.Domain.Exceptions;
+using CloudyMobile.Domain.ValueObjects;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace _2_gt4.Domain.UnitTests.ValueObjects
+namespace CloudyMobile.Domain.UnitTests.ValueObjects
 {
     public class ColourTests
     {

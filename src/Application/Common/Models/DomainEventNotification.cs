@@ -1,7 +1,7 @@
-﻿using _2_gt4.Domain.Common;
+﻿using CloudyMobile.Domain.Common;
 using MediatR;
 
-namespace _2_gt4.Application.Common.Models
+namespace CloudyMobile.Application.Common.Models
 {
     public class DomainEventNotification<TDomainEvent> : INotification where TDomainEvent : DomainEvent
     {

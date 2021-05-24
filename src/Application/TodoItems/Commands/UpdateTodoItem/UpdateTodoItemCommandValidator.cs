@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace _2_gt4.Application.TodoItems.Commands.UpdateTodoItem
+namespace CloudyMobile.Application.TodoItems.Commands.UpdateTodoItem
 {
     public class UpdateTodoItemCommandValidator : AbstractValidator<UpdateTodoItemCommand>
     {

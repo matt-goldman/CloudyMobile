@@ -1,11 +1,11 @@
-﻿using _2_gt4.Application.Common.Exceptions;
+﻿using CloudyMobile.Application.Common.Exceptions;
 using FluentAssertions;
 using FluentValidation.Results;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
-namespace _2_gt4.Application.UnitTests.Common.Exceptions
+namespace CloudyMobile.Application.UnitTests.Common.Exceptions
 {
     public class ValidationExceptionTests
     {

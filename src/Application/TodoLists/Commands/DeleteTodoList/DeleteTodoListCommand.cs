@@ -1,13 +1,13 @@
-﻿using _2_gt4.Application.Common.Exceptions;
-using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Domain.Entities;
+﻿using CloudyMobile.Application.Common.Exceptions;
+using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.TodoLists.Commands.DeleteTodoList
+namespace CloudyMobile.Application.TodoLists.Commands.DeleteTodoList
 {
     public class DeleteTodoListCommand : IRequest
     {

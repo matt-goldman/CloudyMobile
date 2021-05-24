@@ -1,14 +1,14 @@
-﻿using _2_gt4.Application.Common.Exceptions;
-using _2_gt4.Application.TodoItems.Commands.CreateTodoItem;
-using _2_gt4.Application.TodoItems.Commands.UpdateTodoItem;
-using _2_gt4.Application.TodoLists.Commands.CreateTodoList;
-using _2_gt4.Domain.Entities;
+﻿using CloudyMobile.Application.Common.Exceptions;
+using CloudyMobile.Application.TodoItems.Commands.CreateTodoItem;
+using CloudyMobile.Application.TodoItems.Commands.UpdateTodoItem;
+using CloudyMobile.Application.TodoLists.Commands.CreateTodoList;
+using CloudyMobile.Domain.Entities;
 using FluentAssertions;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using System;
 
-namespace _2_gt4.Application.IntegrationTests.TodoItems.Commands
+namespace CloudyMobile.Application.IntegrationTests.TodoItems.Commands
 {
     using static Testing;
 

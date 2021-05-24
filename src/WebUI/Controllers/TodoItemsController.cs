@@ -1,15 +1,15 @@
-﻿using _2_gt4.Application.Common.Models;
-using _2_gt4.Application.TodoItems.Commands.CreateTodoItem;
-using _2_gt4.Application.TodoItems.Commands.DeleteTodoItem;
-using _2_gt4.Application.TodoItems.Commands.UpdateTodoItem;
-using _2_gt4.Application.TodoItems.Commands.UpdateTodoItemDetail;
-using _2_gt4.Application.TodoItems.Queries.GetTodoItemsWithPagination;
-using _2_gt4.Application.TodoLists.Queries.GetTodos;
+﻿using CloudyMobile.Application.Common.Models;
+using CloudyMobile.Application.TodoItems.Commands.CreateTodoItem;
+using CloudyMobile.Application.TodoItems.Commands.DeleteTodoItem;
+using CloudyMobile.Application.TodoItems.Commands.UpdateTodoItem;
+using CloudyMobile.Application.TodoItems.Commands.UpdateTodoItemDetail;
+using CloudyMobile.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+using CloudyMobile.Application.TodoLists.Queries.GetTodos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace _2_gt4.WebUI.Controllers
+namespace CloudyMobile.WebUI.Controllers
 {
     [Authorize]
     public class TodoItemsController : ApiControllerBase

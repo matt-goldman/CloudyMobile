@@ -1,11 +1,11 @@
-﻿using _2_gt4.Application.Common.Exceptions;
-using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Domain.Entities;
+﻿using CloudyMobile.Application.Common.Exceptions;
+using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Domain.Entities;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.TodoItems.Commands.UpdateTodoItem
+namespace CloudyMobile.Application.TodoItems.Commands.UpdateTodoItem
 {
     public class UpdateTodoItemCommand : IRequest
     {

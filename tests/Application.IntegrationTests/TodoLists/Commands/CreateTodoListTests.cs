@@ -1,12 +1,12 @@
-﻿using _2_gt4.Application.Common.Exceptions;
-using _2_gt4.Application.TodoLists.Commands.CreateTodoList;
-using _2_gt4.Domain.Entities;
+﻿using CloudyMobile.Application.Common.Exceptions;
+using CloudyMobile.Application.TodoLists.Commands.CreateTodoList;
+using CloudyMobile.Domain.Entities;
 using FluentAssertions;
 using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.IntegrationTests.TodoLists.Commands
+namespace CloudyMobile.Application.IntegrationTests.TodoLists.Commands
 {
     using static Testing;
 

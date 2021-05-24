@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using _2_gt4.Application.Common.Behaviours;
+using CloudyMobile.Application.Common.Behaviours;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace _2_gt4.Application
+namespace CloudyMobile.Application
 {
     public static class DependencyInjection
     {

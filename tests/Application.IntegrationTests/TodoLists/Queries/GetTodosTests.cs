@@ -1,12 +1,12 @@
-﻿using _2_gt4.Application.TodoLists.Queries.GetTodos;
-using _2_gt4.Domain.Entities;
-using _2_gt4.Domain.ValueObjects;
+﻿using CloudyMobile.Application.TodoLists.Queries.GetTodos;
+using CloudyMobile.Domain.Entities;
+using CloudyMobile.Domain.ValueObjects;
 using FluentAssertions;
 using NUnit.Framework;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.IntegrationTests.TodoLists.Queries
+namespace CloudyMobile.Application.IntegrationTests.TodoLists.Queries
 {
     using static Testing;
 

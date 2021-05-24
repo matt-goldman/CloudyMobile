@@ -1,8 +1,8 @@
-﻿using _2_gt4.Domain.Entities;
+﻿using CloudyMobile.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace _2_gt4.Infrastructure.Persistence.Configurations
+namespace CloudyMobile.Infrastructure.Persistence.Configurations
 {
     public class TodoItemConfiguration : IEntityTypeConfiguration<TodoItem>
     {

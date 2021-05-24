@@ -1,9 +1,9 @@
-﻿using _2_gt4.Application.WeatherForecasts.Queries.GetWeatherForecasts;
+﻿using CloudyMobile.Application.WeatherForecasts.Queries.GetWeatherForecasts;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace _2_gt4.WebUI.Controllers
+namespace CloudyMobile.WebUI.Controllers
 {
     public class WeatherForecastController : ApiControllerBase
     {

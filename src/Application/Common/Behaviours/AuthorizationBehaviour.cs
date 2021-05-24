@@ -1,6 +1,6 @@
-﻿using _2_gt4.Application.Common.Exceptions;
-using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Application.Common.Security;
+﻿using CloudyMobile.Application.Common.Exceptions;
+using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Application.Common.Security;
 using MediatR;
 using System;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.Common.Behaviours
+namespace CloudyMobile.Application.Common.Behaviours
 {
     public class AuthorizationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

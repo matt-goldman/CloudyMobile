@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using _2_gt4.Application.Common.Mappings;
-using _2_gt4.Application.TodoLists.Queries.GetTodos;
-using _2_gt4.Domain.Entities;
+using CloudyMobile.Application.Common.Mappings;
+using CloudyMobile.Application.TodoLists.Queries.GetTodos;
+using CloudyMobile.Domain.Entities;
 using NUnit.Framework;
 using System;
 using System.Runtime.Serialization;
 
-namespace _2_gt4.Application.UnitTests.Common.Mappings
+namespace CloudyMobile.Application.UnitTests.Common.Mappings
 {
     public class MappingTests
     {

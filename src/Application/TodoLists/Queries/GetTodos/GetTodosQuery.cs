@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Application.Common.Security;
-using _2_gt4.Domain.Enums;
+using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Application.Common.Security;
+using CloudyMobile.Domain.Enums;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.TodoLists.Queries.GetTodos
+namespace CloudyMobile.Application.TodoLists.Queries.GetTodos
 {
     public class GetTodosQuery : IRequest<TodosVm>
     {

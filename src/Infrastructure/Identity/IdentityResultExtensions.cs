@@ -1,8 +1,8 @@
-﻿using _2_gt4.Application.Common.Models;
+﻿using CloudyMobile.Application.Common.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 
-namespace _2_gt4.Infrastructure.Identity
+namespace CloudyMobile.Infrastructure.Identity
 {
     public static class IdentityResultExtensions
     {

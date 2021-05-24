@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace _2_gt4.Domain.Common
+namespace CloudyMobile.Domain.Common
 {
     public interface IHasDomainEvent
     {

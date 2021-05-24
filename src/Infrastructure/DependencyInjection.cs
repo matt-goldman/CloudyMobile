@@ -1,15 +1,15 @@
-﻿using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Infrastructure.Files;
-using _2_gt4.Infrastructure.Identity;
-using _2_gt4.Infrastructure.Persistence;
-using _2_gt4.Infrastructure.Services;
+﻿using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Infrastructure.Files;
+using CloudyMobile.Infrastructure.Identity;
+using CloudyMobile.Infrastructure.Persistence;
+using CloudyMobile.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace _2_gt4.Infrastructure
+namespace CloudyMobile.Infrastructure
 {
     public static class DependencyInjection
     {
@@ -18,7 +18,7 @@ namespace _2_gt4.Infrastructure
             if (configuration.GetValue<bool>("UseInMemoryDatabase"))
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseInMemoryDatabase("_2_gt4Db"));
+                    options.UseInMemoryDatabase("CloudyMobileDb"));
             }
             else
             {

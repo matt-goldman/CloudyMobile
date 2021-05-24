@@ -1,7 +1,7 @@
-﻿using _2_gt4.Application.Common.Models;
+﻿using CloudyMobile.Application.Common.Models;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.Common.Interfaces
+namespace CloudyMobile.Application.Common.Interfaces
 {
     public interface IIdentityService
     {

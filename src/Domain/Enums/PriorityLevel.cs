@@ -1,4 +1,4 @@
-﻿namespace _2_gt4.Domain.Enums
+﻿namespace CloudyMobile.Domain.Enums
 {
     public enum PriorityLevel
     {

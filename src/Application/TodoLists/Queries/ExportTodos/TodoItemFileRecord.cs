@@ -1,7 +1,7 @@
-﻿using _2_gt4.Application.Common.Mappings;
-using _2_gt4.Domain.Entities;
+﻿using CloudyMobile.Application.Common.Mappings;
+using CloudyMobile.Domain.Entities;
 
-namespace _2_gt4.Application.TodoLists.Queries.ExportTodos
+namespace CloudyMobile.Application.TodoLists.Queries.ExportTodos
 {
     public class TodoItemRecord : IMapFrom<TodoItem>
     {

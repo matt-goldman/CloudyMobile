@@ -1,8 +1,8 @@
-﻿using _2_gt4.Domain.Common;
-using _2_gt4.Domain.ValueObjects;
+﻿using CloudyMobile.Domain.Common;
+using CloudyMobile.Domain.ValueObjects;
 using System.Collections.Generic;
 
-namespace _2_gt4.Domain.Entities
+namespace CloudyMobile.Domain.Entities
 {
     public class TodoList : AuditableEntity
     {

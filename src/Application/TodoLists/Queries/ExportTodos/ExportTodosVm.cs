@@ -1,4 +1,4 @@
-﻿namespace _2_gt4.Application.TodoLists.Queries.ExportTodos
+﻿namespace CloudyMobile.Application.TodoLists.Queries.ExportTodos
 {
     public class ExportTodosVm
     {

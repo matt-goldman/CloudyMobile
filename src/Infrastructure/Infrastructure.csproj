@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>_2_gt4.Infrastructure</RootNamespace>
-    <AssemblyName>_2_gt4.Infrastructure</AssemblyName>
+    <RootNamespace>CloudyMobile.Infrastructure</RootNamespace>
+    <AssemblyName>CloudyMobile.Infrastructure</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

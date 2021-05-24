@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace _2_gt4.WebUI.Controllers
+namespace CloudyMobile.WebUI.Controllers
 {
     [ApiExplorerSettings(IgnoreApi = true)]
     public class OidcConfigurationController : Controller

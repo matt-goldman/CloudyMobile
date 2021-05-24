@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace _2_gt4.Application.Common.Mappings
+namespace CloudyMobile.Application.Common.Mappings
 {
     public interface IMapFrom<T>
     {   

@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.Common.Behaviours
+namespace CloudyMobile.Application.Common.Behaviours
 {
     public class UnhandledExceptionBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
@@ -25,7 +25,7 @@ namespace _2_gt4.Application.Common.Behaviours
             {
                 var requestName = typeof(TRequest).Name;
 
-                _logger.LogError(ex, "_2_gt4 Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
+                _logger.LogError(ex, "CloudyMobile Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
 
                 throw;
             }

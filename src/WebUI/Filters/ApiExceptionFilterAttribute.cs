@@ -1,11 +1,11 @@
-﻿using _2_gt4.Application.Common.Exceptions;
+﻿using CloudyMobile.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
 
-namespace _2_gt4.WebUI.Filters
+namespace CloudyMobile.WebUI.Filters
 {
     public class ApiExceptionFilterAttribute : ExceptionFilterAttribute
     {

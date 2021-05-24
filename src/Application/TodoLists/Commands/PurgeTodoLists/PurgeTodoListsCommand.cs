@@ -1,10 +1,10 @@
-﻿using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Application.Common.Security;
+﻿using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Application.Common.Security;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.TodoLists.Commands.PurgeTodoLists
+namespace CloudyMobile.Application.TodoLists.Commands.PurgeTodoLists
 {
     [Authorize(Roles = "Administrator")]
     [Authorize(Policy = "CanPurge")]

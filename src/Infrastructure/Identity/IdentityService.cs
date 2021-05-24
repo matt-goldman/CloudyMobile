@@ -1,12 +1,12 @@
-﻿using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Application.Common.Models;
+﻿using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Application.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Infrastructure.Identity
+namespace CloudyMobile.Infrastructure.Identity
 {
     public class IdentityService : IIdentityService
     {

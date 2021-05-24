@@ -1,4 +1,4 @@
-export const ApplicationName = '_2_gt4.WebUI';
+export const ApplicationName = 'CloudyMobile.WebUI';
 
 export const ReturnUrlType = 'returnUrl';
 

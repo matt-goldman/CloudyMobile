@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _2_gt4.Domain.Common
+namespace CloudyMobile.Domain.Common
 {
     public abstract class AuditableEntity
     {

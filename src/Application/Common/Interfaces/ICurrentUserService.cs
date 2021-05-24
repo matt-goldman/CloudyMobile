@@ -1,4 +1,4 @@
-﻿namespace _2_gt4.Application.Common.Interfaces
+﻿namespace CloudyMobile.Application.Common.Interfaces
 {
     public interface ICurrentUserService
     {

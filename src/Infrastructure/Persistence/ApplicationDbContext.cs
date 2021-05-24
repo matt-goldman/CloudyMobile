@@ -1,7 +1,7 @@
-﻿using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Domain.Common;
-using _2_gt4.Domain.Entities;
-using _2_gt4.Infrastructure.Identity;
+﻿using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Domain.Common;
+using CloudyMobile.Domain.Entities;
+using CloudyMobile.Infrastructure.Identity;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Infrastructure.Persistence
+namespace CloudyMobile.Infrastructure.Persistence
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, IApplicationDbContext
     {

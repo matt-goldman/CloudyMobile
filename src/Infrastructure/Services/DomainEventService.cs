@@ -1,12 +1,12 @@
-﻿using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Application.Common.Models;
-using _2_gt4.Domain.Common;
+﻿using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Application.Common.Models;
+using CloudyMobile.Domain.Common;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Infrastructure.Services
+namespace CloudyMobile.Infrastructure.Services
 {
     public class DomainEventService : IDomainEventService
     {

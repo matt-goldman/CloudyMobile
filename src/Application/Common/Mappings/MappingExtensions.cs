@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using _2_gt4.Application.Common.Models;
+using CloudyMobile.Application.Common.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.Common.Mappings
+namespace CloudyMobile.Application.Common.Mappings
 {
     public static class MappingExtensions
     {

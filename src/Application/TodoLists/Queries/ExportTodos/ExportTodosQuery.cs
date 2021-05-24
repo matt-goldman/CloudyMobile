@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using _2_gt4.Application.Common.Interfaces;
+using CloudyMobile.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.TodoLists.Queries.ExportTodos
+namespace CloudyMobile.Application.TodoLists.Queries.ExportTodos
 {
     public class ExportTodosQuery : IRequest<ExportTodosVm>
     {

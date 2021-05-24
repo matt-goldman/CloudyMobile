@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace _2_gt4.Infrastructure.Identity
+namespace CloudyMobile.Infrastructure.Identity
 {
     public class ApplicationUser : IdentityUser
     {

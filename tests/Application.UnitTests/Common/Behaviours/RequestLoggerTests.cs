@@ -1,13 +1,13 @@
-﻿using _2_gt4.Application.Common.Behaviours;
-using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Application.TodoItems.Commands.CreateTodoItem;
+﻿using CloudyMobile.Application.Common.Behaviours;
+using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Application.TodoItems.Commands.CreateTodoItem;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.UnitTests.Common.Behaviours
+namespace CloudyMobile.Application.UnitTests.Common.Behaviours
 {
     public class RequestLoggerTests
     {

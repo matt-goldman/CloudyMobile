@@ -1,5 +1,5 @@
-using _2_gt4.Infrastructure.Identity;
-using _2_gt4.Infrastructure.Persistence;
+using CloudyMobile.Infrastructure.Identity;
+using CloudyMobile.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace _2_gt4.WebUI
+namespace CloudyMobile.WebUI
 {
     public class Program
     {

@@ -1,11 +1,11 @@
-﻿using _2_gt4.Application.Common.Models;
-using _2_gt4.Domain.Events;
+﻿using CloudyMobile.Application.Common.Models;
+using CloudyMobile.Domain.Events;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.TodoItems.EventHandlers
+namespace CloudyMobile.Application.TodoItems.EventHandlers
 {
     public class TodoItemCreatedEventHandler : INotificationHandler<DomainEventNotification<TodoItemCreatedEvent>>
     {
@@ -20,7 +20,7 @@ namespace _2_gt4.Application.TodoItems.EventHandlers
         {
             var domainEvent = notification.DomainEvent;
 
-            _logger.LogInformation("_2_gt4 Domain Event: {DomainEvent}", domainEvent.GetType().Name);
+            _logger.LogInformation("CloudyMobile Domain Event: {DomainEvent}", domainEvent.GetType().Name);
 
             return Task.CompletedTask;
         }

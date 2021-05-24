@@ -1,10 +1,10 @@
-﻿using _2_gt4.Domain.Common;
-using _2_gt4.Domain.Enums;
-using _2_gt4.Domain.Events;
+﻿using CloudyMobile.Domain.Common;
+using CloudyMobile.Domain.Enums;
+using CloudyMobile.Domain.Events;
 using System;
 using System.Collections.Generic;
 
-namespace _2_gt4.Domain.Entities
+namespace CloudyMobile.Domain.Entities
 {
     public class TodoItem : AuditableEntity, IHasDomainEvent
     {

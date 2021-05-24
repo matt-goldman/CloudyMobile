@@ -1,10 +1,10 @@
-﻿using _2_gt4.Application.Common.Interfaces;
+﻿using CloudyMobile.Application.Common.Interfaces;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.TodoLists.Commands.CreateTodoList
+namespace CloudyMobile.Application.TodoLists.Commands.CreateTodoList
 {
     public class CreateTodoListCommandValidator : AbstractValidator<CreateTodoListCommand>
     {

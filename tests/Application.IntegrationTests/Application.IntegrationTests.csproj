@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>_2_gt4.Application.IntegrationTests</RootNamespace>
-    <AssemblyName>_2_gt4.Application.IntegrationTests</AssemblyName>
+    <RootNamespace>CloudyMobile.Application.IntegrationTests</RootNamespace>
+    <AssemblyName>CloudyMobile.Application.IntegrationTests</AssemblyName>
     
     <IsPackable>false</IsPackable>
   </PropertyGroup>

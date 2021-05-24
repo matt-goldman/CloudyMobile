@@ -1,8 +1,8 @@
-﻿using _2_gt4.Application.Common.Mappings;
-using _2_gt4.Domain.Entities;
+﻿using CloudyMobile.Application.Common.Mappings;
+using CloudyMobile.Domain.Entities;
 using System.Collections.Generic;
 
-namespace _2_gt4.Application.TodoLists.Queries.GetTodos
+namespace CloudyMobile.Application.TodoLists.Queries.GetTodos
 {
     public class TodoListDto : IMapFrom<TodoList>
     {

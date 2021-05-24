@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _2_gt4.Domain.Exceptions
+namespace CloudyMobile.Domain.Exceptions
 {
     public class UnsupportedColourException : Exception
     {

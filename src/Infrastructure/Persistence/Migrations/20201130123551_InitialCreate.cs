@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace _2_gt4.Infrastructure.Persistence.Migrations
+namespace CloudyMobile.Infrastructure.Persistence.Migrations
 {
     public partial class InitialCreate : Migration
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentValidation.Results;
 
-namespace _2_gt4.Application.Common.Exceptions
+namespace CloudyMobile.Application.Common.Exceptions
 {
     public class ValidationException : Exception
     {

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace _2_gt4.Application.TodoItems.Queries.GetTodoItemsWithPagination
+namespace CloudyMobile.Application.TodoItems.Queries.GetTodoItemsWithPagination
 {
     public class GetTodoItemsWithPaginationQueryValidator : AbstractValidator<GetTodoItemsWithPaginationQuery>
     {

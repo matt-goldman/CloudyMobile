@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Application.Common.Mappings;
-using _2_gt4.Application.Common.Models;
-using _2_gt4.Application.TodoLists.Queries.GetTodos;
+using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Application.Common.Mappings;
+using CloudyMobile.Application.Common.Models;
+using CloudyMobile.Application.TodoLists.Queries.GetTodos;
 using MediatR;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.TodoItems.Queries.GetTodoItemsWithPagination
+namespace CloudyMobile.Application.TodoItems.Queries.GetTodoItemsWithPagination
 {
     public class GetTodoItemsWithPaginationQuery : IRequest<PaginatedList<TodoItemDto>>
     {

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.IntegrationTests
+namespace CloudyMobile.Application.IntegrationTests
 {
     using static Testing;
 

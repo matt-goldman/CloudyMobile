@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _2_gt4.Application.Common.Exceptions
+namespace CloudyMobile.Application.Common.Exceptions
 {
     public class NotFoundException : Exception
     {

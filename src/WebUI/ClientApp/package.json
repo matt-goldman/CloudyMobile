@@ -1,11 +1,11 @@
 {
-  "name": "_2_gt4.webui",
+  "name": "CloudyMobile.webui",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "echo Starting... && ng serve",
     "build": "ng build",
-    "build:ssr": "ng run _2_gt4.WebUI:server:dev",
+    "build:ssr": "ng run CloudyMobile.WebUI:server:dev",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

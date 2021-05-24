@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "_2_gt4.WebUI": {
+    "CloudyMobile.WebUI": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "_2_gt4.WebUI:build"
+            "browserTarget": "CloudyMobile.WebUI:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "_2_gt4.WebUI:build:production"
+              "browserTarget": "CloudyMobile.WebUI:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "_2_gt4.WebUI:build"
+            "browserTarget": "CloudyMobile.WebUI:build"
           }
         },
         "test": {
@@ -134,7 +134,7 @@
         }
       }
     },
-    "_2_gt4.WebUI-e2e": {
+    "CloudyMobile.WebUI-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -142,7 +142,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "_2_gt4.WebUI:serve"
+            "devServerTarget": "CloudyMobile.WebUI:serve"
           }
         },
         "lint": {
@@ -157,5 +157,5 @@
       }
     }
   },
-  "defaultProject": "_2_gt4.WebUI"
+  "defaultProject": "CloudyMobile.WebUI"
 }

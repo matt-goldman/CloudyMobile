@@ -1,11 +1,11 @@
-﻿using _2_gt4.Application.Common.Interfaces;
-using _2_gt4.Domain.Entities;
-using _2_gt4.Domain.Events;
+﻿using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Domain.Entities;
+using CloudyMobile.Domain.Events;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.TodoItems.Commands.CreateTodoItem
+namespace CloudyMobile.Application.TodoItems.Commands.CreateTodoItem
 {
     public class CreateTodoItemCommand : IRequest<int>
     {

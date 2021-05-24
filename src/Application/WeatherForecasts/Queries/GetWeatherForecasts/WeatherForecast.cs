@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _2_gt4.Application.WeatherForecasts.Queries.GetWeatherForecasts
+namespace CloudyMobile.Application.WeatherForecasts.Queries.GetWeatherForecasts
 {
     public class WeatherForecast
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _2_gt4.Application.Common.Security
+namespace CloudyMobile.Application.Common.Security
 {
     /// <summary>
     /// Specifies the class this attribute is applied to requires authorization.

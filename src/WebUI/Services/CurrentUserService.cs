@@ -1,8 +1,8 @@
-﻿using _2_gt4.Application.Common.Interfaces;
+﻿using CloudyMobile.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace _2_gt4.WebUI.Services
+namespace CloudyMobile.WebUI.Services
 {
     public class CurrentUserService : ICurrentUserService
     {

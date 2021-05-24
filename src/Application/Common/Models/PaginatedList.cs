@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.Common.Models
+namespace CloudyMobile.Application.Common.Models
 {
     public class PaginatedList<T> 
     {

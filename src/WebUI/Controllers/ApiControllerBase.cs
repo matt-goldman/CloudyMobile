@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace _2_gt4.WebUI.Controllers
+namespace CloudyMobile.WebUI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

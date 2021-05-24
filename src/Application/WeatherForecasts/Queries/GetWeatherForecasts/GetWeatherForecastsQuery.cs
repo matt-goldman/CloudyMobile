@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace _2_gt4.Application.WeatherForecasts.Queries.GetWeatherForecasts
+namespace CloudyMobile.Application.WeatherForecasts.Queries.GetWeatherForecasts
 {
     public class GetWeatherForecastsQuery : IRequest<IEnumerable<WeatherForecast>>
     {

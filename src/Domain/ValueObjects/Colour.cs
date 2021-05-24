@@ -1,9 +1,9 @@
-﻿using _2_gt4.Domain.Common;
-using _2_gt4.Domain.Exceptions;
+﻿using CloudyMobile.Domain.Common;
+using CloudyMobile.Domain.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace _2_gt4.Domain.ValueObjects
+namespace CloudyMobile.Domain.ValueObjects
 {
     public class Colour : ValueObject
     {
