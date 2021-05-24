@@ -1,4 +1,4 @@
-﻿using CloudyMobile.Domain;
+﻿using CloudyMobile.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

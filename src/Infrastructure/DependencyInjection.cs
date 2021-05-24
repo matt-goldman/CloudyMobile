@@ -1,3 +1,4 @@
+using CloudyMobile.Application.Common.Interfaces;
 using CloudyMobile.Infrastructure.Identity;
 using CloudyMobile.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication;

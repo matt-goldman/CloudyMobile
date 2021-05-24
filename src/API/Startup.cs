@@ -1,5 +1,9 @@
 using CloudyMobile.Application;
+using CloudyMobile.Application.Common.Interfaces;
 using CloudyMobile.Infrastructure;
+using CloudyMobile.Infrastructure.Persistence;
+using CloudyMobile.API.Filters;
+using CloudyMobile.API.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NSwag;
+using NSwag.Generation.Processors.Security;
 using System.Linq;
 
 namespace CloudyMobile.API

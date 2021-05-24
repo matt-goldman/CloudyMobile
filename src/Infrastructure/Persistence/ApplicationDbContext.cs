@@ -25,9 +25,9 @@ namespace CloudyMobile.Infrastructure.Persistence
                 new AuditEntitiesSaveChangesInterceptor(currentUserService);
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        // public DbSet<TodoItem> TodoItems { get; set; }
 
-        public DbSet<TodoList> TodoLists { get; set; }
+        // public DbSet<TodoList> TodoLists { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
