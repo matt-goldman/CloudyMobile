@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace CloudyMobile.API.Data.Migrations
+namespace CloudyMobile.Infrastructure.Persistence.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

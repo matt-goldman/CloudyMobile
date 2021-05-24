@@ -18,6 +18,7 @@
     <ProjectReference Include="..\Blazor\CloudyMobile.Blazor.csproj" />
     <ProjectReference Include="..\Domain\CloudyMobile.Domain.csproj" />
     <ProjectReference Include="..\Application\CloudyMobile.Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\CloudyMobile.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
