@@ -43,6 +43,11 @@ namespace CloudyMobile.API
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddOpenApiDocument(Configure =>
+            {
+                Configure.Title = "CloudyMobile API";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +69,12 @@ namespace CloudyMobile.API
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3(settings =>
+            {
+                settings.DocumentPath = "/specification.json";
+            });
 
             app.UseRouting();
 
