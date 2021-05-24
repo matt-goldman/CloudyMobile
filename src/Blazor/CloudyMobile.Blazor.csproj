@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\CloudyMobile.Shared.csproj" />
+    <ProjectReference Include="..\Domain\CloudyMobile.Domain.csproj" />
   </ItemGroup>
 
 </Project>

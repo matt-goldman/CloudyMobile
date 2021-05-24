@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloudyMobile.Shared
+namespace CloudyMobile.Domain
 {
     public class WeatherForecast
     {

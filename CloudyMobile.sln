@@ -7,7 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.API", "src\API
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.Blazor", "src\Blazor\CloudyMobile.Blazor.csproj", "{2E3A02BA-F5BD-477D-AE25-E641D2E8BAFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.Shared", "src\Shared\CloudyMobile.Shared.csproj", "{38C4A926-1846-4DF7-957E-6A163E549350}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.Domain", "src\Domain\CloudyMobile.Domain.csproj", "{38C4A926-1846-4DF7-957E-6A163E549350}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E6900236-6C49-4FCA-86CF-8AFDA532355F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "src\Client\Client.csproj", "{CAFD1C12-7D17-4C21-B126-09B7F029FCAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.Application", "src\Application\CloudyMobile.Application.csproj", "{D194816D-271F-4700-AE05-C40EE4A65552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.Infrastructure", "src\Infrastructure\CloudyMobile.Infrastructure.csproj", "{0F68E970-DFEE-40B5-9DAC-44661B40D0A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,11 +35,28 @@ Global
 		{38C4A926-1846-4DF7-957E-6A163E549350}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38C4A926-1846-4DF7-957E-6A163E549350}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38C4A926-1846-4DF7-957E-6A163E549350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAFD1C12-7D17-4C21-B126-09B7F029FCAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAFD1C12-7D17-4C21-B126-09B7F029FCAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAFD1C12-7D17-4C21-B126-09B7F029FCAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAFD1C12-7D17-4C21-B126-09B7F029FCAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D194816D-271F-4700-AE05-C40EE4A65552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D194816D-271F-4700-AE05-C40EE4A65552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D194816D-271F-4700-AE05-C40EE4A65552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D194816D-271F-4700-AE05-C40EE4A65552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F68E970-DFEE-40B5-9DAC-44661B40D0A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F68E970-DFEE-40B5-9DAC-44661B40D0A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F68E970-DFEE-40B5-9DAC-44661B40D0A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F68E970-DFEE-40B5-9DAC-44661B40D0A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {791705CE-BFCE-4DDB-A5DA-44C4C9061E39}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAFD1C12-7D17-4C21-B126-09B7F029FCAA} = {E6900236-6C49-4FCA-86CF-8AFDA532355F}
+		{D194816D-271F-4700-AE05-C40EE4A65552} = {E6900236-6C49-4FCA-86CF-8AFDA532355F}
+		{0F68E970-DFEE-40B5-9DAC-44661B40D0A4} = {E6900236-6C49-4FCA-86CF-8AFDA532355F}
 	EndGlobalSection
 EndGlobal
