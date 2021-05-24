@@ -28,15 +28,32 @@ namespace CloudyMobile.API
         {
             services.AddInfrastructureServices(Configuration);
             services.AddApplicationServices();
-            
+
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(options => 
+                options.Filters.Add(new ApiExceptionFilterAttribute()));
+
+            services.AddHttpContextAccessor();
+
             services.AddRazorPages();
 
-            services.AddOpenApiDocument(Configure =>
+            services.AddOpenApiDocument(configure =>
             {
-                Configure.Title = "CloudyMobile API";
+                configure.Title = "CloudyMobile API";
+                configure.AddSecurity("JWT", Enumerable.Empty<string>(), 
+                    new OpenApiSecurityScheme
+                    {
+                        Type = OpenApiSecuritySchemeType.ApiKey,
+                        Name = "Authorization",
+                        In = OpenApiSecurityApiKeyLocation.Header,
+                        Description = "Type into the textbox: Bearer {your JWT token}."
+                    });
+
+                configure.OperationProcessors.Add(
+                    new AspNetCoreOperationSecurityScopeProcessor("JWT"));
             });
         }
 
