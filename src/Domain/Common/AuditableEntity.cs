@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 
 namespace CloudyMobile.Domain.Common
 {
-    public abstract class AuditableEntity
+    public class AuditableEntity
     {
-        public DateTime Created { get; set; }
-
         public string CreatedBy { get; set; }
 
-        public DateTime? LastModified { get; set; }
+        public DateTime CreatedUtc { get; set; }
 
         public string LastModifiedBy { get; set; }
+
+        public DateTime? LastModifiedUtc { get; set; }
     }
 }

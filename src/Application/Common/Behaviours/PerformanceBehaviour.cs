@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.Extensions.Logging;
 using CloudyMobile.Application.Common.Interfaces;
 using System.Diagnostics;
@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CloudyMobile.Application.Common.Behaviours
 {
-    public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class PerformanceBehaviour<TRequest, TResponse>
+        : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly Stopwatch _timer;
         private readonly ILogger<TRequest> _logger;
@@ -15,7 +16,7 @@ namespace CloudyMobile.Application.Common.Behaviours
         private readonly IIdentityService _identityService;
 
         public PerformanceBehaviour(
-            ILogger<TRequest> logger, 
+            ILogger<TRequest> logger,
             ICurrentUserService currentUserService,
             IIdentityService identityService)
         {
@@ -26,7 +27,9 @@ namespace CloudyMobile.Application.Common.Behaviours
             _identityService = identityService;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request,
+            CancellationToken cancellationToken,
+            RequestHandlerDelegate<TResponse> next)
         {
             _timer.Start();
 
@@ -44,11 +47,13 @@ namespace CloudyMobile.Application.Common.Behaviours
 
                 if (!string.IsNullOrEmpty(userId))
                 {
-                    userName = await _identityService.GetUserNameAsync(userId);
+                    userName = await _identityService
+                        .GetUserNameAsync(userId);
                 }
 
                 _logger.LogWarning("CloudyMobile Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
-                    requestName, elapsedMilliseconds, userId, userName, request);
+                    requestName, elapsedMilliseconds,
+                    userId, userName, request);
             }
 
             return response;

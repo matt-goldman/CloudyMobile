@@ -1,4 +1,4 @@
-﻿using CloudyMobile.Application.Common.Interfaces;
+using CloudyMobile.Application.Common.Interfaces;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 using System.Threading;

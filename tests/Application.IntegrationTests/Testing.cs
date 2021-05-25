@@ -1,7 +1,7 @@
 ﻿using CloudyMobile.Application.Common.Interfaces;
 using CloudyMobile.Infrastructure.Identity;
 using CloudyMobile.Infrastructure.Persistence;
-using CloudyMobile.WebUI;
+using CloudyMobile.API;
 using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -40,7 +40,7 @@ public class Testing
 
         services.AddSingleton(Mock.Of<IWebHostEnvironment>(w =>
             w.EnvironmentName == "Development" &&
-            w.ApplicationName == "CloudyMobile.WebUI"));
+            w.ApplicationName == "CloudyMobile.API"));
 
         services.AddLogging();
 
