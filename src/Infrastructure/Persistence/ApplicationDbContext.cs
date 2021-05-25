@@ -29,6 +29,10 @@ namespace CloudyMobile.Infrastructure.Persistence
 
         // public DbSet<TodoList> TodoLists { get; set; }
 
+        public DbSet<UserProfile> UserProfiles { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.AddInterceptors(_auditEntitiesSaveChangesInterceptor);

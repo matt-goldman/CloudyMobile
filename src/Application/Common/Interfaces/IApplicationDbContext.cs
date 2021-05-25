@@ -11,6 +11,10 @@ namespace CloudyMobile.Application.Common.Interfaces
 
         //public DbSet<TodoItem> TodoItems { get; set; }
 
+        public DbSet<UserProfile> UserProfiles { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
+        
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
