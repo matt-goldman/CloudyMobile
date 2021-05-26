@@ -34,6 +34,10 @@ namespace CloudyMobile.Infrastructure
 
             if(environment.IsProduction())
             {
+                // adding this compiler directive in addition to environment.IsProduction
+                // as the Nswag.MsBuild task fails without it. The Nswag task relies on
+                // Configuration rather than environment.
+#if !DEBUG
                 Console.WriteLine("Running in production environment.");
 
                 WEBSITE_PRIVATE_CERTS_PATH = configuration.GetValue<string>(nameof(WEBSITE_PRIVATE_CERTS_PATH));
@@ -48,7 +52,8 @@ namespace CloudyMobile.Infrastructure
 
                 services.AddIdentityServer()
                     .AddApiAuthorization<ApplicationUser, ApplicationDbContext>()
-                    .AddSigningCredential(cert);
+                    .AddSigningCredential(cert); 
+#endif
             }
             else
             {
