@@ -1,15 +1,10 @@
 using CloudyMobile.Application;
 using CloudyMobile.Application.Common.Interfaces;
 using CloudyMobile.Infrastructure;
-using CloudyMobile.Infrastructure.Persistence;
 using CloudyMobile.API.Filters;
 using CloudyMobile.API.Services;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -90,7 +85,8 @@ namespace CloudyMobile.API
             app.UseOpenApi();
             app.UseSwaggerUi3(settings =>
             {
-                settings.DocumentPath = "/specification.json";
+                settings.Path = "/api";
+                settings.DocumentPath = "/api/specification.json";
             });
 
             app.UseRouting();
