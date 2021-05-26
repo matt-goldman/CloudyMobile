@@ -21,9 +21,12 @@ namespace CloudyMobile.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment environment;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            this.environment = environment;
         }
 
         public IConfiguration Configuration { get; }
@@ -32,7 +35,8 @@ namespace CloudyMobile.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddInfrastructureServices(Configuration);
+            services.AddInfrastructureServices(Configuration, environment);
+
             services.AddApplicationServices();
 
             services.AddScoped<ICurrentUserService, CurrentUserService>();
