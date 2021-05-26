@@ -44,7 +44,7 @@ namespace CloudyMobile.Infrastructure
 
                 IDS_CERT_THUMBPRINT = configuration.GetValue<string>(nameof(IDS_CERT_THUMBPRINT));
 
-                var certPath = Path.Combine(WEBSITE_PRIVATE_CERTS_PATH, $"{IDS_CERT_THUMBPRINT}.pfx");
+                var certPath = Path.Combine(WEBSITE_PRIVATE_CERTS_PATH, $"{IDS_CERT_THUMBPRINT}.p12");
 
                 var certBytes = File.ReadAllBytes(certPath);
 
