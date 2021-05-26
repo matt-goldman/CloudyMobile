@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     # checkout the repo
@@ -34,6 +34,6 @@ jobs:
       with:
         app-name: cloudymobile
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3B7063ED47B844899F9ABEDE008AD393 }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C1E5268F34834A0EB63899884650331F }}
         package: ${{env.DOTNET_ROOT}}/myapp
 
