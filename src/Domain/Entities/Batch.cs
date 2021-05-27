@@ -13,6 +13,7 @@ namespace CloudyMobile.Domain.Entities
         public long PitchTemp { get; set; }
         public float OG { get; set; }
         public float? FG { get; set; }
+        public decimal? BrewQuantity { get; set; }
         public ICollection<BatchHopAdditions>? HopAdditions { get; set; }
         public string Notes { get; set; }
         public DateTime? ServingDate { get; set; }

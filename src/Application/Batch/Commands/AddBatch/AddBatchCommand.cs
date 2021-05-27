@@ -37,7 +37,8 @@ namespace CloudyMobile.Application.Batch.Commands.AddBatch
                 OG = request.Batch.OG,
                 PitchTemp = request.Batch.PitchTemp,
                 RecipeId = request.Batch.RecipeId,
-                ServingDate = request.Batch.ServingDate
+                ServingDate = request.Batch.ServingDate,
+                BrewQuantity = request.Batch.BrewQuantity
             };
 
             await _context.Batches.AddAsync(entity, cancellationToken);

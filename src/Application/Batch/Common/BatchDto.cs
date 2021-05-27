@@ -15,6 +15,7 @@ namespace CloudyMobile.Application.Batch.Common
         public long PitchTemp { get; set; }
         public float OG { get; set; }
         public float? FG { get; set; }
+        public decimal? BrewQuantity { get; set; }
         public List<HopAdditionDto> HopAdditions { get; set; }
         public string Notes { get; set; }
         public DateTime? ServingDate { get; set; }
