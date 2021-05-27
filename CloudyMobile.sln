@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.381
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.API", "src\API\CloudyMobile.API.csproj", "{DBE15BED-DB54-41FC-AE37-8548F0B80F8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.API", "src\API\CloudyMobile.API.csproj", "{DBE15BED-DB54-41FC-AE37-8548F0B80F8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.Blazor", "src\Blazor\CloudyMobile.Blazor.csproj", "{2E3A02BA-F5BD-477D-AE25-E641D2E8BAFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.Blazor", "src\Blazor\CloudyMobile.Blazor.csproj", "{2E3A02BA-F5BD-477D-AE25-E641D2E8BAFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.Domain", "src\Domain\CloudyMobile.Domain.csproj", "{38C4A926-1846-4DF7-957E-6A163E549350}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.Domain", "src\Domain\CloudyMobile.Domain.csproj", "{38C4A926-1846-4DF7-957E-6A163E549350}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E6900236-6C49-4FCA-86CF-8AFDA532355F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "src\Client\Client.csproj", "{CAFD1C12-7D17-4C21-B126-09B7F029FCAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "src\Client\Client.csproj", "{CAFD1C12-7D17-4C21-B126-09B7F029FCAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.Application", "src\Application\CloudyMobile.Application.csproj", "{D194816D-271F-4700-AE05-C40EE4A65552}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.Application", "src\Application\CloudyMobile.Application.csproj", "{D194816D-271F-4700-AE05-C40EE4A65552}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudyMobile.Infrastructure", "src\Infrastructure\CloudyMobile.Infrastructure.csproj", "{0F68E970-DFEE-40B5-9DAC-44661B40D0A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.Infrastructure", "src\Infrastructure\CloudyMobile.Infrastructure.csproj", "{0F68E970-DFEE-40B5-9DAC-44661B40D0A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,12 +51,15 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {791705CE-BFCE-4DDB-A5DA-44C4C9061E39}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{DBE15BED-DB54-41FC-AE37-8548F0B80F8A} = {E6900236-6C49-4FCA-86CF-8AFDA532355F}
+		{2E3A02BA-F5BD-477D-AE25-E641D2E8BAFC} = {E6900236-6C49-4FCA-86CF-8AFDA532355F}
+		{38C4A926-1846-4DF7-957E-6A163E549350} = {E6900236-6C49-4FCA-86CF-8AFDA532355F}
 		{CAFD1C12-7D17-4C21-B126-09B7F029FCAA} = {E6900236-6C49-4FCA-86CF-8AFDA532355F}
 		{D194816D-271F-4700-AE05-C40EE4A65552} = {E6900236-6C49-4FCA-86CF-8AFDA532355F}
 		{0F68E970-DFEE-40B5-9DAC-44661B40D0A4} = {E6900236-6C49-4FCA-86CF-8AFDA532355F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {791705CE-BFCE-4DDB-A5DA-44C4C9061E39}
 	EndGlobalSection
 EndGlobal
