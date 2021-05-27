@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CloudyMobile.Domain.Entities
 {
@@ -15,13 +14,5 @@ namespace CloudyMobile.Domain.Entities
         public decimal VolumeKegged { get; set; }
 
         public List<KegPours> Pours { get; set; } = new List<KegPours>();
-
-        public decimal CurrentVolume
-        {
-            get
-            {
-                return VolumeKegged - Pours.Sum(p => p.VolumePoured);
-            }
-        }
     }
 }

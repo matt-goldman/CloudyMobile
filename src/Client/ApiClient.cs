@@ -2142,8 +2142,8 @@ namespace CloudyMobile.Client
         [Newtonsoft.Json.JsonProperty("massUnits", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public MassUnit MassUnits { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("temperatureUnits", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TemperatureUnit TemperatureUnits { get; set; }
+        [Newtonsoft.Json.JsonProperty("temperatureUnit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TemperatureUnit TemperatureUnit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("liquidUnits", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LiquidVolumeUnit LiquidUnits { get; set; }

@@ -704,7 +704,7 @@
           "massUnits": {
             "$ref": "#/components/schemas/MassUnit"
           },
-          "temperatureUnits": {
+          "temperatureUnit": {
             "$ref": "#/components/schemas/TemperatureUnit"
           },
           "liquidUnits": {

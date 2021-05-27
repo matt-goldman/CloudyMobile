@@ -30,7 +30,8 @@ namespace CloudyMobile.Application.Batch.Common
                 .ForMember(dst => dst.IngredientId, opt => opt.MapFrom(src => src.HopAddition.IngredientId))
                 .ForMember(dst => dst.IngredientName, opt => opt.MapFrom(src => src.HopAddition.Ingredient.Name))
                 .ForMember(dst => dst.Minutes, opt => opt.MapFrom(src => src.HopAddition.Minutes))
-                .ForMember(dst => dst.Temperature, opt => opt.MapFrom(src => src.HopAddition.Temperature));
+                .ForMember(dst => dst.Temperature, opt => opt.MapFrom(src => src.HopAddition.Temperature))
+                .ForMember(dst => dst.DateAdded, opt => opt.MapFrom(src => src.HopAddition.DateAdded));
 
         }
     }

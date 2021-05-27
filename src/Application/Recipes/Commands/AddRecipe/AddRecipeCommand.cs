@@ -28,7 +28,7 @@ namespace CloudyMobile.Application.Recipes.Commands.AddRecipe
                 Name = request.viewModel.Name,
                 Style = request.viewModel.Style,
                 MassUnits = request.viewModel.MassUnits,
-                TemperatureUnit = request.viewModel.TemperatureUnits,
+                TemperatureUnit = request.viewModel.TemperatureUnit,
                 LiquidUnits = request.viewModel.LiquidUnits,
                 Notes = request.viewModel.Notes
             };
