@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CloudyMobile.Domain.Entities
 {
@@ -18,5 +19,10 @@ namespace CloudyMobile.Domain.Entities
         public string Notes { get; set; }
         public DateTime? ServingDate { get; set; }
         public List<BatchSample>? Samples { get; set; }
+        public List<BatchRating> BatchRatings { get; set; } = new List<BatchRating>();
+        public double AverageScore
+        {
+            get => BatchRatings.Average(br => br.Rating);
+        }
     }
 }

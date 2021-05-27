@@ -37,6 +37,10 @@ namespace CloudyMobile.Infrastructure.Persistence
         public DbSet<UserProfile> UserProfiles { get; set; }
 
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<BatchRating> BatchRatings { get; set; }
+        public DbSet<Keg> Kegs { get; set; }
+        public DbSet<KegPours> KegPours { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
