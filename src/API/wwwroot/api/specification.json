@@ -611,7 +611,8 @@
           },
           "averageRating": {
             "type": "number",
-            "format": "decimal"
+            "format": "double",
+            "nullable": true
           }
         }
       },

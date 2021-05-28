@@ -2181,8 +2181,8 @@ namespace CloudyMobile.Client
         [Newtonsoft.Json.JsonProperty("samples", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SampleDto> Samples { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("averageRating", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public decimal AverageRating { get; set; }
+        [Newtonsoft.Json.JsonProperty("averageRating", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? AverageRating { get; set; }
     
     
     }

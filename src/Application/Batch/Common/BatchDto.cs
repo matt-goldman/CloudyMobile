@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using CloudyMobile.Application.Common.Mappings;
+using CloudyMobile.Application.Helpers;
 using CloudyMobile.Domain.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CloudyMobile.Application.Batch.Common
 {
@@ -21,13 +21,13 @@ namespace CloudyMobile.Application.Batch.Common
         public string Notes { get; set; }
         public DateTime? ServingDate { get; set; }
         public List<SampleDto> Samples { get; set; }
-        public decimal AverageRating { get; set; }
+        public double? AverageRating { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<CloudyMobile.Domain.Entities.Batch, BatchDto>()
                 .ForMember(dst => dst.HopAdditions, opt => opt.MapFrom(src => src.HopAdditions))
-                .ForMember(dst => dst.AverageRating, opt => opt.MapFrom(src => src.BatchRatings.Average(r => r.Rating)));
+                .ForMember(dst => dst.AverageRating, opt => opt.MapFrom(src => src.GetAverageRating()));
 
             profile.CreateMap<BatchHopAdditions, HopAdditionDto>()
                 .ForMember(dst => dst.IngredientId, opt => opt.MapFrom(src => src.HopAddition.IngredientId))
