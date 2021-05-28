@@ -46,6 +46,7 @@ namespace CloudyMobile.Application.Batch.Queries.Search
                     b => b.BottleOrKegDate >= request.BottledOrKeggedOnFrom && b.BottleOrKegDate <= request.BottledOrKeggedOnTo)
                 .ConditionalWhere(() => request.BottledOrKeggedOnFrom.HasValue && !request.BottledOrKeggedOnTo.HasValue,
                     b => b.BottleOrKegDate == request.BottledOrKeggedOnFrom)
+                .AsNoTracking()
                 .ProjectTo<BatchDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

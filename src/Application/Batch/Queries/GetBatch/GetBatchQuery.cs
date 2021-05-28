@@ -31,6 +31,8 @@ namespace CloudyMobile.Application.Batch.Queries.GetBatch
         {
             return await _context.Batches
                 .Where(b => b.Id == request.Id)
+                .Include(b => b.BatchRatings)
+                .AsNoTracking()
                 .ProjectTo<BatchDto>(_mapper.ConfigurationProvider)
                 .SingleAsync(cancellationToken);
         }

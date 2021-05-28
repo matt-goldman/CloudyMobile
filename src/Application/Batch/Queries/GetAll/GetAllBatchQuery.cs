@@ -29,6 +29,8 @@ namespace CloudyMobile.Application.Batch.Queries.GetAll
         public async Task<BatchListVm> Handle(GetAllBatchQuery request, CancellationToken cancellationToken)
         {
             var batchList = await _context.Batches
+                .Include(b => b.BatchRatings)
+                .AsNoTracking()
                 .ProjectTo<BatchDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

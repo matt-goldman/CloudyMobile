@@ -1,4 +1,6 @@
 ﻿using CloudyMobile.Application.Batch.Commands.AddBatch;
+using CloudyMobile.Application.Batch.Commands.AddBatchHopAddition;
+using CloudyMobile.Application.Batch.Commands.AddBatchRating;
 using CloudyMobile.Application.Batch.Commands.AddBatchSample;
 using CloudyMobile.Application.Batch.Common;
 using CloudyMobile.Application.Batch.Queries.GetAll;
@@ -39,6 +41,18 @@ namespace CloudyMobile.API.Controllers
         public async Task<ActionResult<BatchListVm>> Search(SearchBatchQuery query)
         {
             return await Mediator.Send(query);
+        }
+
+        [HttpPost("[action]")]
+        public async Task<ActionResult<int>> Rate(AddBatchRatingCommand command)
+        {
+            return await Mediator.Send(command);
+        }
+
+        [HttpPost("[action]")]
+        public async Task<ActionResult<int>> AddHops(AddBatchHopAdditionCommand command)
+        {
+            return await Mediator.Send(command);
         }
     }
 }

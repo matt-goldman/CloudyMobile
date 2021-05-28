@@ -154,6 +154,72 @@
         }
       }
     },
+    "/api/Batches/Rate": {
+      "post": {
+        "tags": [
+          "Batches"
+        ],
+        "operationId": "Batches_Rate",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBatchRatingCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Batches/AddHops": {
+      "post": {
+        "tags": [
+          "Batches"
+        ],
+        "operationId": "Batches_AddHops",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBatchHopAdditionCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Ingredients": {
       "post": {
         "tags": [
@@ -542,6 +608,10 @@
             "items": {
               "$ref": "#/components/schemas/SampleDto"
             }
+          },
+          "averageRating": {
+            "type": "number",
+            "format": "decimal"
           }
         }
       },
@@ -637,6 +707,60 @@
           "bottledOrKeggedOnTo": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "AddBatchRatingCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ratedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "batchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "AddBatchHopAdditionCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "batchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dateAdded": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ingredientId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "temperature": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ingredientName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ingredientCategoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ingredientCategoryName": {
+            "type": "string",
             "nullable": true
           }
         }
