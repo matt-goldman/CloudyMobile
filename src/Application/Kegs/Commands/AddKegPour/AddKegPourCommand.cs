@@ -36,6 +36,8 @@ namespace CloudyMobile.Application.Kegs.Commands.AddKegPour
 
             await Context.SaveChangesAsync(cancellationToken);
 
+            // TODO: add raise event
+
             return entity.Id;
         }
     }
