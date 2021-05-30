@@ -6,8 +6,11 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
-        @RenderBody()
-    </div>
+    <fast-design-system-provider use-defaults>
+        <div>
+            @RenderBody()
+        </div>
+    </fast-design-system-provider>
+    <script type="module" src="https://unpkg.com/@@microsoft/fast-components"></script>
 </body>
 </html>
