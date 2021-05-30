@@ -10,26 +10,29 @@
         returnUrl = existingUrl;
     }
 }
-
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="@returnUrl">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@returnUrl">Login</a>
-    </li>
-}
-</ul>
+<fast-design-system-provider>
+    <ul class="navbar-nav" style="background-color: #1B1B1B; color:white;">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <fast-anchor appearance="lightweight" asp-area="Identity" href="Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</fast-anchor>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post">
+                <button  type="submit" class="nav-link btn btn-link">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <fast-anchor appearance="lightweight" asp-area="Identity" href="Account/Register" asp-route-returnUrl="@returnUrl">Register</fast-anchor>
+        </li>
+        <span>&nbsp;&nbsp;&nbsp;</span>
+        <li class="nav-item">
+            <fast-anchor appearance="lightweight" asp-area="Identity" href"Account/Login" asp-route-returnUrl="@returnUrl">Login</fast-anchor>
+        </li>
+    }
+    </ul>
+</fast-design-system-provider>
+<script type="module" src="https://unpkg.com/@@microsoft/fast-components"></script>

@@ -73,7 +73,8 @@ a.navbar-brand {
   body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background-color: #36454f;
+    color: white;
+    background-color: #1B1B1B;
   }
   .footer {
     position: absolute;
@@ -85,6 +86,29 @@ a.navbar-brand {
   }
 
   .charcoal {
-      background-color: #36454f;
+      background-color: #1B1B1B;
+  }
+
+  :not(:defined) {
+    visibility: hidden;
+  }
+  
+  fast-design-system-provider {
+    display: inline-block;
+  }
+  
+  fast-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h2 {
+    font-size: var(--type-ramp-plus-5-font-size);
+    line-height: var(--type-ramp-plus-5-line-height);
+  }
+  
+  #button {
+    align-self: flex-end;
   }
   

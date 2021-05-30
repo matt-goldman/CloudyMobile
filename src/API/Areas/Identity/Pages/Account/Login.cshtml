@@ -7,7 +7,7 @@
 
 <h1>@ViewData["Title"]</h1>
 <fast-design-system-provider use-defaults>
-    <div class="row" style="background-color: #36454f;">
+    <div class="row" style="background-color: #1B1B1B;">
         <div class="col-md-4">
             <section>
                 <form id="account" method="post">
@@ -15,67 +15,33 @@
                     <hr />
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
-                        <fast-text-field asp-for="Input.Email" placeholder="email"/>
+                        <fast-text-field asp-for="Input.Email" placeholder="email required"/>
                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Input.Password"></label>
-                        <input asp-for="Input.Password" class="form-control" />
+                        <fast-text-field placeholder="password" type="password" asp-for="Input.Password" required></fast-text-field>
                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <div class="checkbox">
-                            <label asp-for="Input.RememberMe">
-                                <input asp-for="Input.RememberMe" />
-                                @Html.DisplayNameFor(m => m.Input.RememberMe)
-                            </label>
+                            <fast-checkbox asp-for="Input.RememberMe">Remember me?</fast-checkbox>
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Log in</button>
+                        <fast-button href="#" appearance="accent" type="submit">Login</fast-button>
                     </div>
                     <div class="form-group">
                         <p>
-                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                            <fast-anchor href="ForgotPassword" id="forgot-password" asp-page="./ForgotPassword" appearance="lightweight">Forgot your password?</fast-anchor>
                         </p>
                         <p>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                            <fast-anchor href="Register" asp-route-returnUrl="@Model.ReturnUrl" appearance="lightweight">Register as a new user</fast-anchor>
                         </p>
                         <p>
-                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                            <fast-anchor id="resend-confirmation" href="ResendEmailConfirmation" appearance="lightweight">Resend email confirmation</fast-anchor>
                         </p>
                     </div>
                 </form>
-            </section>
-        </div>
-        <div class="col-md-6 col-md-offset-2">
-            <section>
-                <h4>Use another service to log in.</h4>
-                <hr />
-                @{
-                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                    {
-                        <div>
-                            <p>
-                                There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                                for details on setting up this ASP.NET application to support logging in via external services.
-                            </p>
-                        </div>
-                    }
-                    else
-                    {
-                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                            <div>
-                                <p>
-                                    @foreach (var provider in Model.ExternalLogins)
-                                    {
-                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                    }
-                                </p>
-                            </div>
-                        </form>
-                    }
-                }
             </section>
         </div>
     </div>
@@ -83,4 +49,5 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script type="module" src="https://unpkg.com/@@microsoft/fast-components"></script>
 }

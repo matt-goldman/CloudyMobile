@@ -7,10 +7,15 @@
 </head>
 <body>
     <fast-design-system-provider use-defaults>
-        <div style="background-color: #36454f;">
+        <div style="background-color: #1B1B1B;">
             @RenderBody()
         </div>
     </fast-design-system-provider>
     <script type="module" src="https://unpkg.com/@@microsoft/fast-components"></script>
+    <link rel="stylesheet" href="/css/site.css" asp-append-version="true" />
+
 </body>
+<style>
+    body {background-color: #1B1B1B; color: white;}
+</style>
 </html>
