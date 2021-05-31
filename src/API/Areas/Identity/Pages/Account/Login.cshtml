@@ -10,25 +10,28 @@
         <div class="col-md-4">
             <section>
                 <fast-design-system-provider use-defaults>
-                <form id="account" method="post">
+                <form method="post" id="loginForm">
                     <h4>Use a local account to log in.</h4>
                     <hr />
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
-                        <fast-text-field asp-for="Input.Email" placeholder="email" required/>
+                        <fast-text-field asp-for="Input.Email" placeholder="email" id="fastEmail" required/>
+                        <input type="hidden" asp-for="Input.Email" id="hiddenEmail"/>
                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <fast-text-field placeholder="password" type="password" asp-for="Input.Password" required></fast-text-field>
+                        <fast-text-field placeholder="password" type="password" asp-for="Input.Password" id="fastPassword" required></fast-text-field>
+                        <input type="hidden" asp-for="Input.Password" id="hiddenPassword"/>
                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <div class="checkbox">
-                            <fast-checkbox asp-for="Input.RememberMe">Remember me?</fast-checkbox>
+                            <fast-checkbox asp-for="Input.RememberMe" id="fastRememberMe">Remember me?</fast-checkbox>
+                            <input type="hidden" asp-for="Input.RememberMe" id="hiddenRememberMe"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <fast-button href="#" appearance="accent" type="submit">Login</fast-button>
+                        <fast-button href="#" appearance="accent" type="button" id="submitButton" onclick="submitLoginForm()">Login</fast-button>
                     </div>
                     <div class="form-group">
                         <p>
@@ -46,6 +49,21 @@
             </section>
         </div>
     </div>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+
+        function submitLoginForm() {
+            var email = document.getElementById("fastEmail").value;
+            var password = document.getElementById("fastPassword").value;
+            var remember = document.getElementById("fastRememberMe").checked;
+
+            document.getElementById("hiddenEmail").value = email;
+            document.getElementById("hiddenPassword").value = password;
+            document.getElementById("hiddenRememberMe").value = remember;
+
+            document.getElementById("loginForm").submit();
+        }
+    </script>
 }

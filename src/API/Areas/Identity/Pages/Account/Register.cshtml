@@ -8,27 +8,29 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <fast-design-system-provider use-defaults>
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post" id="registrationForm">
             <h4>Create a new account.</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
+                <fast-text-field placeholder="Email" asp-for="Input.Email" id="fastEmail" size="30" required></fast-text-field>
+                <input type="hidden" id="hiddenEmail" asp-for=Input.Email/>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
+                <fast-text-field placeholder="Password" asp-for="Input.Password" id="fastPassword" size="30" required type="password"></fast-text-field>
+                <input type="hidden" id="hiddenPassword" asp-for=Input.Password/>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <fast-text-field placeholder="Confirm password" asp-for="Input.ConfirmPassword" id="fastConfirmPassword" size="30" required type="password"></fast-text-field>
+                <input type="hidden" id="hiddenConfirmPassword" asp-for=Input.ConfirmPassword/>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <fast-button type="button" href=# appearance="accent" onclick="submitRegistration()">Register</fast-button>
         </form>
+        </fast-design-system-provider>
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
@@ -64,4 +66,18 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        function submitRegistration(){
+            
+            var email = document.getElementById("fastEmail").value;
+            var password = document.getElementById("fastPassword").value;
+            var confirmPassword = document.getElementById("fastConfirmPassword").value;
+
+            document.getElementById("hiddenEmail").value = email;
+            document.getElementById("hiddenPassword").value = password;
+            document.getElementById("hiddenConfirmPassword").value = confirmPassword;
+
+            document.getElementById("registrationForm").submit();
+        }
+    </script>
 }
