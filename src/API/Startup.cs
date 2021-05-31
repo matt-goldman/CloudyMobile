@@ -1,15 +1,10 @@
 using CloudyMobile.Application;
 using CloudyMobile.Application.Common.Interfaces;
 using CloudyMobile.Infrastructure;
-using CloudyMobile.Infrastructure.Persistence;
 using CloudyMobile.API.Filters;
 using CloudyMobile.API.Services;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,9 +16,12 @@ namespace CloudyMobile.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment environment;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            this.environment = environment;
         }
 
         public IConfiguration Configuration { get; }
@@ -32,7 +30,8 @@ namespace CloudyMobile.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddInfrastructureServices(Configuration);
+            services.AddInfrastructureServices(Configuration, environment);
+
             services.AddApplicationServices();
 
             services.AddScoped<ICurrentUserService, CurrentUserService>();
@@ -86,7 +85,8 @@ namespace CloudyMobile.API
             app.UseOpenApi();
             app.UseSwaggerUi3(settings =>
             {
-                settings.DocumentPath = "/specification.json";
+                settings.Path = "/api";
+                settings.DocumentPath = "/api/specification.json";
             });
 
             app.UseRouting();

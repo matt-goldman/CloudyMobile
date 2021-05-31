@@ -61,6 +61,300 @@ namespace CloudyMobile.Infrastructure.Persistence.Migrations
                     b.ToTable("Addresses");
                 });
 
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Batch", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("BottleOrKegDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("BrewDay")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal?>("BrewQuantity")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<float?>("FG")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("OG")
+                        .HasColumnType("real");
+
+                    b.Property<long>("PitchTemp")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ServingDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeId");
+
+                    b.ToTable("Batches");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.BatchHopAdditions", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BatchId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HopAdditionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BatchId");
+
+                    b.HasIndex("HopAdditionId");
+
+                    b.ToTable("BatchHopAdditions");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.BatchRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BatchId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("RatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BatchId");
+
+                    b.ToTable("BatchRatings");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.BatchSample", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BatchId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Gravity")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime>("SampleDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("Temperature")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BatchId");
+
+                    b.ToTable("BatchSamples");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.HopAddition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("IngredientId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Minutes")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Temperature")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IngredientId");
+
+                    b.ToTable("HopAdditions");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Ingredient", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Ingredients");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.IngredientCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("IngredientCategories");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Keg", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BatchId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateKegged")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LocationId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("VolumeKegged")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BatchId");
+
+                    b.HasIndex("LocationId");
+
+                    b.ToTable("Kegs");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.KegPours", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("KegId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PouredAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("VolumePoured")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("KegId");
+
+                    b.ToTable("KegPours");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Location", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Locations");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Recipe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("LiquidUnits")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MassUnits")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Style")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TemperatureUnit")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Recipes");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.RecipeIngredients", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("IngredientId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Quantity")
+                        .HasColumnType("real");
+
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IngredientId");
+
+                    b.HasIndex("RecipeId");
+
+                    b.ToTable("RecipeIngredients");
+                });
+
             modelBuilder.Entity("CloudyMobile.Domain.Entities.UserProfile", b =>
                 {
                     b.Property<int>("Id")
@@ -392,6 +686,125 @@ namespace CloudyMobile.Infrastructure.Persistence.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Batch", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.Recipe", "Recipe")
+                        .WithMany()
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Recipe");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.BatchHopAdditions", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.Batch", "Batch")
+                        .WithMany("HopAdditions")
+                        .HasForeignKey("BatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CloudyMobile.Domain.Entities.HopAddition", "HopAddition")
+                        .WithMany("Batches")
+                        .HasForeignKey("HopAdditionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Batch");
+
+                    b.Navigation("HopAddition");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.BatchRating", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.Batch", "Batch")
+                        .WithMany("BatchRatings")
+                        .HasForeignKey("BatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Batch");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.BatchSample", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.Batch", null)
+                        .WithMany("Samples")
+                        .HasForeignKey("BatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.HopAddition", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.Ingredient", "Ingredient")
+                        .WithMany()
+                        .HasForeignKey("IngredientId");
+
+                    b.Navigation("Ingredient");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Ingredient", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.IngredientCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Keg", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.Batch", "Batch")
+                        .WithMany()
+                        .HasForeignKey("BatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CloudyMobile.Domain.Entities.Location", "Location")
+                        .WithMany("Kegs")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Batch");
+
+                    b.Navigation("Location");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.KegPours", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.Keg", "Keg")
+                        .WithMany("Pours")
+                        .HasForeignKey("KegId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Keg");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.RecipeIngredients", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.Ingredient", "Ingredient")
+                        .WithMany("Recipes")
+                        .HasForeignKey("IngredientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CloudyMobile.Domain.Entities.Recipe", "Recipe")
+                        .WithMany("Ingredients")
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ingredient");
+
+                    b.Navigation("Recipe");
+                });
+
             modelBuilder.Entity("CloudyMobile.Domain.Entities.UserProfile", b =>
                 {
                     b.HasOne("CloudyMobile.Domain.Entities.Address", "HomeAddress")
@@ -456,6 +869,40 @@ namespace CloudyMobile.Infrastructure.Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Batch", b =>
+                {
+                    b.Navigation("BatchRatings");
+
+                    b.Navigation("HopAdditions");
+
+                    b.Navigation("Samples");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.HopAddition", b =>
+                {
+                    b.Navigation("Batches");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Ingredient", b =>
+                {
+                    b.Navigation("Recipes");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Keg", b =>
+                {
+                    b.Navigation("Pours");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Location", b =>
+                {
+                    b.Navigation("Kegs");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Recipe", b =>
+                {
+                    b.Navigation("Ingredients");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,1463 @@
+{
+  "x-generator": "NSwag v13.11.1.0 (NJsonSchema v10.4.3.0 (Newtonsoft.Json v12.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CloudyMobile API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/Batches": {
+      "post": {
+        "tags": [
+          "Batches"
+        ],
+        "operationId": "Batches_Create",
+        "requestBody": {
+          "x-name": "batch",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Batches"
+        ],
+        "operationId": "Batches_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Batches/Sample": {
+      "post": {
+        "tags": [
+          "Batches"
+        ],
+        "operationId": "Batches_Sample",
+        "requestBody": {
+          "x-name": "sample",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SampleDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Batches/{id}": {
+      "get": {
+        "tags": [
+          "Batches"
+        ],
+        "operationId": "Batches_Get2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Batches/Search": {
+      "post": {
+        "tags": [
+          "Batches"
+        ],
+        "operationId": "Batches_Search",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchBatchQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Batches/Rate": {
+      "post": {
+        "tags": [
+          "Batches"
+        ],
+        "operationId": "Batches_Rate",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBatchRatingCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Batches/AddHops": {
+      "post": {
+        "tags": [
+          "Batches"
+        ],
+        "operationId": "Batches_AddHops",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBatchHopAdditionCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ingredients": {
+      "post": {
+        "tags": [
+          "Ingredients"
+        ],
+        "operationId": "Ingredients_Create",
+        "requestBody": {
+          "x-name": "ingredient",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IngredientDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Ingredients"
+        ],
+        "operationId": "Ingredients_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IngredientsVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ingredients/Search": {
+      "get": {
+        "tags": [
+          "Ingredients"
+        ],
+        "operationId": "Ingredients_Search",
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IngredientsVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Keg": {
+      "post": {
+        "tags": [
+          "Keg"
+        ],
+        "operationId": "Keg_AddKeg",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddKegCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Keg"
+        ],
+        "operationId": "Keg_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KegListVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Keg/{id}": {
+      "get": {
+        "tags": [
+          "Keg"
+        ],
+        "operationId": "Keg_GetKeg",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KegDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Keg/{action}": {
+      "get": {
+        "tags": [
+          "Keg"
+        ],
+        "operationId": "Keg_GetLocationKeg",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "action",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KegListVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Keg"
+        ],
+        "operationId": "Keg_AddKegPour",
+        "parameters": [
+          {
+            "name": "action",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddKegPourCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "float"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Location": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "operationId": "Location_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationsVm"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Location"
+        ],
+        "operationId": "Location_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddLocationCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Location/{id}": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "operationId": "Location_Get2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Location/{action}": {
+      "post": {
+        "tags": [
+          "Location"
+        ],
+        "operationId": "Location_Search",
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "action",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationsVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/_configuration/{clientId}": {
+      "get": {
+        "tags": [
+          "OidcConfiguration"
+        ],
+        "operationId": "OidcConfiguration_GetClientRequestParameters",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Recipes": {
+      "post": {
+        "tags": [
+          "Recipes"
+        ],
+        "operationId": "Recipes_Create",
+        "requestBody": {
+          "x-name": "recipe",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecipeDto"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Recipes/{id}": {
+      "get": {
+        "tags": [
+          "Recipes"
+        ],
+        "operationId": "Recipes_Get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecipeDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Recipes/Search": {
+      "post": {
+        "tags": [
+          "Recipes"
+        ],
+        "operationId": "Recipes_Search",
+        "requestBody": {
+          "x-name": "query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRecipeQuery"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecipeSearchResultsVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Userprofiles/{id}": {
+      "get": {
+        "tags": [
+          "Userprofiles"
+        ],
+        "operationId": "Userprofiles_GetTodoItemsWithPagination",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfileDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Userprofiles": {
+      "post": {
+        "tags": [
+          "Userprofiles"
+        ],
+        "operationId": "Userprofiles_Create",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserprofileCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BatchDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "recipeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "brewDay": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "bottleOrKegDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "pitchTemp": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "og": {
+            "type": "number",
+            "format": "float"
+          },
+          "fg": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "brewQuantity": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "hopAdditions": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/HopAdditionDto"
+            }
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "servingDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "samples": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SampleDto"
+            }
+          },
+          "averageRating": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        }
+      },
+      "HopAdditionDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ingredientName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ingredientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minutes": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "dateAdded": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "temperature": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "SampleDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "batchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sampleDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gravity": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "temperature": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        }
+      },
+      "BatchListVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "batches": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BatchDto"
+            }
+          }
+        }
+      },
+      "SearchBatchQuery": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "recipeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "brewedFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "brewedTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "bottledOrKeggedOnFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "bottledOrKeggedOnTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "AddBatchRatingCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ratedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "batchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "AddBatchHopAdditionCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "batchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dateAdded": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ingredientId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "temperature": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ingredientName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ingredientCategoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ingredientCategoryName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "IngredientDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "IngredientsVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ingredients": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/IngredientDto"
+            }
+          }
+        }
+      },
+      "AddKegCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "batchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "locationId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dateKegged": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "volumeKegged": {
+            "type": "number",
+            "format": "decimal"
+          }
+        }
+      },
+      "KegListVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kegs": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/KegDto"
+            }
+          }
+        }
+      },
+      "KegDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "batchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "locationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "locationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateKegged": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "volumeKegged": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "volumeRemaining": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "abv": {
+            "type": "number",
+            "format": "float"
+          },
+          "rating": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "batchRecipeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "batchRecipeStyle": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AddKegPourCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kegId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pouredAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "volumePoured": {
+            "type": "number",
+            "format": "decimal"
+          }
+        }
+      },
+      "LocationsVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "locations": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/LocationDto"
+            }
+          }
+        }
+      },
+      "LocationDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AddLocationCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "RecipeDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "style": {
+            "type": "string",
+            "nullable": true
+          },
+          "ingredients": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/RecipeIngredientDto"
+            }
+          },
+          "massUnits": {
+            "$ref": "#/components/schemas/MassUnit"
+          },
+          "temperatureUnit": {
+            "$ref": "#/components/schemas/TemperatureUnit"
+          },
+          "liquidUnits": {
+            "$ref": "#/components/schemas/LiquidVolumeUnit"
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "RecipeIngredientDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ingredientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ingredientName": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "MassUnit": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Kg",
+          "g",
+          "Oz"
+        ],
+        "enum": [
+          0,
+          1,
+          2
+        ]
+      },
+      "TemperatureUnit": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "DegreesCelsius",
+          "DegreesFarenheit"
+        ],
+        "enum": [
+          0,
+          1
+        ]
+      },
+      "LiquidVolumeUnit": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Litres",
+          "Gallons",
+          "Oz"
+        ],
+        "enum": [
+          0,
+          1,
+          2
+        ]
+      },
+      "RecipeSearchResultsVm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "recipes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/RecipeDto"
+            }
+          }
+        }
+      },
+      "SearchRecipeQuery": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "style": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UserProfileDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstname": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyname": {
+            "type": "string",
+            "nullable": true
+          },
+          "homeAddress": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "workAddress": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          }
+        }
+      },
+      "AddressDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "buildingName": {
+            "type": "string",
+            "nullable": true
+          },
+          "buidlingnumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "streetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressLine2": {
+            "type": "string",
+            "nullable": true
+          },
+          "suburb": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "postcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "RegisterUserprofileCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstname": {
+            "type": "string",
+            "nullable": true
+          },
+          "familyname": {
+            "type": "string",
+            "nullable": true
+          },
+          "homeAddress": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "workAddress": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "JWT": {
+        "type": "apiKey",
+        "description": "Type into the textbox: Bearer {your JWT token}.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ]
+}
