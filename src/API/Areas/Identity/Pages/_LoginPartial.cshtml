@@ -11,11 +11,11 @@
     }
 }
 <fast-design-system-provider>
-    <ul class="navbar-nav" style="background-color: #1B1B1B; color:white;">
+    <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
         <li class="nav-item">
-            <fast-anchor appearance="lightweight" asp-area="Identity" href="Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</fast-anchor>
+            <fast-anchor appearance="lightweight" asp-area="Identity" asp-page="./Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</fast-anchor>
         </li>
         <li class="nav-item">
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post">
@@ -26,7 +26,7 @@
     else
     {
         <li class="nav-item">
-            <fast-anchor appearance="lightweight" asp-area="Identity" href="Account/Register" asp-route-returnUrl="@returnUrl">Register</fast-anchor>
+            <fast-anchor appearance="lightweight" asp-area="Identity" asp-page="./Account/Register" asp-route-returnUrl="@returnUrl">Register</fast-anchor>
         </li>
         <span>&nbsp;&nbsp;&nbsp;</span>
         <li class="nav-item">
@@ -35,4 +35,3 @@
     }
     </ul>
 </fast-design-system-provider>
-<script type="module" src="https://unpkg.com/@@microsoft/fast-components"></script>

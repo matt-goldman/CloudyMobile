@@ -6,16 +6,16 @@
 }
 
 <h1>@ViewData["Title"]</h1>
-<fast-design-system-provider use-defaults>
-    <div class="row" style="background-color: #1B1B1B;">
+    <div class="row">
         <div class="col-md-4">
             <section>
+                <fast-design-system-provider use-defaults>
                 <form id="account" method="post">
                     <h4>Use a local account to log in.</h4>
                     <hr />
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group">
-                        <fast-text-field asp-for="Input.Email" placeholder="email required"/>
+                        <fast-text-field asp-for="Input.Email" placeholder="email" required/>
                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -42,12 +42,10 @@
                         </p>
                     </div>
                 </form>
+                </fast-design-system-provider>
             </section>
         </div>
     </div>
-</fast-design-system-provider>
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-    <script type="module" src="https://unpkg.com/@@microsoft/fast-components"></script>
 }
