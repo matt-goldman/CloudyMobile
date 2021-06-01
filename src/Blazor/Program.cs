@@ -1,3 +1,6 @@
+using Blazorise;
+using Blazorise.AntDesign;
+using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +15,14 @@ namespace CloudyMobile.Blazor
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
+            builder.Services.AddBlazorise(opt => 
+            {
+                opt.ChangeTextOnKeyPress = false;
+            })
+            .AddAntDesignProviders()
+            .AddFontAwesomeIcons();
+            
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddHttpClient("CloudyMobile.API", client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))

@@ -36,6 +36,7 @@
     margin-right: auto;
     margin-left: 2rem;
     align-items: center;
+    color: white;
 }
 
     .top-row ::deep a, .top-row .btn-link {
@@ -81,7 +82,12 @@
     }
 
     .main > div {
-        padding-left: 10rem !important;
-        padding-right: 15rem !important;
+        padding-left: 1.5rem !important;
+        padding-right: 2rem !important;
     }
+}
+
+.main-body {
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
