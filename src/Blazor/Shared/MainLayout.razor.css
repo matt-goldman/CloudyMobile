@@ -34,9 +34,8 @@
 
 .main-title{
     margin-right: auto;
-    margin-left: 2rem;
     align-items: center;
-    color: white;
+    font-size: large;
 }
 
     .top-row ::deep a, .top-row .btn-link {
@@ -90,4 +89,15 @@
 .main-body {
     margin-left: 5rem;
     margin-right: 5rem;
+}
+
+.close-button {
+    margin-right: 1rem;
+    margin-left: auto;
+    font-size: large;
+}
+
+.left {
+    margin-right: auto;
+    align-items: center;
 }

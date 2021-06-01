@@ -4,7 +4,10 @@
     <Sidebar @ref="sidebar">
         <SidebarContent>
             <SidebarBrand>
-                <a href="">CloudyMobile</a>
+                <div class="top-row">
+                    <a href="" class="left">CloudyMobile</a>
+                    <fast-anchor class="close-button" appearance="lightweight" @onclick="ToggleSidebar"><Icon Name="IconName.Times"/> </fast-anchor>
+                </div>
             </SidebarBrand>
             <SidebarNavigation>
                 <SidebarLabel>Main</SidebarLabel>
@@ -43,7 +46,7 @@
 
     <div class="main">
         <div class="top-row px-4 auth charcoal">
-            <fast-anchor class="main-title"><Icon Name=@iconName @onclick="ToggleSidebar" style="background-color: #181818;"/></fast-anchor>
+            <fast-anchor class="main-title" appearance="lightweight"><Icon Name="IconName.Bars" @onclick="ToggleSidebar" style="background-color: #181818;"/></fast-anchor>
             <LoginDisplay />
             <fast-anchor class="fast-anchor-both" appearance="lightweight" href="https://docs.microsoft.com/aspnet/" target="_blank">About</fast-anchor>
         </div>
@@ -59,18 +62,17 @@
     SidebarSubItem mailSidebarSubItems;
     SidebarSubItem appsSidebarSubItems;
 
-    IconName iconName = IconName.ChevronLeft;
-
     void ToggleSidebar()
     {
         sidebar.Toggle();
-        if(sidebar.Visible)
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
         {
-            iconName = IconName.ChevronRight;
-        }
-        else
-        {
-            iconName = IconName.ChevronLeft;
+            sidebar.Toggle();
+            StateHasChanged();
         }
     }
 }
