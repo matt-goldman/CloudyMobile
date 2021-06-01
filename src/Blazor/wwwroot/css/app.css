@@ -112,3 +112,31 @@ a, .btn-link {
         height: 5em;
     }
 }
+
+.charcoal {
+    background-color: #181818;
+    color: white
+}
+
+fast-design-system-provider {
+    display: inline-block;
+  }
+  
+  fast-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h2 {
+    font-size: var(--type-ramp-plus-5-font-size);
+    line-height: var(--type-ramp-plus-5-line-height);
+  }
+  
+  fast-card > fast-button {
+    align-self: flex-end;
+  };
+
+.fast-anchor {
+    margin-left: 1.5rem;
+}

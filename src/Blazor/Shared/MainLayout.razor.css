@@ -6,18 +6,35 @@
 
 .main {
     flex: 1;
+    background-color: #1b1b1b;
+    width: 100vw;
+    height: 100vh;
 }
 
 .sidebar {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
 }
 
+.fast-anchor {
+    margin-left: 1.5rem;
+}
+
+.fast-anchor-both {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
 .top-row {
-    background-color: #f7f7f7;
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
     height: 3.5rem;
     display: flex;
+    align-items: center;
+}
+
+.main-title{
+    margin-right: auto;
+    margin-left: 2rem;
     align-items: center;
 }
 
@@ -64,7 +81,7 @@
     }
 
     .main > div {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
+        padding-left: 10rem !important;
+        padding-right: 15rem !important;
     }
 }

@@ -6,12 +6,12 @@
 
 <AuthorizeView>
     <Authorized>
-        <a href="authentication/profile">Hello, @context.User.Identity.Name!</a>
-        <button class="nav-link btn btn-link" @onclick="BeginSignOut">Log out</button>
+        <fast-anchor href="authentication/profile" class="fast-anchor" appearance="lightweight">Hello, @context.User.Identity.Name!</fast-anchor>
+        <fast-button @onclick="BeginSignOut" class="fast-anchor" appearance="lightweight">Log out</fast-button>
     </Authorized>
     <NotAuthorized>
-        <a href="authentication/register">Register</a>
-        <a href="authentication/login">Log in</a>
+        <fast-anchor href="authentication/register" class="fast-anchor" appearance="lightweight">Register</fast-anchor>
+        <fast-anchor href="authentication/login" class="fast-anchor" appearance="lightweight">Log in</fast-anchor>
     </NotAuthorized>
 </AuthorizeView>
 
