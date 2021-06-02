@@ -13,6 +13,9 @@ namespace CloudyMobile.Domain.Entities
         public DateTime DateKegged { get; set; }
         public decimal VolumeKegged { get; set; }
 
+        public bool Finished { get; set; }
+        public DateTime DateFinished { get; set; }
+
         public List<KegPours> Pours { get; set; } = new List<KegPours>();
     }
 }

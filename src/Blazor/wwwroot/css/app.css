@@ -140,3 +140,26 @@ fast-design-system-provider {
 .fast-anchor {
     margin-left: 1.5rem;
 }
+
+.beer-card {
+    width: 420px;
+    height: 600px;
+    margin-right: 5rem;
+}
+
+.cm-page-content {
+    color: white;
+    margin-right: 5rem;
+    margin-left: 5rem;
+}
+
+.cm-page-content h {
+    color: white;
+}
+
+.beer-card-button {
+    justify-content: flex-end;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+}

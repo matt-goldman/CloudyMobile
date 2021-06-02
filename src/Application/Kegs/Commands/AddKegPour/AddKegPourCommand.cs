@@ -1,7 +1,9 @@
 ﻿using CloudyMobile.Application.Common.Interfaces;
 using CloudyMobile.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -32,7 +34,17 @@ namespace CloudyMobile.Application.Kegs.Commands.AddKegPour
                 VolumePoured = request.VolumePoured
             };
 
-            Context.KegPours.Add(entity);
+            var keg = await Context.Kegs
+                .Where(k => k.Id == request.KegId)
+                .SingleOrDefaultAsync(cancellationToken);
+
+            keg.Pours.Add(entity);
+
+            if(keg.Pours.Sum(p => p.VolumePoured) >= keg.VolumeKegged)
+            {
+                keg.Finished = true;
+                keg.DateFinished = DateTime.Now;
+            }
 
             await Context.SaveChangesAsync(cancellationToken);
 

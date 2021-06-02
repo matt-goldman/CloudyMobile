@@ -467,6 +467,39 @@
         }
       }
     },
+    "/api/Keg/Close": {
+      "post": {
+        "tags": [
+          "Keg"
+        ],
+        "operationId": "Keg_Close",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloseKegCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Location": {
       "get": {
         "tags": [
@@ -1164,6 +1197,16 @@
           "volumePoured": {
             "type": "number",
             "format": "decimal"
+          }
+        }
+      },
+      "CloseKegCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kegId": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },

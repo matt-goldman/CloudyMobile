@@ -1,9 +1,38 @@
 ﻿@page "/"
 
-<div style="color: white;">
-    <h1 style="color: white;">CloudyMobile - DevHops</h1>
+<div class="cm-page-content" style="margin-left: 5rem;">
+    <h1 style="color:white;">CloudyMobile - DevHops</h1>
 
     <p>Welcome to CloudyMobile DevHops.</p>
 
-    <p>Use the menu above or pick a beer below to get started.</p>
+    <p>Use the menu or pick an option below to get started.</p>
+
+    <div class="row">
+
+        <fast-card class="beer-card">
+            <img src="/Assets/Images/recipes.jpg" alt="Image showing glasses of beer"/>
+            <div style="color: var(--neutral-foreground-rest);">
+                <div style="padding: 0 10px 10px;">
+                    <h2 style="color: white;">View Beer Recipes</h2>
+                    <p>View and edit currently available beer recipes. Check out different styles, search by your favourite hop, or see how highly rated each one is.</p>
+                </div>
+            </div>
+            <div class="beer-card-button">
+                <fast-button style="padding: 3px 8px;" appearance="accent">Recipes</fast-button>
+            </div>
+        </fast-card>
+
+        <fast-card class="beer-card">
+            <img src="/Assets/Images/ontap.jpg" alt="Image showing beer taps"/>
+            <div style="color: var(--neutral-foreground-rest);">
+                <div style="padding: 0 10px 10px;">
+                    <h2 style="color: white;">See what's Currently On Tap</h2>
+                    <p>See what beers are currently being served. Filter by location or styl to find your perfect next brew.</p>
+                </div>
+            </div>
+            <div class="beer-card-button">
+                <fast-button style="padding: 3px 8px;" appearance="accent">On Tap</fast-button>
+            </div>
+        </fast-card>
+    </div>
 </div>
