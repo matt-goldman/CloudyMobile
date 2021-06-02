@@ -22,7 +22,7 @@ namespace CloudyMobile.API.Controllers
             return await Mediator.Send(new GetLocationQuery { Id = id });
         }
 
-        [HttpPost("{action}")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<LocationsVm>> Search(string searchTerm)
         {
             return await Mediator.Send(new SearchLocationQuery { SearchTerm = searchTerm });

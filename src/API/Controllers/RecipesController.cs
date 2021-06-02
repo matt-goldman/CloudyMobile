@@ -1,5 +1,6 @@
 ﻿using CloudyMobile.Application.Recipes.Commands.AddRecipe;
 using CloudyMobile.Application.Recipes.Common;
+using CloudyMobile.Application.Recipes.Queries.GetBeerStyles;
 using CloudyMobile.Application.Recipes.Queries.GetRecipe;
 using CloudyMobile.Application.Recipes.Queries.SearchRecipes;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,12 @@ namespace CloudyMobile.API.Controllers
             var result = await Mediator.Send(query);
             Debug.WriteLine(result);
             return result;
+        }
+
+        [HttpGet("[action]")]
+        public async Task<ActionResult<BeerStylesDto>> Styles()
+        {
+            return await Mediator.Send(new GetBeerStylesQuery());
         }
     }
 }

@@ -30,19 +30,19 @@ namespace CloudyMobile.API.Controllers
             return await Mediator.Send(new GetKegQuery { Id = id });
         }
 
-        [HttpGet("{action}")]
+        [HttpGet("[action]")]
         public async Task<ActionResult<KegListVm>> GetLocationKeg([FromQuery]int id)
         {
             return await Mediator.Send(new GetLocationKegsQuery { LocationId = id });
         }
 
-        [HttpPost("{action}")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<float>> AddKegPour(AddKegPourCommand command)
         {
             return await Mediator.Send(command);
         }
 
-        [HttpPost("Close")]
+        [HttpPost("[action]")]
         public async Task<ActionResult> Close(CloseKegCommand command)
         {
             await Mediator.Send(command);

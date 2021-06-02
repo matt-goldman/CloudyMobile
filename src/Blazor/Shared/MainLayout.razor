@@ -17,26 +17,58 @@
                     </SidebarLink>
                 </SidebarItem>
                 <SidebarItem>
-                    <SidebarLink Toggled="(isOpen)=> mailSidebarSubItems.Toggle(isOpen)" IsShow="true">
-                        <Icon Name="IconName.Mail" Margin="Margin.Is3.FromRight" />Email
+                    <SidebarLink Toggled="(isOpen)=> recipesSidebarSubItems.Toggle(isOpen)" IsShow="true">
+                        <Icon Name="IconName.Book" Margin="Margin.Is3.FromRight" />Recipes
                     </SidebarLink>
-                    <SidebarSubItem @ref="mailSidebarSubItems" IsShow="true">
+                    <SidebarSubItem @ref="recipesSidebarSubItems" IsShow="true">
                         <SidebarItem>
-                            <SidebarLink To="email/inbox">Inbox</SidebarLink>
+                            <SidebarLink To="recipes/search">Search</SidebarLink>
                         </SidebarItem>
                         <SidebarItem>
-                            <SidebarLink To="email/compose">Compose Email</SidebarLink>
+                            <SidebarLink To="recipes/add">Add new recipe</SidebarLink>
                         </SidebarItem>
                         @* other subitems *@
                     </SidebarSubItem>
                 </SidebarItem>
                 <SidebarItem>
-                    <SidebarLink Toggled="(isOpen)=> appsSidebarSubItems.Toggle(isOpen)" IsShow="true">
-                        <Icon Name="IconName.Smartphone" Margin="Margin.Is3.FromRight" />Apps
+                    <SidebarLink Toggled="(isOpen)=> batchSidebarSubItems.Toggle(isOpen)" IsShow="true">
+                        <Icon Name="@("fa-beer")" Margin="Margin.Is3.FromRight" />Batches
                     </SidebarLink>
-                    <SidebarSubItem @ref="appsSidebarSubItems" IsShow="true">
+                    <SidebarSubItem @ref="batchSidebarSubItems" IsShow="true">
                         <SidebarItem>
-                            <SidebarLink To="apps/todo">Todo List</SidebarLink>
+                            <SidebarLink To="batches/search">Search batches</SidebarLink>
+                        </SidebarItem>
+                        <SidebarItem>
+                            <SidebarLink To="batches/add">Add a batche</SidebarLink>
+                        </SidebarItem>
+                        <SidebarItem>
+                            <SidebarLink To="batches/keg">Keg a batch</SidebarLink>
+                        </SidebarItem>
+                    </SidebarSubItem>
+                </SidebarItem>
+                <SidebarItem>
+                    <SidebarLink Toggled="(isOpen)=> kegSidebarSubItems.Toggle(isOpen)" IsShow="true">
+                        <Icon Name="@("fa-prescription-bottle")" Margin="Margin.Is3.FromRight" />Kegs
+                    </SidebarLink>
+                    <SidebarSubItem @ref="kegSidebarSubItems" IsShow="true">
+                        <SidebarItem>
+                            <SidebarLink To="kegs/search">Search kegs</SidebarLink>
+                        </SidebarItem>
+                        <SidebarItem>
+                            <SidebarLink To="kegs/add">Add a keg</SidebarLink>
+                        </SidebarItem>
+                        <SidebarItem>
+                            <SidebarLink To="kegs/finish">Finish a keg</SidebarLink>
+                        </SidebarItem>
+                    </SidebarSubItem>
+                </SidebarItem>
+                <SidebarItem>
+                    <SidebarLink Toggled="(isOpen)=> locationSidebarSubItems.Toggle(isOpen)" IsShow="true">
+                        <Icon Name="@("fa-map-marked-alt")" Margin="Margin.Is3.FromRight" />Locations
+                    </SidebarLink>
+                    <SidebarSubItem @ref="locationSidebarSubItems" IsShow="true">
+                        <SidebarItem>
+                            <SidebarLink To="locations/list">List locations</SidebarLink>
                         </SidebarItem>
                     </SidebarSubItem>
                 </SidebarItem>
@@ -59,8 +91,10 @@
 
 @code{
     Sidebar sidebar;
-    SidebarSubItem mailSidebarSubItems;
-    SidebarSubItem appsSidebarSubItems;
+    SidebarSubItem recipesSidebarSubItems;
+    SidebarSubItem batchSidebarSubItems;
+    SidebarSubItem kegSidebarSubItems;
+    SidebarSubItem locationSidebarSubItems;
 
     void ToggleSidebar()
     {

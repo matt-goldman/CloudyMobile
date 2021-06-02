@@ -385,7 +385,7 @@
         }
       }
     },
-    "/api/Keg/{action}": {
+    "/api/Keg/GetLocationKeg": {
       "get": {
         "tags": [
           "Keg"
@@ -400,15 +400,6 @@
               "format": "int32"
             },
             "x-position": 1
-          },
-          {
-            "name": "action",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
           }
         ],
         "responses": {
@@ -423,23 +414,14 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/Keg/AddKegPour": {
       "post": {
         "tags": [
           "Keg"
         ],
         "operationId": "Keg_AddKegPour",
-        "parameters": [
-          {
-            "name": "action",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
-          }
-        ],
         "requestBody": {
           "x-name": "command",
           "content": {
@@ -583,7 +565,7 @@
         }
       }
     },
-    "/api/Location/{action}": {
+    "/api/Location/Search": {
       "post": {
         "tags": [
           "Location"
@@ -598,15 +580,6 @@
               "nullable": true
             },
             "x-position": 1
-          },
-          {
-            "name": "action",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 2
           }
         ],
         "responses": {
@@ -746,6 +719,26 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RecipeSearchResultsVm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Recipes/Styles": {
+      "get": {
+        "tags": [
+          "Recipes"
+        ],
+        "operationId": "Recipes_Styles",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BeerStylesDto"
                 }
               }
             }
@@ -1367,6 +1360,19 @@
           "style": {
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "BeerStylesDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "styles": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
