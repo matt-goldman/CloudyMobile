@@ -5,14 +5,13 @@
 @attribute [Authorize]
 @* @inject RecipesService recipesService *@
 
-<TextEdit @bind-Text=Name Placeholder="Name of this recipe"></TextEdit>
+<div class="cm-page-content">
 
-<fast-text-field placeholder="Name of your beer" @bind-value=Name></fast-text-field>
+    <CloudyInput placeholder="Type your name..." @bind-Value=Name />
 
-@* <input type="text" @bind-value=Name placeholder="test name"/> *@
-
-<p> Name: @Name</p>
+    <p> Name: @Name</p>
+</div>
 
 @code{
-    public string Name {get;set;} = "Test name";
+    public string Name { get; set; }
 }

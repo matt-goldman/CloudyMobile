@@ -153,7 +153,7 @@ fast-design-system-provider {
     margin-left: 5rem;
 }
 
-.cm-page-content h {
+h1.cm-page-content {
     color: white;
 }
 
