@@ -1,3 +1,18 @@
 @page "/recipes/add"
+@using CloudyMobile.Blazor.Services
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@attribute [Authorize]
+@* @inject RecipesService recipesService *@
+
+<TextEdit @bind-Text=Name Placeholder="Name of this recipe"></TextEdit>
+
+<fast-text-field placeholder="Name of your beer" @bind-value=Name></fast-text-field>
+
+@* <input type="text" @bind-value=Name placeholder="test name"/> *@
+
+<p> Name: @Name</p>
+
+@code{
+    public string Name {get;set;} = "Test name";
+}

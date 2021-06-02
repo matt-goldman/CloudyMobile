@@ -1,6 +1,7 @@
 using Blazorise;
 using Blazorise.AntDesign;
 using Blazorise.Icons.FontAwesome;
+using CloudyMobile.Blazor.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +30,12 @@ namespace CloudyMobile.Blazor
                 .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
 
             // Supply HttpClient instances that include access tokens when making requests to the server project
-            builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("CloudyMobile.APIAPI"));
+            builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("CloudyMobile.API"));
+
+            builder.Services.AddSingleton<RecipesService>(
+                s => new RecipesService(
+                    s.GetRequiredService<HttpClient>(),
+                    builder.HostEnvironment.BaseAddress));
 
             builder.Services.AddApiAuthorization();
 
