@@ -2,8 +2,8 @@ using System.Collections.Generic;
 
 namespace CloudyMobile.Application.Recipes.Queries.GetBeerStyles
 {
-    public class BeerStylesDto
+    public class BeerStylesVm
     {
-        public List<string> Styles { get; set; } = new List<string>();
+        public List<BeerStyleDto> Styles { get; set; } = new List<BeerStyleDto>();
     }
 }

@@ -8,33 +8,70 @@
 <div class="cm-page-content">
 
     <div class="col">
-        <CloudyInput placeholder="Recipe name" @bind-Value=recipe.Name />
+        <div class="row">
+            <h2 class="display-3 cm-heading">Add a new beer recipe</h2>
+        </div>
+        <div class="row">
+            <CloudyInput placeholder="Recipe name" @bind-Value=recipe.Name />
+        </div>
 
-        <CloudyInput placeholder="Recipe style" @bind-Value=recipe.Style />
+        <div class="row">
+            <Autocomplete TItem="MySelectModel" TValue="string"
+                Data="@myDdlData"
+                TextField="@((item)=>item.MyTextField)"
+                ValueField="@((item)=>item.MyTextField)"
+                SelectedValue="@selectedSearchValue"
+                SelectedValueChanged="@MySearchHandler"
+                Placeholder="Search..." 
+                Class="cm-input"/>
+@*            <CloudyInput placeholder="Recipe style" @bind-Value=recipe.Style />
+*@        </div>
 
-        Ingredients
-        Mass Units
-        Liquid Units
+        <div class="row">
+            Ingredients
+            Mass Units
+            Liquid Units
+        </div>
 
-        <CloudyNotes placeholder="Recipe notes..." @bind-Value="recipe.Notes" />
+        <div class="row">
+            <CloudyNotes placeholder="Recipe notes..." @bind-Value="recipe.Notes" />
+        </div>
 
-        <fast-button appearance="accent" class="cm-button">Add Recipe</fast-button>
+        <div class="row">
+            <fast-button appearance="accent" class="cm-button">Add Recipe</fast-button>
+        </div>
     </div>
 </div>
 
 @code{
 
-    public List<string> Styles { get; set; }
+    public List<BeerStyleDto> Styles { get; set; }
 
     private RecipeDto recipe;
 
     protected override async Task OnInitializedAsync()
     {
-        Styles = new List<string>();
+        Styles = new List<BeerStyleDto>();
         recipe = new RecipeDto();
 
         var styles = await recipesService.GetBeerStyles();
 
         Styles = styles.Styles.ToList();
+    }
+
+    public class MySelectModel
+    {
+        public int MyValueField { get; set; }
+        public string MyTextField { get; set; }
+    }
+
+    static string[] Countries = { "Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia & Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "Norway", "Poland", "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom", "Vatican City" };
+    IEnumerable<MySelectModel> myDdlData = Enumerable.Range( 1, Countries.Length ).Select( x => new MySelectModel { MyTextField = Countries[x - 1], MyValueField = x } );
+
+    string selectedSearchValue { get; set; }
+
+    void MySearchHandler(string newValue)
+    {
+        selectedSearchValue = newValue;
     }
 }

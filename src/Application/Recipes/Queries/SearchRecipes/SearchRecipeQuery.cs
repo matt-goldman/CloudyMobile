@@ -35,7 +35,7 @@ namespace CloudyMobile.Application.Recipes.Queries.SearchRecipes
                 .ConditionalWhere(() => !string.IsNullOrEmpty(request.Name),
                     r => r.Name.ToLower().Contains(request.Name.ToLower()))
                 .ConditionalWhere(() => !string.IsNullOrEmpty(request.Style),
-                    r => r.Style.ToLower().Contains(request.Style.ToLower()))
+                    r => r.Style.Name.ToLower().Contains(request.Style.ToLower()))
                 .ProjectTo<RecipeDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 

@@ -167,3 +167,7 @@ h1.cm-page-content {
 .cm-button {
     padding: 3px 8px;
 }
+
+.cm-heading {
+    color: white;
+}

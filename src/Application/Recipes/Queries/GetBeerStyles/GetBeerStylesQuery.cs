@@ -1,33 +1,36 @@
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using CloudyMobile.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace CloudyMobile.Application.Recipes.Queries.GetBeerStyles
 {
-    public class GetBeerStylesQuery : IRequest<BeerStylesDto>
+    public class GetBeerStylesQuery : IRequest<BeerStylesVm>
     {
     }
 
-    public class GetBeerStylesQueryHandler : IRequestHandler<GetBeerStylesQuery, BeerStylesDto>
+    public class GetBeerStylesQueryHandler : IRequestHandler<GetBeerStylesQuery, BeerStylesVm>
     {
         private IApplicationDbContext _context;
+        private readonly IMapper mapper;
 
-        public GetBeerStylesQueryHandler(IApplicationDbContext context)
+        public GetBeerStylesQueryHandler(IApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            this.mapper = mapper;
         }
 
-        public async Task<BeerStylesDto> Handle(GetBeerStylesQuery request, CancellationToken cancellationToken)
+        public async Task<BeerStylesVm> Handle(GetBeerStylesQuery request, CancellationToken cancellationToken)
         {
-            var styles = await _context.Recipes
-                .Select(r => r.Style)
+            var styles = await _context.Styles
                 .AsNoTracking()
+                .ProjectTo<BeerStyleDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
-            return new BeerStylesDto
+            return new BeerStylesVm
             {
                 Styles = styles
             };

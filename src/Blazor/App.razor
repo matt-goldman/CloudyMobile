@@ -4,20 +4,24 @@
             <Found Context="routeData">
                 <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
                     <NotAuthorized>
-                        @if (!context.User.Identity.IsAuthenticated)
-                        {
-                            <RedirectToLogin />
-                        }
-                        else
-                        {
-                            <p>You are not authorized to access this resource.</p>
-                        }
+                        <div class="cm-content">
+                            @if (!context.User.Identity.IsAuthenticated)
+                            {
+                                <RedirectToLogin />
+                            }
+                            else
+                            {
+                                <p>You are not authorized to access this resource.</p>
+                            }
+                        </div>
                     </NotAuthorized>
                 </AuthorizeRouteView>
             </Found>
             <NotFound>
                 <LayoutView Layout="@typeof(MainLayout)">
-                    <p>Sorry, there's nothing at this address.</p>
+                    <div class="cm-content">
+                        <p>Sorry, there's nothing at this address.</p>
+                    </div>
                 </LayoutView>
             </NotFound>
         </Router>
@@ -34,6 +38,13 @@
         IsGradient = true,
         IsRounded = false,
         Black = "#181818",
-        White = "#222222"
+        White = "#222222",
+        InputOptions = new ThemeInputOptions 
+        {
+            Color = "#e1477e",
+            CheckColor = "#e1477e",
+            SliderColor = "#e1477e",
+            BorderRadius = "1px"
+        }
     };
 }

@@ -23,7 +23,7 @@ namespace CloudyMobile.Application.Common.Interfaces
         DbSet<Location> Locations { get; set; }
         DbSet<Recipe> Recipes { get; set; }
         DbSet<RecipeIngredients> RecipeIngredients { get; set; }
-        
+        DbSet<Style> Styles { get; set; }
 
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);

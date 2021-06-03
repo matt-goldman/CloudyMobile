@@ -42,6 +42,8 @@ namespace CloudyMobile.Infrastructure.Persistence
         public DbSet<KegPours> KegPours { get; set; }
         public DbSet<Location> Locations { get; set; }
 
+        public DbSet<Style> Styles { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.AddInterceptors(_auditEntitiesSaveChangesInterceptor);

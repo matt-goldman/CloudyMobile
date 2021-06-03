@@ -7,7 +7,7 @@ namespace CloudyMobile.Domain.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Style { get; set; }
+        public Style Style { get; set; }
         public LiquidVolumeUnit LiquidUnits { get; set; }
         public MassUnit MassUnits { get; set; }
         public TemperatureUnit TemperatureUnit { get; set; }

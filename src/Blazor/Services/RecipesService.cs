@@ -23,7 +23,7 @@ namespace CloudyMobile.Blazor.Services
             return await recipesClient.GetAsync(id);
         }
 
-        public async Task<BeerStylesDto> GetBeerStyles()
+        public async Task<BeerStylesVm> GetBeerStyles()
         {
             return await recipesClient.StylesAsync();
         }

@@ -33,7 +33,7 @@ namespace CloudyMobile.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<ActionResult<BeerStylesDto>> Styles()
+        public async Task<ActionResult<BeerStylesVm>> Styles()
         {
             return await Mediator.Send(new GetBeerStylesQuery());
         }
