@@ -17,6 +17,8 @@ namespace CloudyMobile.Blazor
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
+            Constants.BaseUrl = builder.HostEnvironment.BaseAddress;
+
             builder.Services.AddBlazorise(opt => 
             {
                 opt.ChangeTextOnKeyPress = false;
@@ -26,16 +28,13 @@ namespace CloudyMobile.Blazor
             
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddHttpClient("CloudyMobile.API", client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))
+            builder.Services.AddHttpClient("CloudyMobile.API", client => client.BaseAddress = new Uri(Constants.BaseUrl))
                 .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
 
             // Supply HttpClient instances that include access tokens when making requests to the server project
             builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("CloudyMobile.API"));
 
-            builder.Services.AddSingleton<RecipesService>(
-                s => new RecipesService(
-                    s.GetRequiredService<HttpClient>(),
-                    builder.HostEnvironment.BaseAddress));
+            builder.Services.AddTransient<RecipesService>();
 
             builder.Services.AddApiAuthorization();
 

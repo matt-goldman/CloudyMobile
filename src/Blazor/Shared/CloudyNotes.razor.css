@@ -1,0 +1,14 @@
+.cm-notes {
+    border: 1px solid #E1477E;
+    color: #E1477E;
+    background-color: #181818;
+    padding: 12px 20px;
+    margin:  8px 0;
+    box-sizing: border-box;
+    width: 10rem;
+}
+
+.cm-notes:focus {
+    border: 3px solid #E1477E;
+    outline: none;
+}

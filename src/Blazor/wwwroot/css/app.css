@@ -163,3 +163,7 @@ h1.cm-page-content {
     display: flex;
     align-items: flex-end;
 }
+
+.cm-button {
+    padding: 3px 8px;
+}

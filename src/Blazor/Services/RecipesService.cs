@@ -8,9 +8,9 @@ namespace CloudyMobile.Blazor.Services
     {
         private readonly RecipesClient recipesClient;
 
-        public RecipesService(HttpClient http, string baseUrl)
+        public RecipesService(HttpClient http)
         {
-            recipesClient = new RecipesClient(baseUrl, http);
+            recipesClient = new RecipesClient(Constants.BaseUrl, http);
         }
 
         public async Task<int> AddRecipe(RecipeDto recipe)

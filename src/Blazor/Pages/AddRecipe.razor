@@ -3,15 +3,38 @@
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @attribute [Authorize]
-@* @inject RecipesService recipesService *@
+@inject RecipesService recipesService
 
 <div class="cm-page-content">
 
-    <CloudyInput placeholder="Type your name..." @bind-Value=Name />
+    <div class="col">
+        <CloudyInput placeholder="Recipe name" @bind-Value=recipe.Name />
 
-    <p> Name: @Name</p>
+        <CloudyInput placeholder="Recipe style" @bind-Value=recipe.Style />
+
+        Ingredients
+        Mass Units
+        Liquid Units
+
+        <CloudyNotes placeholder="Recipe notes..." @bind-Value="recipe.Notes" />
+
+        <fast-button appearance="accent" class="cm-button">Add Recipe</fast-button>
+    </div>
 </div>
 
 @code{
-    public string Name { get; set; }
+
+    public List<string> Styles { get; set; }
+
+    private RecipeDto recipe;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Styles = new List<string>();
+        recipe = new RecipeDto();
+
+        var styles = await recipesService.GetBeerStyles();
+
+        Styles = styles.Styles.ToList();
+    }
 }
