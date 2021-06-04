@@ -171,3 +171,50 @@ h1.cm-page-content {
 .cm-heading {
     color: white;
 }
+
+/* .e-ddl.e-input-group.e-control-wrapper .e-input {
+    border: 1px solid #E1477E;
+    color: #E1477E;
+    background-color: #181818;
+    box-sizing: border-box;
+}
+
+.e-ddl.e-input-group.e-control-wrapper.e-input-focus::before, .e-ddl.e-input-group.e-control-wrapper.e-input-focus::after {
+    background: #c000ff;
+}
+
+
+.e-outline.e-input-group.e-input-focus:hover:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled):not(.e-float-icon-left),.e-outline.e-input-group.e-input-focus.e-control-wrapper:hover:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled):not(.e-float-icon-left),.e-outline.e-input-group.e-input-focus:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled),.e-outline.e-input-group.e-control-wrapper.e-input-focus:not(.e-success):not(.e-warning):not(.e-error):not(.e-disabled) {
+    border: 3px solid #E1477E;
+    outline: none;
+}
+
+.e-ddl.e-input-group input.e-input::placeholder {
+    color: red;
+}
+
+
+.e-ddl.e-input-group input.e-input::selection {
+    color: red;
+    background: yellow;
+}
+
+
+.e-dropdownbase .e-list-item.e-item-focus, .e-dropdownbase .e-list-item.e-active, .e-dropdownbase .e-list-item.e-active.e-hover, .e-dropdownbase .e-list-item.e-hover {
+    background-color: #E1477E;
+    color: white;
+}
+
+
+.e-dropdownbase .e-list-item, .e-dropdownbase .e-list-item.e-item-focus {
+    background-color: #29c2b8;
+    color: #207cd9;
+    min-height: 29px;
+}
+
+.e-ddl, .e-lib, .e-input-group, .e-control-container, .e-control-wrapper, .e-keyboard {
+    border: 1px solid #E1477E;
+    color: #E1477E;
+    background-color: #181818;
+    box-sizing: border-box;
+} */
