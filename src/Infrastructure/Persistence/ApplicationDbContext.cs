@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -99,6 +101,156 @@ namespace CloudyMobile.Infrastructure.Persistence
 
                 await SaveChangesAsync();
             }
+
+            var haveCategories = await IngredientCategories.AnyAsync();
+
+            if(!haveCategories)
+            {
+                await AddCategories();
+            }
+
+            var haveIngredients = await Ingredients.AnyAsync();
+
+            if(!haveIngredients)
+            {
+                await AddIngredients();
+            }
+
+            var haveRecipes = await Recipes.AnyAsync();
+
+            if(!haveRecipes)
+            {
+                await AddRecipes();
+            }
+        }
+
+        public async Task AddCategories ()
+        {
+            try
+            {
+                IngredientCategories.Add(new IngredientCategory
+                {
+                    Name = "Hops"
+                });
+
+                IngredientCategories.Add(new IngredientCategory
+                {
+                    Name = "Grain"
+                });
+
+                IngredientCategories.Add(new IngredientCategory
+                {
+                    Name = "Yeast"
+                });
+
+                IngredientCategories.Add(new IngredientCategory
+                {
+                    Name = "Extract"
+                });
+
+                await SaveChangesAsync();
+            }
+            catch (System.Exception ex)
+            {
+                Debug.WriteLine("Failed to seed database");
+                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.StackTrace);
+            }
+        }
+
+        public async Task AddIngredients()
+        {
+            IngredientCategory hops = await IngredientCategories.Where(c => c.Name == "Hops").FirstAsync();
+            IngredientCategory yeast = await IngredientCategories.Where(c => c.Name == "Yeast").FirstAsync();
+            IngredientCategory grain = await IngredientCategories.Where(c => c.Name == "Grain").FirstAsync();
+            IngredientCategory extract = await IngredientCategories.Where(c => c.Name == "Extract").FirstAsync();
+
+            Ingredients.Add(new Ingredient
+            {
+                Category = hops,
+                Name = "Ämarillo"
+            });
+
+            Ingredients.Add(new Ingredient
+            {
+                Category = hops,
+                Name = "Galaxy"
+            });
+
+            Ingredients.Add(new Ingredient
+            {
+                Category = yeast,
+                Name = "Safale US-05"
+            });
+
+            Ingredients.Add(new Ingredient
+            {
+                Category = grain,
+                Name = "Crystal"
+            });
+
+            Ingredients.Add(new Ingredient
+            {
+                Category = grain,
+                Name = "Vienna"
+            });
+
+            Ingredients.Add(new Ingredient
+            {
+                Category = extract,
+                Name = "Morgan's Pacific Ale"
+            });
+
+            Ingredients.Add(new Ingredient
+            {
+                Category = extract,
+                Name = "Coopers Pale Ale"
+            });
+
+            await SaveChangesAsync();
+        }
+
+        public async Task AddRecipes()
+        {
+            var style = await Styles.Where(s => s.Name == "IPA").FirstAsync();
+            var recipe = new Recipe
+            {
+                LiquidUnits = 0,
+                MassUnits = 0,
+                TemperatureUnit = 0,
+                Name = "Clone & Wood",
+                Style = style,
+                Notes = "Replica of Stone and Wood Pacific Ale"
+            };
+
+            Recipes.Add(recipe);
+
+            var hop = Ingredients.Where(i => i.Name == "Galaxy").First();
+            var extract = Ingredients.Where(i => i.Name == "Morgan's Pacific Ale").First();
+            var yeast = Ingredients.Where(i => i.Name == "Safale US-05").First();
+
+            RecipeIngredients.Add(new RecipeIngredients
+            {
+                Recipe = recipe,
+                Ingredient = hop,
+                Quantity = 1
+            });
+
+            RecipeIngredients.Add(new RecipeIngredients
+            {
+                Recipe = recipe,
+                Ingredient = yeast,
+                Quantity = 1
+            });
+
+            RecipeIngredients.Add(new RecipeIngredients
+            {
+                Recipe = recipe,
+                Ingredient = extract,
+                Quantity = 1
+            });
+
+            await SaveChangesAsync();
         }
     }
 }

@@ -1,6 +1,6 @@
 .cm-notes {
-    border: 1px solid #E1477E;
-    color: #E1477E;
+    border: 1px solid #9a9a9a;
+    color: #FFFFFF;
     background-color: #181818;
     padding: 12px 20px;
     margin:  8px 0;
@@ -9,6 +9,11 @@
 }
 
 .cm-notes:focus {
-    border: 3px solid #E1477E;
+    border: 1px solid #DF84A4;
+    outline: none;
+}
+
+.cm-notes:hover {
+    border: 1px solid #E1477E;
     outline: none;
 }

@@ -39,6 +39,8 @@ namespace CloudyMobile.Blazor
 
             builder.Services.AddTransient<RecipesService>();
 
+            builder.Services.AddTransient<IngredientsService>();
+
             builder.Services.AddApiAuthorization();
 
             builder.Services.AddSyncfusionBlazor();

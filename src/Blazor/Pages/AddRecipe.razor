@@ -4,42 +4,80 @@
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @attribute [Authorize]
 @inject RecipesService recipesService
+@inject IngredientsService IngredientsService
 
 <div class="cm-page-content">
-
-    <div class="col">
-        <div class="row">
-            <h2 class="display-3 cm-heading">Add a new beer recipe</h2>
-        </div>
-        <div class="row">
-            <CloudyInput placeholder="Recipe name" @bind-Value=recipe.Name />
-        </div>
-
-        <div class="row" style="width: 20rem">
-            <SfAutoComplete TValue="string" TItem="BeerStyleDto" Placeholder="Style..." DataSource="@Styles">
-                <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
-            </SfAutoComplete>
-        </div>
-
-        <div class="row">
-            Ingredients
-            Mass Units
-            Liquid Units
-        </div>
-
-        <div class="row">
-            <CloudyNotes placeholder="Recipe notes..." @bind-Value="recipe.Notes" />
-        </div>
-
-        <div class="row">
-            <fast-button appearance="accent" class="cm-button">Add Recipe</fast-button>
-        </div>
+    <div class="row">
+        <h2 class="display-3 cm-heading">Add a new beer recipe</h2>
     </div>
+    <div class="row">
+        <div class="col">
+            
+            <div class="row cm-formrow">
+                <CloudyInput placeholder="Recipe name" @bind-Value=recipe.Name />
+            </div>
+
+            <div class="row cm-formrow">
+                <SfAutoComplete TValue="string" TItem="BeerStyleDto" Placeholder="Style..." DataSource="@Styles">
+                    <AutoCompleteFieldSettings Text="Name" Value="Id"></AutoCompleteFieldSettings>
+                </SfAutoComplete>
+            </div>
+
+            <div class="row cm-formrow">
+                <SfDropDownList TValue="String" TItem="MassUnit" Placeholder="Select mass units" DataSource="@MassUnits"></SfDropDownList>
+            </div>
+
+            <div class="row cm-formrow">
+                <SfDropDownList TValue="String" TItem="LiquidVolumeUnit" Placeholder="Select liquid volume units" DataSource="@LiquidUnits"></SfDropDownList>
+            </div>
+
+            <div class="row cm-formrow">
+                <CloudyNotes placeholder="Recipe notes..." @bind-Value="recipe.Notes" />
+            </div>
+
+            <div class="row cm-formrow">
+                <fast-button appearance="accent" class="cm-button">Add Recipe</fast-button>
+            </div>
+        </div>
+
+        <div class="col">
+            <p>Ingredients</p>
+
+            <div class="row cm-formrow">
+                <SfAutoComplete TValue="string" TItem="IngredientDto" Placeholder="Search ingredients..." DataSource="@Ingredients">
+                    <AutoCompleteTemplates TItem="IngredientDto">
+                        <ItemTemplate>
+                            <span><span >@((context as IngredientDto).Name)</span><span class='cm-list-icon'><Icon Name="IconName.Add"/></span></span>
+                        </ItemTemplate>
+                    </AutoCompleteTemplates>
+                    <AutoCompleteFieldSettings Text="Name" Value="Id"></AutoCompleteFieldSettings>
+                </SfAutoComplete>
+            </div>
+        </div>
+    </div>    
 </div>
 
 @code{
 
     public List<BeerStyleDto> Styles { get; set; }
+
+    public List<IngredientDto> Ingredients { get; set; }
+
+    public List<IngredientDto> RecipeIngredients { get; set; }
+
+    public List<MassUnit> MassUnits = new List<MassUnit>
+    {
+        MassUnit.Kg,
+        MassUnit.G,
+        MassUnit.Oz
+    };
+
+    public List<LiquidVolumeUnit> LiquidUnits = new List<LiquidVolumeUnit>
+    {
+        LiquidVolumeUnit.Litres,
+        LiquidVolumeUnit.Gallons,
+        LiquidVolumeUnit.Oz
+    };
 
     private RecipeDto recipe;
 
@@ -47,9 +85,22 @@
     {
         Styles = new List<BeerStyleDto>();
         recipe = new RecipeDto();
+        RecipeIngredients = new List<IngredientDto>();
+        Ingredients = new List<IngredientDto>();
 
         var styles = await recipesService.GetBeerStyles();
 
         Styles = styles.Styles.ToList();
+
+        var ingredients = await IngredientsService.GetAll();
+
+        Ingredients = ingredients.Ingredients.ToList();
     }
 }
+
+<style>
+    .cm-list-icon {
+        right: 15px;
+        position: absolute;
+    }
+</style>
