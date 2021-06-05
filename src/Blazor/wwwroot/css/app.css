@@ -176,3 +176,12 @@ h1.cm-page-content {
     width: 20rem;
     margin: 2rem;
 }
+
+.cm-dialog {
+    width: 65vw;
+    height: 50vh;
+}
+
+.cm-dialog-content {
+    padding: 5rem;
+}

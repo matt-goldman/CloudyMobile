@@ -18,9 +18,12 @@
             </div>
 
             <div class="row cm-formrow">
-                <SfAutoComplete TValue="string" TItem="BeerStyleDto" Placeholder="Style..." DataSource="@Styles" @bind-value=styleName>
-                    <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
-                </SfAutoComplete>
+                <div class="col">
+                    <span>Style: @styleName</span>
+                </div>
+                <div class="col">
+                    <fast-button @onclick="OpenStyleDialog" appearance="accent" class="cm-button">Select Stlye</fast-button>
+                </div>
             </div>
 
             @* <div class="row cm-formrow">
@@ -89,7 +92,33 @@
                 </SfListView>
             </div>
         </div>
-    </div>    
+    </div>
+    <SfDialog class="cm-dialog" Width="600" IsModal="true" @bind-Visible="@stylesDialogVisible">
+    <DialogEvents OnOverlayClick="@OnOverlayclick">
+    </DialogEvents>
+    <DialogTemplates>
+        <Content>
+            <div class="cm-dialog-content">
+                <div class="row cm-formrow">
+                    <SfAutoComplete TValue="string" TItem="BeerStyleDto" Placeholder="Search for a style..." DataSource="@Styles" @bind-value=styleName>
+                        <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
+                    </SfAutoComplete>
+                </div>
+                <div class="row">
+                    @{
+                        if(selectedStyle is not null)
+                        {
+                            <Image Source=@selectedStyle.ImageUrl width="300" height="300" />
+                        }
+                    }
+                </div>
+                <div class="row" style="margin: 2rem;">
+                    <p>@selectedStyle.Notes</p>
+                </div>
+            </div>            
+        </Content>
+    </DialogTemplates>
+    </SfDialog>
 </div>
 
 @code{
@@ -122,9 +151,23 @@
 
     bool showError { get; set; } = false;
 
+    bool stylesDialogVisible { get; set; } = false;
+
     string errorString;
 
-    string styleName;
+    string styleName
+    {
+        get => selectedStyle.Name;
+        set
+        {
+            if(value is not null)
+            {
+                selectedStyle = Styles.Where(s => s.Name == value).First();
+            }
+        }
+    }
+
+    private BeerStyleDto selectedStyle { get; set; } = new BeerStyleDto();
 
     protected override async Task OnInitializedAsync()
     {
@@ -188,6 +231,16 @@
             showError = true;
             errorString = ex.Message;
         }
+    }
+
+    private void OpenStyleDialog()
+    {
+        this.stylesDialogVisible = true;
+    }
+
+    private void OnOverlayclick(MouseEventArgs arg)
+    {
+        this.stylesDialogVisible = false;
     }
 }
 
