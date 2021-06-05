@@ -112,3 +112,80 @@ a, .btn-link {
         height: 5em;
     }
 }
+
+.charcoal {
+    background-color: #181818;
+    color: white
+}
+
+fast-design-system-provider {
+    display: inline-block;
+  }
+  
+  fast-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h2 {
+    font-size: var(--type-ramp-plus-5-font-size);
+    line-height: var(--type-ramp-plus-5-line-height);
+  }
+  
+  fast-card > fast-button {
+    align-self: flex-end;
+  };
+
+.fast-anchor {
+    margin-left: 1.5rem;
+}
+
+.beer-card {
+    width: 350px;
+    height: 500px;
+    margin-right: 5rem;
+}
+
+.cm-page-content {
+    color: white;
+    margin-right: 5rem;
+    margin-left: 5rem;
+}
+
+h1.cm-page-content {
+    color: white;
+}
+
+.beer-card-button {
+    justify-content: flex-end;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+}
+
+.cm-button {
+    padding: 3px 8px;
+}
+
+.cm-heading {
+    color: white;
+}
+
+.cm-formrow {
+    width: 20rem;
+    margin: 2rem;
+}
+
+.cm-dialog {
+    width: 65vw;
+    height: 50vh;
+}
+
+.cm-dialog-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

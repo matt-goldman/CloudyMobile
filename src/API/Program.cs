@@ -26,7 +26,9 @@ namespace CloudyMobile.API
                     if (context.Database.IsSqlServer())
                     {
                         context.Database.Migrate();
-                    }                   
+                    }
+
+                    await context.SeedInitialData();
                 }
                 catch (Exception ex)
                 {

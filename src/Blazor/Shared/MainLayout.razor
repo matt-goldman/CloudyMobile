@@ -1,18 +1,112 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+    <Sidebar @ref="sidebar">
+        <SidebarContent>
+            <SidebarBrand>
+                <div class="top-row">
+                    <a href="" class="left">CloudyMobile</a>
+                    <fast-anchor class="close-button" appearance="lightweight" @onclick="ToggleSidebar"><Icon Name="IconName.Times"/> </fast-anchor>
+                </div>
+            </SidebarBrand>
+            <SidebarNavigation>
+                <SidebarLabel>Main</SidebarLabel>
+                <SidebarItem>
+                    <SidebarLink To="" Title="Home">
+                        <Icon Name="IconName.Home" Margin="Margin.Is3.FromRight" />Home
+                    </SidebarLink>
+                </SidebarItem>
+                <SidebarItem>
+                    <SidebarLink Toggled="(isOpen)=> recipesSidebarSubItems.Toggle(isOpen)" IsShow="true">
+                        <Icon Name="IconName.Book" Margin="Margin.Is3.FromRight" />Recipes
+                    </SidebarLink>
+                    <SidebarSubItem @ref="recipesSidebarSubItems" IsShow="true">
+                        <SidebarItem>
+                            <SidebarLink To="recipes/search">Search</SidebarLink>
+                        </SidebarItem>
+                        <SidebarItem>
+                            <SidebarLink To="recipes/add">Add new recipe</SidebarLink>
+                        </SidebarItem>
+                        @* other subitems *@
+                    </SidebarSubItem>
+                </SidebarItem>
+                <SidebarItem>
+                    <SidebarLink Toggled="(isOpen)=> batchSidebarSubItems.Toggle(isOpen)" IsShow="true">
+                        <Icon Name="@("fa-beer")" Margin="Margin.Is3.FromRight" />Batches
+                    </SidebarLink>
+                    <SidebarSubItem @ref="batchSidebarSubItems" IsShow="true">
+                        <SidebarItem>
+                            <SidebarLink To="batches/search">Search batches</SidebarLink>
+                        </SidebarItem>
+                        <SidebarItem>
+                            <SidebarLink To="batches/add">Add a batche</SidebarLink>
+                        </SidebarItem>
+                        <SidebarItem>
+                            <SidebarLink To="batches/keg">Keg a batch</SidebarLink>
+                        </SidebarItem>
+                    </SidebarSubItem>
+                </SidebarItem>
+                <SidebarItem>
+                    <SidebarLink Toggled="(isOpen)=> kegSidebarSubItems.Toggle(isOpen)" IsShow="true">
+                        <Icon Name="@("fa-prescription-bottle")" Margin="Margin.Is3.FromRight" />Kegs
+                    </SidebarLink>
+                    <SidebarSubItem @ref="kegSidebarSubItems" IsShow="true">
+                        <SidebarItem>
+                            <SidebarLink To="kegs/search">Search kegs</SidebarLink>
+                        </SidebarItem>
+                        <SidebarItem>
+                            <SidebarLink To="kegs/add">Add a keg</SidebarLink>
+                        </SidebarItem>
+                        <SidebarItem>
+                            <SidebarLink To="kegs/finish">Finish a keg</SidebarLink>
+                        </SidebarItem>
+                    </SidebarSubItem>
+                </SidebarItem>
+                <SidebarItem>
+                    <SidebarLink Toggled="(isOpen)=> locationSidebarSubItems.Toggle(isOpen)" IsShow="true">
+                        <Icon Name="@("fa-map-marked-alt")" Margin="Margin.Is3.FromRight" />Locations
+                    </SidebarLink>
+                    <SidebarSubItem @ref="locationSidebarSubItems" IsShow="true">
+                        <SidebarItem>
+                            <SidebarLink To="locations/list">List locations</SidebarLink>
+                        </SidebarItem>
+                    </SidebarSubItem>
+                </SidebarItem>
+            </SidebarNavigation>
+        </SidebarContent>
+    </Sidebar>
 
     <div class="main">
-        <div class="top-row px-4 auth">
+        <div class="top-row px-4 auth charcoal">
+            <fast-anchor class="main-title" appearance="lightweight"><Icon Name="IconName.Bars" @onclick="ToggleSidebar" style="background-color: #181818;"/></fast-anchor>
             <LoginDisplay />
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <fast-anchor class="fast-anchor-both" appearance="lightweight" href="https://docs.microsoft.com/aspnet/" target="_blank">About</fast-anchor>
         </div>
 
-        <div class="content px-4">
+        <div class="content px-4 main-body">
             @Body
         </div>
     </div>
 </div>
+
+@code{
+    Sidebar sidebar;
+    SidebarSubItem recipesSidebarSubItems;
+    SidebarSubItem batchSidebarSubItems;
+    SidebarSubItem kegSidebarSubItems;
+    SidebarSubItem locationSidebarSubItems;
+
+    void ToggleSidebar()
+    {
+        sidebar.Toggle();
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if(firstRender)
+        {
+            sidebar.Toggle();
+            StateHasChanged();
+        }
+    }
+}

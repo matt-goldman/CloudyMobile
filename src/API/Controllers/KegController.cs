@@ -1,5 +1,6 @@
 ﻿using CloudyMobile.Application.Kegs.Commands.AddKeg;
 using CloudyMobile.Application.Kegs.Commands.AddKegPour;
+using CloudyMobile.Application.Kegs.Commands.CloseKeg;
 using CloudyMobile.Application.Kegs.Queries.Common;
 using CloudyMobile.Application.Kegs.Queries.GetAllKegs;
 using CloudyMobile.Application.Kegs.Queries.GetKeg;
@@ -29,16 +30,24 @@ namespace CloudyMobile.API.Controllers
             return await Mediator.Send(new GetKegQuery { Id = id });
         }
 
-        [HttpGet("{action}")]
+        [HttpGet("[action]")]
         public async Task<ActionResult<KegListVm>> GetLocationKeg([FromQuery]int id)
         {
             return await Mediator.Send(new GetLocationKegsQuery { LocationId = id });
         }
 
-        [HttpPost("{action}")]
+        [HttpPost("[action]")]
         public async Task<ActionResult<float>> AddKegPour(AddKegPourCommand command)
         {
             return await Mediator.Send(command);
+        }
+
+        [HttpPost("[action]")]
+        public async Task<ActionResult> Close(CloseKegCommand command)
+        {
+            await Mediator.Send(command);
+
+            return NoContent();
         }
     }
 }

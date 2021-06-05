@@ -2,6 +2,8 @@
 using CloudyMobile.Application.Recipes.Common;
 using CloudyMobile.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,14 +28,32 @@ namespace CloudyMobile.Application.Recipes.Commands.AddRecipe
             var entity = new Recipe
             {
                 Name = request.viewModel.Name,
-                Style = request.viewModel.Style,
                 MassUnits = request.viewModel.MassUnits,
                 TemperatureUnit = request.viewModel.TemperatureUnit,
                 LiquidUnits = request.viewModel.LiquidUnits,
                 Notes = request.viewModel.Notes
             };
 
-            await _context.Recipes.AddAsync(entity, cancellationToken);
+            var style = await _context.Styles
+                .Where(s => s.Id == request.viewModel.Id)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(cancellationToken);
+
+            if(style is null)
+            {
+                style = new Style
+                {
+                    ImageUrl = request.viewModel.Style.ImageUrl,
+                    Name = request.viewModel.Style.Name,
+                    Notes = request.viewModel.Notes
+                };
+
+                _context.Styles.Add(style);
+            }
+
+            entity.Style = style;
+
+            _context.Recipes.Add(entity);
 
             if(request.viewModel.Ingredients != null && request.viewModel.Ingredients.Count > 0)
             {

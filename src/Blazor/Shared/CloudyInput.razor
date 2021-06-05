@@ -1,0 +1,19 @@
+<input class="cm-input" type="text" placeholder=@placeholder value=@Value @oninput="OnValueChanged" />
+
+
+@code {
+    [Parameter]
+    public string placeholder { get; set; }
+
+    [Parameter]
+    public string Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    private async Task OnValueChanged(ChangeEventArgs e)
+    {
+        var newVal = e.Value as string;
+        await ValueChanged.InvokeAsync(newVal);
+    }
+}

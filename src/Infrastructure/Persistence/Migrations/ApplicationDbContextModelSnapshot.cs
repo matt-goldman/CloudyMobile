@@ -244,8 +244,14 @@ namespace CloudyMobile.Infrastructure.Persistence.Migrations
                     b.Property<int>("BatchId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("DateFinished")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DateKegged")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Finished")
+                        .HasColumnType("bit");
 
                     b.Property<int>("LocationId")
                         .HasColumnType("int");
@@ -319,13 +325,15 @@ namespace CloudyMobile.Infrastructure.Persistence.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Style")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("StyleId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TemperatureUnit")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("StyleId");
 
                     b.ToTable("Recipes");
                 });
@@ -353,6 +361,27 @@ namespace CloudyMobile.Infrastructure.Persistence.Migrations
                     b.HasIndex("RecipeId");
 
                     b.ToTable("RecipeIngredients");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Style", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Styles");
                 });
 
             modelBuilder.Entity("CloudyMobile.Domain.Entities.UserProfile", b =>
@@ -786,6 +815,15 @@ namespace CloudyMobile.Infrastructure.Persistence.Migrations
                     b.Navigation("Keg");
                 });
 
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Recipe", b =>
+                {
+                    b.HasOne("CloudyMobile.Domain.Entities.Style", "Style")
+                        .WithMany("Recipes")
+                        .HasForeignKey("StyleId");
+
+                    b.Navigation("Style");
+                });
+
             modelBuilder.Entity("CloudyMobile.Domain.Entities.RecipeIngredients", b =>
                 {
                     b.HasOne("CloudyMobile.Domain.Entities.Ingredient", "Ingredient")
@@ -903,6 +941,11 @@ namespace CloudyMobile.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("CloudyMobile.Domain.Entities.Recipe", b =>
                 {
                     b.Navigation("Ingredients");
+                });
+
+            modelBuilder.Entity("CloudyMobile.Domain.Entities.Style", b =>
+                {
+                    b.Navigation("Recipes");
                 });
 #pragma warning restore 612, 618
         }
