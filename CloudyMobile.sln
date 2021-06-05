@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.Domain", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E6900236-6C49-4FCA-86CF-8AFDA532355F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "src\Client\Client.csproj", "{CAFD1C12-7D17-4C21-B126-09B7F029FCAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.Client", "src\Client\CloudyMobile.Client.csproj", "{CAFD1C12-7D17-4C21-B126-09B7F029FCAA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.Application", "src\Application\CloudyMobile.Application.csproj", "{D194816D-271F-4700-AE05-C40EE4A65552}"
 EndProject

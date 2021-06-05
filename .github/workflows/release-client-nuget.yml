@@ -24,9 +24,9 @@ jobs:
     - name: Set VERSION variable from tag
       run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
     - name: Build
-      run: dotnet build src/Client/Client.csproj --configuration Release /p:Version=${VERSION}    
+      run: dotnet build src/Client/CloudyMobile.Client.csproj --configuration Release /p:Version=${VERSION}    
     - name: Pack
-      run: dotnet pack src/Client/Client.csproj --configuration Release /p:Version=${VERSION} --no-build --output .
+      run: dotnet pack src/Client/CloudyMobile.Client.csproj --configuration Release /p:Version=${VERSION} --no-build --output .
     - name: Push
       run: dotnet nuget push CloudyMobile.Client.${VERSION}.nupkg -s https://nuget.pkg.github.com/${{ github.repository_owner }} -k ${{ github.token }} --skip-duplicate
       env:
