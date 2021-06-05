@@ -37,22 +37,24 @@
 
             <div class="row cm-formrow">
                 <fast-button appearance="accent" class="cm-button" @onclick="SaveRecipe">Add Recipe</fast-button>
-                
-                @if(showSaving)
-                {
-                    <span>Saving...</span>
-                    <fast-progress-ring></fast-progress-ring>
-                }
 
-                @if(showSaved)
-                {
-                    <span>Recipe saved!</span>
-                }
+                <span style="width: 20rem; height: 20rem;">
+                    @if(showSaving)
+                    {
+                        <span>Saving...</span>
+                        <fast-progress-ring></fast-progress-ring>
+                    }
 
-                @if(showError)
-                {
-                    <span>Error saving recipe: @errorString</span>
-                }
+                    @if(showSaved)
+                    {
+                        <span>Recipe saved!</span>
+                    }
+
+                    @if(showError)
+                    {
+                        <span>Error saving recipe: @errorString</span>
+                    }
+                </span>
 
             </div>
         </div>
