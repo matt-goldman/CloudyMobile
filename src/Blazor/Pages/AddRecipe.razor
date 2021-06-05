@@ -18,25 +18,42 @@
             </div>
 
             <div class="row cm-formrow">
-                <SfAutoComplete TValue="string" TItem="BeerStyleDto" Placeholder="Style..." DataSource="@Styles">
-                    <AutoCompleteFieldSettings Text="Name" Value="Id"></AutoCompleteFieldSettings>
+                <SfAutoComplete TValue="string" TItem="BeerStyleDto" Placeholder="Style..." DataSource="@Styles" @bind-value=styleName>
+                    <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
                 </SfAutoComplete>
             </div>
 
-            <div class="row cm-formrow">
+            @* <div class="row cm-formrow">
                 <SfDropDownList TValue="String" TItem="MassUnit" Placeholder="Select mass units" DataSource="@MassUnits"></SfDropDownList>
             </div>
 
             <div class="row cm-formrow">
                 <SfDropDownList TValue="String" TItem="LiquidVolumeUnit" Placeholder="Select liquid volume units" DataSource="@LiquidUnits"></SfDropDownList>
-            </div>
+            </div> *@
 
             <div class="row cm-formrow">
                 <CloudyNotes placeholder="Recipe notes..." @bind-Value="recipe.Notes" />
             </div>
 
             <div class="row cm-formrow">
-                <fast-button appearance="accent" class="cm-button">Add Recipe</fast-button>
+                <fast-button appearance="accent" class="cm-button" @onclick="SaveRecipe">Add Recipe</fast-button>
+                
+                @if(showSaving)
+                {
+                    <span>Saving...</span>
+                    <fast-progress-ring></fast-progress-ring>
+                }
+
+                @if(showSaved)
+                {
+                    <span>Recipe saved!</span>
+                }
+
+                @if(showError)
+                {
+                    <span>Error saving recipe: @errorString</span>
+                }
+
             </div>
         </div>
 
@@ -47,11 +64,27 @@
                 <SfAutoComplete TValue="string" TItem="IngredientDto" Placeholder="Search ingredients..." DataSource="@Ingredients">
                     <AutoCompleteTemplates TItem="IngredientDto">
                         <ItemTemplate>
-                            <span><span >@((context as IngredientDto).Name)</span><span class='cm-list-icon'><Icon Name="IconName.Add"/></span></span>
+                            @{
+                                var ingItem = context as IngredientDto;
+                                <span @onclick="() => AddIngredient(ingItem)"><span>@ingItem.Name</span><span class='cm-list-icon'><Icon Name="IconName.Add" /></span></span>
+                            }
                         </ItemTemplate>
                     </AutoCompleteTemplates>
-                    <AutoCompleteFieldSettings Text="Name" Value="Id"></AutoCompleteFieldSettings>
+                    <AutoCompleteFieldSettings Value="Name"></AutoCompleteFieldSettings>
                 </SfAutoComplete>
+            </div>
+            <div class="row cm-formrow">
+                <SfListView DataSource="@RecipeIngredients">
+                    <ListViewTemplates TValue="IngredientDto">
+                        <Template>
+                            @{
+                                var ingItem = context as IngredientDto;
+                                <span @onclick="() => RemoveIngredient(ingItem)"><span>@ingItem.Name</span><span class='cm-list-icon'><Icon Name="IconName.Remove" /></span></span>
+                            }
+                        </Template>
+                    </ListViewTemplates>
+                    <ListViewFieldSettings TValue="IngredientDto" Id="Id" Text="Name"></ListViewFieldSettings>
+                </SfListView>
             </div>
         </div>
     </div>    
@@ -81,10 +114,24 @@
 
     private RecipeDto recipe;
 
+    bool showSaving { get ; set; } = false;
+
+    bool showSaved { get; set; } = false;
+
+    bool showError { get; set; } = false;
+
+    string errorString;
+
+    string styleName;
+
     protected override async Task OnInitializedAsync()
     {
         Styles = new List<BeerStyleDto>();
-        recipe = new RecipeDto();
+        recipe = new RecipeDto
+        {
+            Ingredients = new List<RecipeIngredientDto>()
+        };
+
         RecipeIngredients = new List<IngredientDto>();
         Ingredients = new List<IngredientDto>();
 
@@ -96,11 +143,53 @@
 
         Ingredients = ingredients.Ingredients.ToList();
     }
+
+    void AddIngredient(IngredientDto ingredient)
+    {
+        RecipeIngredients.Add(ingredient);
+    }
+
+    void RemoveIngredient(IngredientDto ingredient)
+    {
+        RecipeIngredients.Remove(ingredient);
+    }
+
+    async Task SaveRecipe()
+    {
+        showSaving = true;
+
+        try
+        {
+            var style = Styles.Where(s => s.Name == styleName).FirstOrDefault();
+
+            recipe.Style = style;
+
+            foreach(var ingredient in RecipeIngredients)
+            {
+                recipe.Ingredients.Add(new RecipeIngredientDto
+                {
+                    IngredientId = ingredient.Id.Value
+                });
+            }
+
+            await recipesService.AddRecipe(recipe);
+
+            showSaving = false;
+            showSaved = true;
+        }
+        catch(Exception ex)
+        {
+            showSaving = false;
+            showError = true;
+            errorString = ex.Message;
+        }
+    }
 }
 
 <style>
     .cm-list-icon {
         right: 15px;
         position: absolute;
+        color: #E1477E;
     }
 </style>
