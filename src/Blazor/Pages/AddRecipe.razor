@@ -93,6 +93,8 @@
             </div>
         </div>
     </div>
+
+
     <SfDialog class="cm-dialog" Width="600" IsModal="true" @bind-Visible="@stylesDialogVisible">
     <DialogEvents OnOverlayClick="@OnOverlayclick">
     </DialogEvents>
@@ -106,9 +108,9 @@
                 </div>
                 <div class="row">
                     @{
-                        if(selectedStyle is not null)
+                        if(!String.IsNullOrWhiteSpace(selectedStyle.Name))
                         {
-                            <Image Source=@selectedStyle.ImageUrl width="300" height="300" />
+                            <Image Source=@selectedStyle.ImageUrl width="300" height="300" style="border: none; border-radius:5%; background-image:url('Assets/Images/beer.png'); background-repeat: no-repeat;" />
                         }
                     }
                 </div>

@@ -183,5 +183,9 @@ h1.cm-page-content {
 }
 
 .cm-dialog-content {
-    padding: 5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
