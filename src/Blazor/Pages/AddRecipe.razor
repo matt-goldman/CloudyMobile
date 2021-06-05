@@ -162,7 +162,10 @@
         {
             var style = Styles.Where(s => s.Name == styleName).FirstOrDefault();
 
-            recipe.Style = style;
+            recipe.Style = new BeerStyleDto
+            {
+                Id = style.Id
+            };
 
             foreach(var ingredient in RecipeIngredients)
             {
