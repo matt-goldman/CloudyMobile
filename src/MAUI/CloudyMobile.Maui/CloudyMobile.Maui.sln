@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31220.234
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.Maui", "CloudyMobile.Maui\CloudyMobile.Maui.csproj", "{FEE9FCBC-DA95-4E69-8157-D78278E7A0EE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudyMobile.Maui.WinUI3", "CloudyMobile.Maui.WinUI3\CloudyMobile.Maui.WinUI3.csproj", "{6AB0E142-9C6B-4616-BCA3-EEA64235B93D}"
+EndProject
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "CloudyMobile.Maui.WinUI3 (Package)", "CloudyMobile.Maui.WinUI3 (Package)\CloudyMobile.Maui.WinUI3 (Package).wapproj", "{17A350EA-899A-49B8-8034-E3963C47B89B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
