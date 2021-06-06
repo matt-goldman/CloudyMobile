@@ -2,10 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>CloudyMobile.Client</PackageId>
+    <Authors>Matt Goldman</Authors>
+    <Company>SSW</Company>
+    <Product>CloudyMobile</Product>
+    <Description>Client package class library for consuming the CloudyMobile API in C# client applications</Description>
+    <Copyright>2021 SSW</Copyright>
+    <RepositoryUrl>https://github.com/matt-goldman/CloudyMobile</RepositoryUrl>
+    <PackageIcon>cloudy.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="./cloudy.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
