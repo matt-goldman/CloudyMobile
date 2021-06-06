@@ -1,4 +1,6 @@
-# Cloudy with a Chance of Mobule
+<img align="left" width="116" height="116" src="https://raw.githubusercontent.com/matt-goldman/CloudyMobile/main/assets/cloud-mobile.png" />
+
+# Cloudy with a Chance of Mobile
 ## .NET Everywhere with MAUI and Blazor
 
 Since the very beginning, the vision of .NET has been to offer a viable alternative to Java - a runtime that can be distributed with executable code, allowing it to be run on any operating system or device.
