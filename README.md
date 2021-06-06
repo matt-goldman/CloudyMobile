@@ -1,4 +1,4 @@
-<img align="left" width="116" height="116" src="https://raw.githubusercontent.com/matt-goldman/CloudyMobile/main/assets/cloud-mobile.png" />
+<img align="left" width="116" height="116" src="https://raw.githubusercontent.com/matt-goldman/CloudyMobile/main/assets/cloudy-mobile.png" />
 
 # Cloudy with a Chance of Mobile
 ## .NET Everywhere with MAUI and Blazor
