@@ -2,7 +2,7 @@ using CloudyMobile.Client;
 
 namespace CloudyMobile.Maui.Services
 {
-    public class RecipeService
+    public class RecipeService : BaseService
     {
 
     }
