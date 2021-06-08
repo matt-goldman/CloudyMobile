@@ -4,7 +4,7 @@
 			 x:Class="CloudyMobile.Maui.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="PageBackgroundColor">#512bdf</Color>
+            <Color x:Key="PageBackgroundColor">#181818</Color>
             <Color x:Key="PrimaryTextColor">White</Color>
 
             <Style TargetType="Label">
@@ -15,7 +15,8 @@
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
                 <Setter Property="FontFamily" Value="OpenSansRegular" />
-                <Setter Property="BackgroundColor" Value="#2b0b98" />
+                <Setter Property="BackgroundColor" Value="#E1477E" />
+                <Setter Property="Padding" Value="5" />
             </Style>
 
         </ResourceDictionary>

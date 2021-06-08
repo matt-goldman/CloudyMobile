@@ -7,6 +7,8 @@ namespace CloudyMobile.Maui
 {
 	public partial class App : Application
 	{
+		public static Constants Constants { get; set; }
+		
 		public App()
 		{
 			InitializeComponent();

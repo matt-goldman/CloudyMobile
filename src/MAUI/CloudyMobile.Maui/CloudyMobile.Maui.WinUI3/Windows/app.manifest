@@ -11,5 +11,12 @@
       <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true/PM</dpiAware>
       <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2, PerMonitor</dpiAwareness>
     </windowsSettings>
+    <Extensions>
+            <uap:Extension Category="windows.protocol">
+            <uap:Protocol Name="auth.com.ssw.cloudymobile.maui">
+                <uap:DisplayName>CloudyMobile.Maui</uap:DisplayName>
+            </uap:Protocol>
+            </uap:Extension>
+        </Extensions>
   </application>
 </assembly>
