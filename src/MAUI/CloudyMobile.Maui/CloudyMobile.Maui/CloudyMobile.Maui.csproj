@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<!-- iOS, Android, MacCatalyst -->
-		<TargetFrameworks>net6.0-ios;</TargetFrameworks>
+		<TargetFrameworks>net6.0-ios;net6.0-android;net6.0-maccatalyst</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<SingleProject>true</SingleProject>
 		<RootNamespace>CloudyMobile.Maui</RootNamespace>
@@ -11,7 +11,7 @@
 		<ApplicationTitle>CloudyMobile.Maui</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.ssw.CloudyMobile.Maui</ApplicationId>
+		<ApplicationId>com.companyname.CloudyMobile.Maui</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationVersion>1.0</ApplicationVersion>
@@ -25,7 +25,7 @@
 		<MauiImage Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" IsAppIcon="true" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Images\cloud.svg" Color="#181818" />
+		<MauiSplashScreen Include="Resources\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -35,9 +35,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CloudyMobile.Client" Version="0.0.8" />
-		<PackageReference Include="IdentityModel.OidcClient" Version="4.0.0" />
 		<PackageReference Include="Microsoft.Maui" Version="6.0.100-preview.4.*" />
+    <PackageReference Include="CloudyMobile.Client" Version="0.0.8" />
+    <PackageReference Include="IdentityModel.OidcClient" Version="4.0.0" />
 	</ItemGroup>
 
 	<PropertyGroup>

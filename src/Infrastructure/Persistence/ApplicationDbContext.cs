@@ -62,6 +62,7 @@ namespace CloudyMobile.Infrastructure.Persistence
             base.OnModelCreating(builder);
         }
 
+        // TODO: move this out of here
         public async Task SeedInitialData()
         {
             var haveStyles = await Styles.AnyAsync();

@@ -1,40 +1,50 @@
 using CloudyMobile.Client;
+using System.Threading.Tasks;
 
 namespace CloudyMobile.Maui.Services
 {
     public class BatchesService : BaseService
     {
-        private RecipesClient recipesClient;
+        private BatchesClient batchesClient;
 
-        public RecipeService()
+        public BatchesService()
         {
-            this.recipesClient = new RecipesClient(httpClient);
+            batchesClient = new BatchesClient(apiUri, httpClient);
         }
 
-        public async Task<int> AddRecipe(RecipeDto recipe)
+        public async Task<int> CreateBatch(BatchDto batch)
         {
-            return await recipesClient.CreateAsync(recipe);
+            return await batchesClient.CreateAsync(batch);
         }
 
-        public async Task<RecipeDto> GetRecipe(int id)
+        public async Task<BatchListVm> GetAll()
         {
-            return await recipesClient.GetAsync(id);
+            return await batchesClient.GetAsync();
         }
 
-        public async Task<BeerStylesVm> GetBeerStyles()
+        public async Task<int> SampleBatch(SampleDto sample)
         {
-            return await recipesClient.StylesAsync();
+            return await batchesClient.SampleAsync(sample);
         }
 
-        public async Task<RecipeSearchResultsVm> SearchRecipes(string name, string style)
+        public async Task<BatchDto> GetBatch(int id)
         {
-            var query = new SearchRecipeQuery
-            {
-                Name = name,
-                Style = style
-            };
+            return await batchesClient.Get2Async(id);
+        }
 
-            return await recipesClient.SearchAsync(query);
+        public async Task<BatchListVm> Search(SearchBatchQuery query)
+        {
+            return await batchesClient.SearchAsync(query);
+        }
+
+        public async Task<int> RateBatch(AddBatchRatingCommand command)
+        {
+            return await batchesClient.RateAsync(command);
+        }
+
+        public async Task<int> AddHops(AddBatchHopAdditionCommand command)
+        {
+            return await batchesClient.AddHopsAsync(command);
         }
     }
 }

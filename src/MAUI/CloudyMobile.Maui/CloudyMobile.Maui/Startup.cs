@@ -3,13 +3,12 @@ using CloudyMobile.Maui.Services;
 using IdentityModel.OidcClient.Browser;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui;
-using Microsoft.Maui.Essentials;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Compatibility;
 
 namespace CloudyMobile.Maui
 {
-	public class Startup : IStartup
+    public class Startup : IStartup
 	{
 		public void Configure(IAppHostBuilder appBuilder)
 		{
@@ -19,6 +18,9 @@ namespace CloudyMobile.Maui
 				.ConfigureServices(services => 
 				{
 					services.AddTransient<IBrowser, AuthBrowser>();
+					services.AddSingleton<AuthService>();
+					services.AddSingleton<BatchesService>();
+					services.AddSingleton<RecipeService>();
 				})
 				.ConfigureFonts(fonts =>
 				{

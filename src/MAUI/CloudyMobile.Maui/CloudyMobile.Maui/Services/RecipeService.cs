@@ -1,4 +1,5 @@
 using CloudyMobile.Client;
+using System.Threading.Tasks;
 
 namespace CloudyMobile.Maui.Services
 {
@@ -8,7 +9,7 @@ namespace CloudyMobile.Maui.Services
 
         public RecipeService()
         {
-            this.recipesClient = new RecipesClient(httpClient);
+            recipesClient = new RecipesClient(apiUri, httpClient);
         }
 
         public async Task<int> AddRecipe(RecipeDto recipe)
