@@ -3050,6 +3050,9 @@ namespace CloudyMobile.Client
         [Newtonsoft.Json.JsonProperty("recipeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int RecipeId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("recipeName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RecipeName { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("brewDay", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset BrewDay { get; set; }
     
