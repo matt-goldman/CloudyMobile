@@ -1,11 +1,10 @@
-using System;
 using CloudyMobile.Maui.ViewModels;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 
 namespace CloudyMobile.Maui.Pages.Shared
 {
-	public partial class SearchRecipePage : ContentPage, IPage
+    public partial class SearchRecipePage : ContentPage, IPage
 	{
         public SearchRecipeViewModel ViewModel { get; set; }
 
@@ -17,11 +16,9 @@ namespace CloudyMobile.Maui.Pages.Shared
 			BindingContext = ViewModel;
 		}
 
-		int count = 0;
-		private void OnCounterClicked(object sender, EventArgs e)
-		{
-			count++;
-			CounterLabel.Text = $"Current count: {count}";
-		}
-	}
+        private void RecipeDetails_Dismissed(object sender, System.EventArgs e)
+        {
+
+        }
+    }
 }

@@ -40,7 +40,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui" Version="6.0.100-preview.4.*" />
-    <PackageReference Include="CloudyMobile.Client" Version="0.0.8" />
+    <PackageReference Include="CloudyMobile.Client" Version="0.0.9" />
     <PackageReference Include="IdentityModel.OidcClient" Version="4.0.0" />
 	</ItemGroup>
 
@@ -51,6 +51,16 @@
 	</PropertyGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
 		<AndroidEnvironment Include="Android\AndroidEnvironment.txt" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Views\RecipeDetails.xaml.cs">
+	    <DependentUpon>RecipeDetails.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="Views\RecipeDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>

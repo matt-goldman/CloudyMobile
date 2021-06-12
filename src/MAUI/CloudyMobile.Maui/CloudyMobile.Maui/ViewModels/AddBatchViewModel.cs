@@ -20,6 +20,7 @@ namespace CloudyMobile.Maui.ViewModels
         };
 
         public int RecipeId => _batch.RecipeId;
+        public string RecipeName => _batch.RecipeName;
         public DateTimeOffset BrewDay => _batch.BrewDay;
         public DateTimeOffset? BottleOrKegDate => _batch.BottleOrKegDate;
         public long PitchTemp => _batch.PitchTemp;
