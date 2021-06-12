@@ -46,7 +46,13 @@
                              BindableLayout.ItemsSource="{Binding Results}">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Grid ColumnDefinitions="2*,2*">
+                                <Grid ColumnDefinitions="2*,2*"
+                                      x:Name="RecipeItem">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                              Command="{Binding ViewRecipeDetailsCommand}"
+                                                              CommandParameter="{Binding Source={x:Reference RecipeItem}, Path=BindingContext}"/>
+                                    </Grid.GestureRecognizers>
                                     <Label Text="{Binding Name}"/>
                                     <Label Text="{Binding Style.Name}" />
                                 </Grid>
@@ -54,8 +60,15 @@
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
                 </ScrollView>
-                
-                <views:RecipeDetails Recipe="{Binding RecipeDetails}" Dismissed="RecipeDetails_Dismissed"
+
+                <views:RecipeDetails Recipe="{Binding RecipeDetails}"
+                                     SelectedCommand="{Binding RecipeSelectedCommand}"
+                                     CancelCommand="{Binding HideRecipeDetailsCommand}"
+                                     Grid.Row="0"
+                                     IsViewOnlyMode="False"
+                                     IsVisible="{Binding ShowRecipeDetails}"
+                                     HeightRequest="350"
+                                     WidthRequest="350"/>
 
             </Grid>
         </StackLayout>

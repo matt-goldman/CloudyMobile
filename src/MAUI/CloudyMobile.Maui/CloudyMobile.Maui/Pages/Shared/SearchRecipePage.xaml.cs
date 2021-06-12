@@ -13,12 +13,7 @@ namespace CloudyMobile.Maui.Pages.Shared
 			InitializeComponent();
 			ViewModel = ViewModelResolver.Resolve<SearchRecipeViewModel>();
 			ViewModel.Navigation = Navigation;
-			BindingContext = ViewModel;
+            BindingContext = ViewModel;
 		}
-
-        private void RecipeDetails_Dismissed(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }

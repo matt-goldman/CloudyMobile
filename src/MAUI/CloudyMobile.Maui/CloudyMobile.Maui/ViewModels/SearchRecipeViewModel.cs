@@ -19,6 +19,8 @@ namespace CloudyMobile.Maui.ViewModels
 
         public RecipeDto RecipeDetails { get; set; }
 
+        public bool ShowRecipeDetails { get; set; } = false;
+
         public bool RecipeDetailsVisible { get; set; } = false;
 
 
@@ -26,12 +28,16 @@ namespace CloudyMobile.Maui.ViewModels
 
         public ICommand ViewRecipeDetailsCommand { get; set; }
 
+        public ICommand RecipeSelectedCommand { get; set; }
 
+        public ICommand HideRecipeDetailsCommand { get; set; }
 
         public SearchRecipeViewModel(RecipeService recipeService)
         {
             this.recipeService = recipeService;
             SearchButtonCommand = new Command(async () => await UpdateSearchResults());
+            ViewRecipeDetailsCommand = new Command<RecipeDto>((recipe) => ViewRecipeDetails(recipe));
+            HideRecipeDetailsCommand = new Command(() => { ShowRecipeDetails = false; RaisePropertyChanged(nameof(ShowRecipeDetails)); });
         }
 
         public async Task UpdateSearchResults()
@@ -42,9 +48,17 @@ namespace CloudyMobile.Maui.ViewModels
             results.Recipes.ForEach(recipe => Results.Add(recipe));
         }
 
-        public async Task ViewRecipeDetails(RecipeDto recipe)
+        public void ViewRecipeDetails(RecipeDto recipe)
         {
+            RecipeDetails = recipe;
+            ShowRecipeDetails = true;
+            RaisePropertyChanged(nameof(RecipeDetails), nameof(ShowRecipeDetails));
+        }
 
+        public async Task RecipeSelected()
+        {
+            MessagingCenter.Send<object, int>(this, "RecipeSelected", RecipeDetails.Id);
+            await Navigation.PopModalAsync();
         }
     }
 }
