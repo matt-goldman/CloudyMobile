@@ -1,0 +1,46 @@
+﻿<Frame xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:CloudyMobile.Maui.Views"
+       x:DataType="views:RecipeDetails"
+       x:Class="CloudyMobile.Maui.Views.RecipeDetails"
+       BackgroundColor="{DynamicResource EntryBackgroundColor}"
+       BorderColor="{DynamicResource PrimaryAccentColor}">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+        <Label HorizontalOptions="CenterAndExpand"
+               HorizontalTextAlignment="Center"
+               Grid.Row="0"
+               FontSize="22"
+               Text="{Binding Recipe.Name}"/>
+
+        <Image Source="{Binding Recipe.Style.ImageUrl}"
+               Grid.Row="1"
+               WidthRequest="300"
+               HeightRequest="300"/>
+
+        <Label HorizontalOptions="CenterAndExpand"
+               HorizontalTextAlignment="Center"
+               Grid.Row="2"
+               FontSize="16"
+               Text="{Binding Recipe.Style.Name, StringFormat='Style: {0}'}"/>
+
+        <Label HorizontalOptions="CenterAndExpand"
+               HorizontalTextAlignment="Center"
+               Grid.Row="3"
+               FontSize="16"
+               Text="{Binding Recipe.Notes}"/>
+        
+        <Button Text="Ok"
+                Grid.Row="4"
+                IsVisible="{Binding IsViewOnlyMode}"
+                Clicked="OkClicked"/>
+
+        <StackLayout Orientation="Horizontal"
+                     Grid.Row="4"
+                     IsVisible="{Binding IsNotViewOnlyMode}">
+            <Button Text="Cancel"
+                    Clicked="CancelClicked"/>
+            <Button Text="Select Recipe"
+                    Clicked="SelectClicked"/>
+        </StackLayout>
+    </Grid>
+</Frame>
