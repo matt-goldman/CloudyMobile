@@ -1,7 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CloudyMobile.Maui.Pages.Phone.AddBatchPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             x:Class="CloudyMobile.Maui.Pages.Phone.AddBatchPage">
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,1"
                                  EndPoint="1,0">
@@ -16,17 +15,23 @@
         <StackLayout>
             <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*">
 
-                <StackLayout Orientation="Horizontal"
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <StackLayout Orientation="Horizontal"
                              HorizontalOptions="CenterAndExpand"
                              Grid.Row="0">
-                    <Label Text="Recipe: " 
+                        <Label Text="Recipe: " 
                            FontSize="16"
                            HorizontalOptions="StartAndExpand" />
 
-                    <Label Text="{Binding RecipeName}"
+                        <Label Text="{Binding RecipeName}"
                            SemanticProperties.Hint="Shows the name of the recipe selected for this batch" 
                            FontSize="16"
                            HorizontalOptions="StartAndExpand" />
+                    </StackLayout>
+
+                    <Button Text="Find Recipe"
+                            Command="{Binding FindRecipeCommand}"
+                            HorizontalOptions="Center"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="1"
