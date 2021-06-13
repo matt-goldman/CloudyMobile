@@ -2,7 +2,7 @@ using CloudyMobile.Maui.Helpers;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace CloudyMobile.Maui.Services
+namespace CloudyMobile.Maui.Services.Concretions
 {
     public class BaseService
     {

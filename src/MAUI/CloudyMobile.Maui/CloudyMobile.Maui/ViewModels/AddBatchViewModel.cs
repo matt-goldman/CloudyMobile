@@ -1,6 +1,6 @@
 ﻿using CloudyMobile.Client;
 using CloudyMobile.Maui.Pages.Shared;
-using CloudyMobile.Maui.Services;
+using CloudyMobile.Maui.Services.Abstractions;
 using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace CloudyMobile.Maui.ViewModels
 {
     public class AddBatchViewModel : BaseViewModel
     {
-        private readonly BatchesService batchesService;
+        private readonly IBatchService batchesService;
 
         private BatchDto _batch { get; set; } = new BatchDto
         {
@@ -39,7 +39,7 @@ namespace CloudyMobile.Maui.ViewModels
         public ICommand FindRecipeCommand { get; set; }
 
 
-        public AddBatchViewModel(BatchesService batchesService)
+        public AddBatchViewModel(IBatchService batchesService)
         {
             this.batchesService = batchesService;
 

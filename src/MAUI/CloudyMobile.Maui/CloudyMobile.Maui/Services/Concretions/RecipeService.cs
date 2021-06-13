@@ -1,7 +1,7 @@
 using CloudyMobile.Client;
 using System.Threading.Tasks;
 
-namespace CloudyMobile.Maui.Services
+namespace CloudyMobile.Maui.Services.Concretions
 {
     public class RecipeService : BaseService
     {

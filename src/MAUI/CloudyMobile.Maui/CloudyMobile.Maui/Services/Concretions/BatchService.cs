@@ -1,9 +1,10 @@
 using CloudyMobile.Client;
+using CloudyMobile.Maui.Services.Abstractions;
 using System.Threading.Tasks;
 
-namespace CloudyMobile.Maui.Services
+namespace CloudyMobile.Maui.Services.Concretions
 {
-    public class BatchesService : BaseService
+    public class BatchesService : BaseService, IBatchService
     {
         private BatchesClient batchesClient;
 

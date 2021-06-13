@@ -1,8 +1,8 @@
 ﻿using CloudyMobile.Maui.Helpers;
-using CloudyMobile.Maui.Services;
 using IdentityModel.OidcClient.Browser;
 using TinyIoC;
-using System;
+using CloudyMobile.Maui.Services.Concretions;
+using CloudyMobile.Maui.Services.Abstractions;
 
 namespace CloudyMobile.Maui.ViewModels
 {
@@ -24,7 +24,7 @@ namespace CloudyMobile.Maui.ViewModels
             // Services - by default, TinyIoC will register interface registrations as singletons.
             _container.Register<IBrowser, AuthBrowser>();
             _container.Register<AuthService>().AsSingleton();
-            _container.Register<BatchesService>().AsSingleton();
+            _container.Register<IBatchService, BatchesService>();
             _container.Register<RecipeService>().AsSingleton();
         }
 
