@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace CloudyMobile.Maui.ViewModels
 {
-    public  class SearchRecipeViewModel : BaseViewModel
+    public class SearchRecipeViewModel : BaseViewModel
     {
         private readonly RecipeService recipeService;
 

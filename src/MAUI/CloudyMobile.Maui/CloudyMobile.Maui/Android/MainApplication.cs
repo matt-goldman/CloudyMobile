@@ -5,12 +5,12 @@ using Microsoft.Maui;
 
 namespace CloudyMobile.Maui
 {
-	[Application]
-	public class MainApplication : MauiApplication<Startup>
-	{
-		public MainApplication(IntPtr handle, JniHandleOwnership ownership)
-			: base(handle, ownership)
-		{
-		}
-	}
+    [Application]
+    public class MainApplication : MauiApplication<Startup>
+    {
+        public MainApplication(IntPtr handle, JniHandleOwnership ownership)
+            : base(handle, ownership)
+        {
+        }
+    }
 }

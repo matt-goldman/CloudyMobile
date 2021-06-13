@@ -11,7 +11,7 @@ namespace CloudyMobile.Maui.Services
         {
             get
             {
-                if(_client is null)
+                if (_client is null)
                 {
                     InitialiseClient();
                 }

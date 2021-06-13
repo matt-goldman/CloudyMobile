@@ -12,5 +12,5 @@ namespace CloudyMobile.Maui
         DataHost = "callback")]
     public class WebAuthenticationCallbackActivity : Microsoft.Maui.Essentials.WebAuthenticatorCallbackActivity
     {
-    }   
+    }
 }

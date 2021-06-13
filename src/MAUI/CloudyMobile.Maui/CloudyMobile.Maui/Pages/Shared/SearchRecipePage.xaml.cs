@@ -5,15 +5,15 @@ using Microsoft.Maui.Controls;
 namespace CloudyMobile.Maui.Pages.Shared
 {
     public partial class SearchRecipePage : ContentPage, IPage
-	{
+    {
         public SearchRecipeViewModel ViewModel { get; set; }
 
         public SearchRecipePage()
-		{
-			InitializeComponent();
-			ViewModel = ViewModelResolver.Resolve<SearchRecipeViewModel>();
-			ViewModel.Navigation = Navigation;
+        {
+            InitializeComponent();
+            ViewModel = ViewModelResolver.Resolve<SearchRecipeViewModel>();
+            ViewModel.Navigation = Navigation;
             BindingContext = ViewModel;
-		}
+        }
     }
 }

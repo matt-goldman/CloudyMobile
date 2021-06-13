@@ -5,21 +5,21 @@ using Microsoft.Maui.Controls;
 namespace CloudyMobile.Maui
 {
     public partial class MainPage : ContentPage, IPage
-	{
+    {
         public MainViewModel ViewModel { get; set; }
 
-		public MainPage()
-		{
-			InitializeComponent();
-			ViewModel = ViewModelResolver.Resolve<MainViewModel>();
-			ViewModel.Navigation = Navigation;
-			BindingContext = ViewModel;
-		}
+        public MainPage()
+        {
+            InitializeComponent();
+            ViewModel = ViewModelResolver.Resolve<MainViewModel>();
+            ViewModel.Navigation = Navigation;
+            BindingContext = ViewModel;
+        }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-			await ViewModel.CheckAuthStatus();
+            _ = ViewModel.CheckAuthStatus();
         }
     }
 }

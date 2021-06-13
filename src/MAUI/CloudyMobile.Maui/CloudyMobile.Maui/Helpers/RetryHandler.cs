@@ -31,7 +31,7 @@ namespace CloudyMobile.Maui.Helpers
 
                     if (response.StatusCode == HttpStatusCode.Unauthorized)
                     {
-                        if(await HandleUnauthorized())
+                        if (await HandleUnauthorized())
                         {
                             continue;
                         }
@@ -39,7 +39,7 @@ namespace CloudyMobile.Maui.Helpers
 
                     if (response.StatusCode == HttpStatusCode.ServiceUnavailable)
                     {
-                        if(i < 4)
+                        if (i < 4)
                         {
                             await Task.Delay(1000, cancellationToken);
                             i++;
@@ -49,13 +49,13 @@ namespace CloudyMobile.Maui.Helpers
 
                     return response;
                 }
-                catch (Exception ex) when(IsNetworkError(ex))
+                catch (Exception ex) when (IsNetworkError(ex))
                 {
                     // Network error
                     // Wait a bit and try again later
                     await Task.Delay(2000, cancellationToken);
                     continue;
-                } 
+                }
             }
         }
 

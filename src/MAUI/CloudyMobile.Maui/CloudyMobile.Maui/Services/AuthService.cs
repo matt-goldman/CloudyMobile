@@ -28,7 +28,7 @@ namespace CloudyMobile.Maui.Services
 
             var loginResult = await oidcClient.LoginAsync(new LoginRequest());
 
-            if(loginResult.IsError)
+            if (loginResult.IsError)
             {
                 // TODO: handle error
                 return false;

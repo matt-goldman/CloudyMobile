@@ -5,22 +5,22 @@ using Application = Microsoft.Maui.Controls.Application;
 namespace CloudyMobile.Maui
 {
     public partial class App : Application
-	{
-		public static Constants Constants { get; set; }
-		
-		public App()
-		{
-			InitializeComponent();
-		}
+    {
+        public static Constants Constants { get; set; }
 
-		protected override IWindow CreateWindow(IActivationState activationState)
-		{
-			Microsoft.Maui.Controls.Compatibility.Forms.Init(activationState);
+        public App()
+        {
+            InitializeComponent();
+        }
 
-			this.On<Microsoft.Maui.Controls.PlatformConfiguration.Windows>()
-				.SetImageDirectory("Assets");
+        protected override IWindow CreateWindow(IActivationState activationState)
+        {
+            Microsoft.Maui.Controls.Compatibility.Forms.Init(activationState);
 
-			return new Microsoft.Maui.Controls.Window(new MainPage());
-		}
-	}
+            this.On<Microsoft.Maui.Controls.PlatformConfiguration.Windows>()
+                .SetImageDirectory("Assets");
+
+            return new Microsoft.Maui.Controls.Window(new MainPage());
+        }
+    }
 }

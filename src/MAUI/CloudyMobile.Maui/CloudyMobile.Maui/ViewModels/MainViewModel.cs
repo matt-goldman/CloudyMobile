@@ -24,11 +24,11 @@ namespace CloudyMobile.Maui.ViewModels
         {
             var token = await SecureStorage.GetAsync(nameof(App.Constants.AccessToken));
 
-            if(string.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(token))
             {
                 var loggedIn = await authService.Authenticate();
 
-                if(!loggedIn)
+                if (!loggedIn)
                 {
                     await App.Current.MainPage.DisplayAlert("Login Failed", "There was a problem logging in. Please try again later.", "Ok");
                 }
