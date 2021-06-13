@@ -1,5 +1,5 @@
 ﻿using CloudyMobile.Maui.Pages.Phone;
-using CloudyMobile.Maui.Services;
+using CloudyMobile.Maui.Services.Abstractions;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
 using System.Threading.Tasks;
@@ -9,12 +9,12 @@ namespace CloudyMobile.Maui.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        private readonly AuthService authService;
+        private readonly IAuthService authService;
 
         public ICommand ViewRecipesCommand { get; set; }
         public ICommand AddBatchCommand { get; set; }
 
-        public MainViewModel(AuthService authService)
+        public MainViewModel(IAuthService authService)
         {
             this.authService = authService;
             AddBatchCommand = new Command(async () => await OpenAddBatchPage());

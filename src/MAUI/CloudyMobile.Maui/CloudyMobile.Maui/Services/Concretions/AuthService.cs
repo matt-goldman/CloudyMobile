@@ -1,10 +1,11 @@
+using CloudyMobile.Maui.Services.Abstractions;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
 using System.Threading.Tasks;
 
 namespace CloudyMobile.Maui.Services.Concretions
 {
-    public class AuthService
+    public class AuthService : IAuthService
     {
         private readonly IBrowser browser;
 

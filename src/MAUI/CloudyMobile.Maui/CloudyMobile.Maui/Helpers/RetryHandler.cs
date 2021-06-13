@@ -1,4 +1,4 @@
-﻿using CloudyMobile.Maui.Services;
+﻿using CloudyMobile.Maui.Services.Abstractions;
 using CloudyMobile.Maui.ViewModels;
 using System;
 using System.Net;
@@ -11,11 +11,11 @@ namespace CloudyMobile.Maui.Helpers
 {
     public class RetryHandler : DelegatingHandler
     {
-        private AuthService authService;
+        private IAuthService authService;
 
         public RetryHandler()
         {
-            authService = ViewModelResolver.Resolve<AuthService>();
+            authService = ViewModelResolver.Resolve<IAuthService>();
         }
 
 

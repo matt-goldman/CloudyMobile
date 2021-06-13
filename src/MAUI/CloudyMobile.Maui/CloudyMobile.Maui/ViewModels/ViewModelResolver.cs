@@ -23,7 +23,7 @@ namespace CloudyMobile.Maui.ViewModels
 
             // Services - by default, TinyIoC will register interface registrations as singletons.
             _container.Register<IBrowser, AuthBrowser>();
-            _container.Register<AuthService>().AsSingleton();
+            _container.Register<IAuthService, AuthService>();
             _container.Register<IBatchService, BatchesService>();
             _container.Register<RecipeService>().AsSingleton();
         }
