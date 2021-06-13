@@ -27,21 +27,19 @@
                     HorizontalOptions="CenterAndExpand" />
 
                 <Button Text="Add a batch"
-                    Grid.Row="3"
-                    SemanticProperties.Hint="Takes you to the Add New Batch page"
-                    Clicked="OnAddBatchClicked"
-                    HorizontalOptions="Center" />
+                        Grid.Row="3"
+                        SemanticProperties.Hint="Takes you to the Add New Batch page"
+                        Command="{Binding AddBatchCommand}"
+                        HorizontalOptions="Center" />
 
                 <Button Text="View Recipes and Styles"
                     Grid.Row="3"
                     SemanticProperties.Hint="Takes you to the Add New Batch page"
-                    Clicked="OnViewRecipeClicked"
                     HorizontalOptions="Center" />
 
                 <Button Text="View Kegs and Locations"
                     Grid.Row="3"
                     SemanticProperties.Hint="Takes you to the Add New Batch page"
-                    Clicked="OnViewKegClicked"
                     HorizontalOptions="Center" />
 
                 <Image Grid.Row="4"

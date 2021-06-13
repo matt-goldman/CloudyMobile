@@ -1,14 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
-using System;
-using SystemConfiguration;
 using Application = Microsoft.Maui.Controls.Application;
 
 namespace CloudyMobile.Maui
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
 		public static Constants Constants { get; set; }
 		

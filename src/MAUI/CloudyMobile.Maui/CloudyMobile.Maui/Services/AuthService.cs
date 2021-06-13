@@ -13,7 +13,7 @@ namespace CloudyMobile.Maui.Services
             this.browser = browser;
         }
 
-        public async Task Authenticate()
+        public async Task<bool> Authenticate()
         {
             var options = new OidcClientOptions
             {
@@ -30,11 +30,13 @@ namespace CloudyMobile.Maui.Services
 
             if(loginResult.IsError)
             {
-                // handle error
-                return;
+                // TODO: handle error
+                return false;
             }
 
             App.Constants.AccessToken = loginResult?.AccessToken ?? string.Empty;
+
+            return true;
         }
     }
 }
