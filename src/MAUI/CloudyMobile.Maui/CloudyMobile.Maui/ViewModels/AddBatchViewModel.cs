@@ -48,6 +48,8 @@ namespace CloudyMobile.Maui.ViewModels
             FindRecipeCommand = new Command(async () => await Navigation.PushModalAsync(new SearchRecipePage()));
 
             AddBatchCommand = new Command(async () => await SaveBatch());
+
+            _batch.BrewDay = DateTime.Now;
         }
 
         private void SetRecipeId(int id)

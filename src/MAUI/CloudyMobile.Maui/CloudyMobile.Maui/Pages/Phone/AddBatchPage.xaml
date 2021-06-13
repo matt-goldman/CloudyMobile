@@ -17,44 +17,41 @@
             <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*">
 
                 <StackLayout Orientation="Horizontal"
-                             Grid.Row="1">
-                    <Label Text="Recipe:"
-                           SemanticProperties.Hint="Counts the number of times you click" 
+                             HorizontalOptions="CenterAndExpand"
+                             Grid.Row="0">
+                    <Label Text="Recipe: " 
                            FontSize="16"
                            HorizontalOptions="StartAndExpand" />
 
-                    <Label Text="Recipe:"
-                           SemanticProperties.Hint="Counts the number of times you click" 
+                    <Label Text="{Binding RecipeName}"
+                           SemanticProperties.Hint="Shows the name of the recipe selected for this batch" 
                            FontSize="16"
                            HorizontalOptions="StartAndExpand" />
                 </StackLayout>
-                <Label Text="Hello, World!"
-                    Grid.Row="0"
-                    SemanticProperties.HeadingLevel="Level1"
-                    FontSize="32"
-                    HorizontalOptions="CenterAndExpand" />
 
-                
+                <StackLayout Grid.Row="1"
+                             HorizontalOptions="CenterAndExpand">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Date batch brewed: "/>
+                        <Label Text="{Binding BrewDay, StringFormat='{0:dd MMM yyyy}'}"/>
+                    </StackLayout>
 
-                <Label Text="Current count: 0"
-                    Grid.Row="2"
-                    SemanticProperties.Hint="Counts the number of times you click"
-                    FontSize="18"
-                    FontAttributes="Bold"
-                    x:Name="CounterLabel"
-                    HorizontalOptions="Center" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="OG: "/>
+                        <Entry Text="{Binding OG}"
+                               Placeholder="Enter OG..."/>
+                    </StackLayout>
+                </StackLayout>
 
-                <Button Text="Click me"
-                    Grid.Row="3"
-                    SemanticProperties.Hint="Counts the number of times you click"
-                    Clicked="OnCounterClicked"
-                    HorizontalOptions="Center" />
+                <Editor Text="{Binding Notes}"
+                        Placeholder="Recipe notes..."
+                        Grid.Row="2"/>
 
-                <Image Grid.Row="4"
-                    Source="dotnet_bot.png"
-                    SemanticProperties.Description="Cute dotnet bot waving hi to you!"
-                    WidthRequest="300"
-                    HorizontalOptions="Center" />
+                <Button Text="Save Batch"
+                        Grid.Row="3"
+                        SemanticProperties.Hint="Saves the current batch"
+                        Command="{Binding AddBatchCommand}"
+                        HorizontalOptions="Center" />
 
             </Grid>
         </StackLayout>

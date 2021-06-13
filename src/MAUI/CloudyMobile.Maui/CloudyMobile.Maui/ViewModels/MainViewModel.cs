@@ -1,4 +1,6 @@
-﻿using CloudyMobile.Maui.Services;
+﻿using CloudyMobile.Maui.Pages.Phone;
+using CloudyMobile.Maui.Services;
+using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,6 +17,7 @@ namespace CloudyMobile.Maui.ViewModels
         public MainViewModel(AuthService authService)
         {
             this.authService = authService;
+            AddBatchCommand = new Command(async () => await OpenAddBatchPage());
         }
 
         public async Task CheckAuthStatus()
@@ -30,6 +33,11 @@ namespace CloudyMobile.Maui.ViewModels
                     await App.Current.MainPage.DisplayAlert("Login Failed", "There was a problem logging in. Please try again later.", "Ok");
                 }
             }
+        }
+
+        public async Task OpenAddBatchPage()
+        {
+            await Navigation.PushAsync(new AddBatchPage());
         }
     }
 }
