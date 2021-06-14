@@ -2,7 +2,6 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 using Application = Microsoft.Maui.Controls.Application;
-using Maui.Plugins.PageResolver;
 
 namespace CloudyMobile.Maui
 {
@@ -10,10 +9,9 @@ namespace CloudyMobile.Maui
     {
         public static Constants Constants { get; set; } = new Constants();
 
-        public App(IServiceProvider sp)
+        public App()
         {
             InitializeComponent();
-            this.UsePageResolver(sp);
         }
 
         protected override IWindow CreateWindow(IActivationState activationState)

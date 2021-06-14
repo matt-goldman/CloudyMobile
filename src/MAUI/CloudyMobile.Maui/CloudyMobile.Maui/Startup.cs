@@ -7,6 +7,7 @@ using CloudyMobile.Maui.Services.Abstractions;
 using CloudyMobile.Maui.Services.Concretions;
 using IdentityModel.OidcClient.Browser;
 using CloudyMobile.Maui.Helpers;
+using Maui.Plugins.PageResolver;
 
 namespace CloudyMobile.Maui
 {
@@ -24,6 +25,8 @@ namespace CloudyMobile.Maui
                     services.AddSingleton<IBrowser, AuthBrowser>();
                     services.AddSingleton<IBatchService, BatchesService>();
                     services.AddSingleton<RecipeService>();
+
+                    services.UsePageResolver();
                 })
                 .ConfigureFonts(fonts =>
                 {
