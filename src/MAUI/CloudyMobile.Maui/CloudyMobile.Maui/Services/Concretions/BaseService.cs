@@ -7,6 +7,7 @@ namespace CloudyMobile.Maui.Services.Concretions
     public class BaseService
     {
         private static HttpClient _client;
+
         public static HttpClient httpClient
         {
             get
@@ -18,6 +19,7 @@ namespace CloudyMobile.Maui.Services.Concretions
                 return _client;
             }
         }
+
         public static string apiUri;
 
         public BaseService()

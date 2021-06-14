@@ -8,10 +8,11 @@ namespace CloudyMobile.Maui.Pages.Phone
     {
         public AddBatchViewModel ViewModel { get; set; }
 
-        public AddBatchPage()
+        public AddBatchPage(AddBatchViewModel vm)
         {
             InitializeComponent();
-            ViewModel = ViewModelResolver.Resolve<AddBatchViewModel>();
+            ViewModel = vm;
+            //ViewModel = ViewModelResolver.Resolve<AddBatchViewModel>();
             ViewModel.Navigation = Navigation;
             BindingContext = ViewModel;
         }

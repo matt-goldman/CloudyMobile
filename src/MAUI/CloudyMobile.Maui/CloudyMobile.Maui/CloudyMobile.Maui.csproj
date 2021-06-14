@@ -54,6 +54,9 @@
 		<AndroidEnvironment Include="Android\AndroidEnvironment.txt" />
 	</ItemGroup>
 	<ItemGroup>
+	  <ProjectReference Include="..\Maui.Plugins.PageResolver\Maui.Plugins.PageResolver.csproj" />
+	</ItemGroup>
+	<ItemGroup>
 	  <Compile Update="Views\RecipeDetails.xaml.cs">
 	    <DependentUpon>RecipeDetails.xaml</DependentUpon>
 	  </Compile>

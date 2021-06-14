@@ -4,6 +4,7 @@ using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Maui.Plugins.PageResolver;
 
 namespace CloudyMobile.Maui.ViewModels
 {
@@ -37,7 +38,7 @@ namespace CloudyMobile.Maui.ViewModels
 
         public async Task OpenAddBatchPage()
         {
-            await Navigation.PushAsync(new AddBatchPage());
+            await Navigation.PushAsync<AddBatchPage>();
         }
     }
 }

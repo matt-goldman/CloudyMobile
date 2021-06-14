@@ -1,6 +1,11 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Extensions.DependencyInjection;
+using CloudyMobile.Maui.Services.Abstractions;
+using CloudyMobile.Maui.Services.Concretions;
+using IdentityModel.OidcClient.Browser;
+using CloudyMobile.Maui.Helpers;
 
 namespace CloudyMobile.Maui
 {
@@ -11,6 +16,13 @@ namespace CloudyMobile.Maui
             appBuilder
                 .UseFormsCompatibility()
                 .UseMauiApp<App>()
+                .ConfigureServices(services =>
+                {
+                    services.AddSingleton<IAuthService, AuthService>();
+                    services.AddSingleton<IBrowser, AuthBrowser>();
+                    services.AddSingleton<IBatchService, BatchesService>();
+                    services.AddSingleton<RecipeService>();
+                })
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
