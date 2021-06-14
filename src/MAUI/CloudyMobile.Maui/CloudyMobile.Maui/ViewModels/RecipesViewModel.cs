@@ -1,4 +1,4 @@
-﻿using CloudyMobile.Maui.Services;
+﻿using CloudyMobile.Maui.Services.Concretions;
 
 namespace CloudyMobile.Maui.ViewModels
 {

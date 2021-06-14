@@ -41,15 +41,27 @@ namespace CloudyMobile.Maui.ViewModels
 
         public AddBatchViewModel(IBatchService batchesService)
         {
+            Console.WriteLine("Add batch viewmodel constructor called");
+
             this.batchesService = batchesService;
 
+            Console.WriteLine("Batch service assinged");
+
             MessagingCenter.Subscribe<object, int>(this, "RecipeSelected", (sender, recipeId) => SetRecipeId(recipeId));
+
+            Console.WriteLine("Messaging center subscribed");
 
             FindRecipeCommand = new Command(async () => await Navigation.PushModalAsync(new SearchRecipePage()));
 
             AddBatchCommand = new Command(async () => await SaveBatch());
 
-            _batch.BrewDay = DateTime.Now;
+            Console.WriteLine("Commands assigned");
+
+            //_batch.BrewDay = DateTime.Now;
+
+            Console.WriteLine("Date and time set for brew day");
+
+            Console.WriteLine("Add batch view model constructed");
         }
 
         private void SetRecipeId(int id)

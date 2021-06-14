@@ -1,5 +1,5 @@
 ﻿using CloudyMobile.Client;
-using CloudyMobile.Maui.Services;
+using CloudyMobile.Maui.Services.Concretions;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Internals;
 using System.Collections.ObjectModel;
@@ -32,9 +32,9 @@ namespace CloudyMobile.Maui.ViewModels
 
         public ICommand HideRecipeDetailsCommand { get; set; }
 
-        public SearchRecipeViewModel(RecipeService recipeService)
+        public SearchRecipeViewModel()//(RecipeService recipeService)
         {
-            this.recipeService = recipeService;
+            //this.recipeService = recipeService;
             SearchButtonCommand = new Command(async () => await UpdateSearchResults());
             ViewRecipeDetailsCommand = new Command<RecipeDto>((recipe) => ViewRecipeDetails(recipe));
             HideRecipeDetailsCommand = new Command(() => { ShowRecipeDetails = false; RaisePropertyChanged(nameof(ShowRecipeDetails)); });

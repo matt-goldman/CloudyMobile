@@ -35,10 +35,17 @@
 
                 <Button Text="View Recipes and Styles"
                         Grid.Row="3"
+                        Command="{Binding ViewRecipesCommand}"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         HorizontalOptions="Center" />
 
-                <Button Text="View Kegs and Locations"
+                <!-- <Button Text="View Kegs and Locations"
+                        Grid.Row="4"
+                        SemanticProperties.Hint="Takes you to the Add New Batch page"
+                        HorizontalOptions="Center" /> -->
+
+                <Button Text="Open scratch page"
+                        Command="{Binding ScratchCommand}"
                         Grid.Row="4"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         HorizontalOptions="Center" />

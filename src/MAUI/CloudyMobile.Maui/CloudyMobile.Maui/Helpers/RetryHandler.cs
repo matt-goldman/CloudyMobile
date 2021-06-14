@@ -15,7 +15,9 @@ namespace CloudyMobile.Maui.Helpers
 
         public RetryHandler()
         {
+            Console.WriteLine("Retry handler constructor called");
             authService = ViewModelResolver.Resolve<IAuthService>();
+            Console.WriteLine("Auth service initialised, Retry handler constructed");
         }
 
 
