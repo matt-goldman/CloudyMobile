@@ -1,12 +1,12 @@
-﻿using CloudyMobile.Maui.Services;
+﻿using CloudyMobile.Maui.Services.Abstractions;
 
 namespace CloudyMobile.Maui.ViewModels
 {
     public class BatchesViewModel : BaseViewModel
     {
-        private readonly BatchesService service;
+        private readonly IBatchService service;
 
-        public BatchesViewModel(BatchesService service)
+        public BatchesViewModel(IBatchService service)
         {
             this.service = service;
         }

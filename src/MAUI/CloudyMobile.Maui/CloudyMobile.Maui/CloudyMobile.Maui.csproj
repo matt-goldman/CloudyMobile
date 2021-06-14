@@ -11,7 +11,7 @@
 		<ApplicationTitle>CloudyMobile.Maui</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.CloudyMobile.Maui</ApplicationId>
+		<ApplicationId>com.ssw.CloudyMobile.Maui</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationVersion>1.0</ApplicationVersion>

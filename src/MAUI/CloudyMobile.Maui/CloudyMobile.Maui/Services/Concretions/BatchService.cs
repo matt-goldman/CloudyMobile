@@ -1,5 +1,6 @@
 using CloudyMobile.Client;
 using CloudyMobile.Maui.Services.Abstractions;
+using System;
 using System.Threading.Tasks;
 
 namespace CloudyMobile.Maui.Services.Concretions
@@ -8,9 +9,11 @@ namespace CloudyMobile.Maui.Services.Concretions
     {
         private BatchesClient batchesClient;
 
-        public BatchesService()
+        public BatchesService() : base()
         {
+            Console.WriteLine("Batch service constructor called");
             batchesClient = new BatchesClient(apiUri, httpClient);
+            Console.WriteLine("Batch client initialised, batch service constructed");
         }
 
         public async Task<int> CreateBatch(BatchDto batch)
