@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls.Compatibility;
+using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using CloudyMobile.Maui.Services.Abstractions;
 using CloudyMobile.Maui.Services.Concretions;
@@ -16,6 +17,7 @@ namespace CloudyMobile.Maui
             appBuilder
                 .UseFormsCompatibility()
                 .UseMauiApp<App>()
+                .UseMauiControlsHandlers()
                 .ConfigureServices(services =>
                 {
                     services.AddSingleton<IAuthService, AuthService>();
