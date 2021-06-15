@@ -8,6 +8,7 @@ using CloudyMobile.Maui.Services.Concretions;
 using IdentityModel.OidcClient.Browser;
 using CloudyMobile.Maui.Helpers;
 using Maui.Plugins.PageResolver;
+using CloudyMobile.Maui.ViewModels;
 
 namespace CloudyMobile.Maui
 {
@@ -25,6 +26,8 @@ namespace CloudyMobile.Maui
                     services.AddSingleton<IBrowser, AuthBrowser>();
                     services.AddSingleton<IBatchService, BatchesService>();
                     services.AddSingleton<RecipeService>();
+
+                    services.AddTransient<AddBatchViewModel>();
 
                     services.UsePageResolver();
                 })
