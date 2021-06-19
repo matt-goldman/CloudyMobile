@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "CloudyMobile.Maui.WinUI": {
+      "commandName": "AppContainer"
+    }
+  }
+}

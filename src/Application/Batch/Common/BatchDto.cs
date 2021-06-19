@@ -11,6 +11,7 @@ namespace CloudyMobile.Application.Batch.Common
     {
         public int? Id { get; set; }
         public int RecipeId { get; set; }
+        public string RecipeName { get; set; }
         public DateTime BrewDay { get; set; }
         public DateTime? BottleOrKegDate { get; set; }
         public long PitchTemp { get; set; }
