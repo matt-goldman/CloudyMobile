@@ -10,12 +10,12 @@ namespace CloudyMobile.Maui
 
         public string AccessToken { get; set; }
 
-        public string AuthorityUri = "https://cloudymobile.azurewebsites.net";
+        public string AuthorityUri = "https://demo.identityserver.io";//"https://cloudymobile.azurewebsites.net";
 
         public string SigninPath = "/Identity/Account/Login";
 
-        public string ClientId = "CloudyMobile.Maui";
+        public string ClientId = "interactive.public";//"CloudyMobile.Maui";
 
-        public string Scope = "openid profile CloudMobile.APIAPI offline_access";
+        public string Scope = "openid profile offline_access";//"openid profile CloudMobile.APIAPI offline_access";
     }
 }
