@@ -19,11 +19,15 @@ namespace CloudyMobile.Maui.ViewModels
 
         public string ErrorMessage { get; set; }
 
+        public string StackTrace { get; set; }
+
         public MainViewModel(IAuthService authService)
         {
             this.authService = authService;
             AddBatchCommand = new Command(async () => await OpenAddBatchPage());
             LoginCommand = new Command(async () => await Login());
+
+            MessagingCenter.Subscribe<object, ErrorAlert>(this, "ErrorCaught", (obj, args) => { DisplayErrorMessage(args.Message, args.StackTrace); });
         }
 
         public async Task CheckAuthStatus()
@@ -69,6 +73,14 @@ namespace CloudyMobile.Maui.ViewModels
                 ErrorMessage = ex.Message;
                 RaisePropertyChanged(nameof(ErrorMessage));
             }
+        }
+
+        public void DisplayErrorMessage(string message, string stackTrace)
+        {
+            StackTrace = stackTrace;
+            ErrorMessage = message;
+
+            RaisePropertyChanged(nameof(StackTrace), nameof(ErrorMessage));
         }
     }
 }

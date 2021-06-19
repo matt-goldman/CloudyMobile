@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
+using System.Threading.Tasks;
 using Application = Microsoft.Maui.Controls.Application;
 
 namespace CloudyMobile.Maui
@@ -22,4 +23,10 @@ namespace CloudyMobile.Maui
 			return new Microsoft.Maui.Controls.Window(new NavigationPage(new MainPage()));
 		}
 	}
+
+	public class ErrorAlert
+    {
+        public string Message { get; set; }
+        public string StackTrace { get; set; }
+    }
 }

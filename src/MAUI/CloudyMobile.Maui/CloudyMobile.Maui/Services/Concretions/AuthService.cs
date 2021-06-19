@@ -1,6 +1,7 @@
 using CloudyMobile.Maui.Services.Abstractions;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
+using Microsoft.Maui.Controls;
 using System;
 using System.Threading.Tasks;
 
@@ -44,6 +45,7 @@ namespace CloudyMobile.Maui.Services.Concretions
             }
             catch (System.Exception ex)
             {
+                MessagingCenter.Send<object, ErrorAlert>(this, "ErrorCaught", new ErrorAlert { Message = ex.Message, StackTrace = ex.StackTrace.ToString() });
                 Console.WriteLine("Login failed");
                 Console.WriteLine(ex.Message);
                 return false;

@@ -10,7 +10,9 @@ namespace CloudyMobile.Maui
 
         public string AccessToken { get; set; }
 
-        public string AuthorityUri = "https://cloudymobile.azurewebsites.net/";
+        public string AuthorityUri = "https://cloudymobile.azurewebsites.net";
+
+        public string SigninPath = "/Identity/Account/Login";
 
         public string ClientId = "CloudyMobile.Maui";
 
