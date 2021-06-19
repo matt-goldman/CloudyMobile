@@ -58,7 +58,7 @@ namespace CloudyMobile.Maui.ViewModels
         public async Task RecipeSelected()
         {
             MessagingCenter.Send<object, int>(this, "RecipeSelected", RecipeDetails.Id);
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

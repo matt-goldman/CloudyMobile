@@ -40,6 +40,8 @@ namespace CloudyMobile.Maui.ViewModels
         public ICommand CancelCommand { get; set; }
         public ICommand FindRecipeCommand { get; set; }
 
+        public string ErrorMessage { get; set; }
+
         public AddBatchViewModel(IBatchService batchService)
         {
             Title = "Add batch";
@@ -48,7 +50,7 @@ namespace CloudyMobile.Maui.ViewModels
 
             MessagingCenter.Subscribe<object, int>(this, "RecipeSelected", (sender, recipeId) => SetRecipeId(recipeId));
 
-            FindRecipeCommand = new Command(async () => await Navigation.PushModalAsync<SearchRecipePage>());
+            FindRecipeCommand = new Command(async () => await FindRecipe());
 
             AddBatchCommand = new Command(async () => await SaveBatch());
 
@@ -64,6 +66,22 @@ namespace CloudyMobile.Maui.ViewModels
         {
             await batchesService.CreateBatch(_batch);
             await Navigation.PopAsync();
+        }
+
+        public async Task FindRecipe()
+        {
+            ErrorMessage = "Finding recipe...";
+            RaisePropertyChanged(nameof(ErrorMessage));
+
+            try
+            {
+                await Navigation.PushAsync<SearchRecipePage>();
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+                RaisePropertyChanged(nameof(ErrorMessage));
+            }
         }
     }
 }

@@ -14,51 +14,64 @@
 
     <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
         <StackLayout>
-            <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*">
+            <Grid RowSpacing="25"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto,*,*"
+                  ColumnDefinitions="2*,3*">
 
-                <StackLayout HorizontalOptions="CenterAndExpand">
-                    <StackLayout Orientation="Horizontal"
-                             HorizontalOptions="CenterAndExpand"
-                             Grid.Row="0">
-                        <Label Text="Recipe: " 
-                           FontSize="16"
-                           HorizontalOptions="StartAndExpand" />
+                <Label Text="Recipe: "
+                       FontSize="16"
+                       HorizontalOptions="StartAndExpand"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
 
-                        <Label Text="{Binding RecipeName}"
-                           SemanticProperties.Hint="Shows the name of the recipe selected for this batch" 
-                           FontSize="16"
-                           HorizontalOptions="StartAndExpand" />
-                    </StackLayout>
+                <Label Text="{Binding RecipeName}"
+                       SemanticProperties.Hint="Shows the name of the recipe selected for this batch"
+                       FontSize="16"
+                       HorizontalOptions="StartAndExpand"
+                       Grid.Row="0"
+                       Grid.Column="1"/>
 
-                    <Button Text="Find Recipe"
-                            Command="{Binding FindRecipeCommand}"
-                            HorizontalOptions="Center"/>
-                </StackLayout>
+                <Button Text="Find Recipe"
+                        Command="{Binding FindRecipeCommand}"
+                        HorizontalOptions="Center"
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"/>
 
-                <StackLayout Grid.Row="1"
-                             HorizontalOptions="CenterAndExpand">
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Date batch brewed: "/>
-                        <Label Text="{Binding BrewDay, StringFormat='{0:dd MMM yyyy}'}"/>
-                    </StackLayout>
+                <Label Text="Date batch brewed: "
+                       Grid.Column="0"
+                       Grid.Row="2"/>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="OG: "/>
-                        <Entry Text="{Binding OG}"
-                               Placeholder="Enter OG..."/>
-                    </StackLayout>
-                </StackLayout>
+                <Label Text="{Binding BrewDay, StringFormat='{0:dd MMM yyyy}'}"
+                       Grid.Column="1"
+                       Grid.Row="2"/>
+
+                <Label Text="OG: "
+                       Grid.Row="3"
+                       Grid.Column="0"/>
+                <Entry Text="{Binding OG}"
+                       Placeholder="Enter OG..."
+                       Grid.Row="3"
+                       Grid.Column="1"/>
 
                 <Editor Text="{Binding Notes}"
                         Placeholder="Recipe notes..."
-                        Grid.Row="2"/>
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"/>
 
                 <Button Text="Save Batch"
-                        Grid.Row="3"
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
                         SemanticProperties.Hint="Saves the current batch"
                         Command="{Binding AddBatchCommand}"
                         HorizontalOptions="Center" />
 
+                <Label Grid.Row="6"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       Text="{Binding ErrorMessage}"/>
             </Grid>
         </StackLayout>
     </ScrollView>
