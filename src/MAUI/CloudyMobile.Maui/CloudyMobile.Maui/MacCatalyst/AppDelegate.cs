@@ -3,8 +3,8 @@ using Microsoft.Maui;
 
 namespace CloudyMobile.Maui
 {
-    [Register("AppDelegate")]
-    public class AppDelegate : MauiUIApplicationDelegate<Startup>
-    {
-    }
+	[Register("AppDelegate")]
+	public class AppDelegate : MauiUIApplicationDelegate<Startup>
+	{
+	}
 }

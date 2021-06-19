@@ -1,5 +1,7 @@
 ﻿using CloudyMobile.Maui.Pages.Phone;
+using CloudyMobile.Maui.Pages.Shared;
 using CloudyMobile.Maui.Services.Abstractions;
+using Maui.Plugins.PageResolver;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Essentials;
 using System.Threading.Tasks;
@@ -37,7 +39,7 @@ namespace CloudyMobile.Maui.ViewModels
 
         public async Task OpenAddBatchPage()
         {
-            await Navigation.PushAsync(new AddBatchPage());
+            await Navigation.PushAsync<AddBatchPage>();
         }
     }
 }

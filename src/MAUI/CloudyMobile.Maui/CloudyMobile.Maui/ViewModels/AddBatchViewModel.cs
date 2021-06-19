@@ -1,6 +1,8 @@
 ﻿using CloudyMobile.Client;
 using CloudyMobile.Maui.Pages.Shared;
 using CloudyMobile.Maui.Services.Abstractions;
+using CloudyMobile.Maui.Services.Concretions;
+using Maui.Plugins.PageResolver;
 using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
@@ -38,14 +40,15 @@ namespace CloudyMobile.Maui.ViewModels
         public ICommand CancelCommand { get; set; }
         public ICommand FindRecipeCommand { get; set; }
 
-
-        public AddBatchViewModel(IBatchService batchesService)
+        public AddBatchViewModel(IBatchService batchService)
         {
-            this.batchesService = batchesService;
+            Title = "Add batch";
+
+            this.batchesService = batchService;
 
             MessagingCenter.Subscribe<object, int>(this, "RecipeSelected", (sender, recipeId) => SetRecipeId(recipeId));
 
-            FindRecipeCommand = new Command(async () => await Navigation.PushModalAsync(new SearchRecipePage()));
+            FindRecipeCommand = new Command(async () => await Navigation.PushModalAsync<SearchRecipePage>());
 
             AddBatchCommand = new Command(async () => await SaveBatch());
 

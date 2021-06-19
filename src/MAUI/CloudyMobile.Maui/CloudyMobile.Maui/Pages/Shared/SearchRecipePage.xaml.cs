@@ -8,10 +8,11 @@ namespace CloudyMobile.Maui.Pages.Shared
     {
         public SearchRecipeViewModel ViewModel { get; set; }
 
-        public SearchRecipePage()
+        public SearchRecipePage(SearchRecipeViewModel viewModel)
         {
             InitializeComponent();
-            ViewModel = ViewModelResolver.Resolve<SearchRecipeViewModel>();
+            //ViewModel = ViewModelResolver.Resolve<SearchRecipeViewModel>();
+            ViewModel = viewModel;
             ViewModel.Navigation = Navigation;
             BindingContext = ViewModel;
         }

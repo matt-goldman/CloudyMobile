@@ -13,9 +13,10 @@ namespace CloudyMobile.Maui.Helpers
     {
         private IAuthService authService;
 
-        public RetryHandler()
+        public RetryHandler(IAuthService auth)
         {
-            authService = ViewModelResolver.Resolve<IAuthService>();
+            //authService = ViewModelResolver.Resolve<IAuthService>();
+            authService = auth;
         }
 
 

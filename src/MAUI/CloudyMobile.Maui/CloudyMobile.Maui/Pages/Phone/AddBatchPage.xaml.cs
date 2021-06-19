@@ -1,4 +1,5 @@
 using CloudyMobile.Maui.ViewModels;
+using Maui.Plugins.PageResolver;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 
@@ -8,10 +9,10 @@ namespace CloudyMobile.Maui.Pages.Phone
     {
         public AddBatchViewModel ViewModel { get; set; }
 
-        public AddBatchPage()
+        public AddBatchPage(AddBatchViewModel viewModel)
         {
             InitializeComponent();
-            ViewModel = ViewModelResolver.Resolve<AddBatchViewModel>();
+            ViewModel = viewModel;
             ViewModel.Navigation = Navigation;
             BindingContext = ViewModel;
         }

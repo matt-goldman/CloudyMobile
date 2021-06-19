@@ -1,6 +1,7 @@
 using CloudyMobile.Maui.Services.Abstractions;
 using IdentityModel.OidcClient;
 using IdentityModel.OidcClient.Browser;
+using System;
 using System.Threading.Tasks;
 
 namespace CloudyMobile.Maui.Services.Concretions
@@ -16,28 +17,37 @@ namespace CloudyMobile.Maui.Services.Concretions
 
         public async Task<bool> Authenticate()
         {
-            var options = new OidcClientOptions
+            try
             {
-                Authority = App.Constants.AuthorityUri,
-                ClientId = App.Constants.ClientId,
-                Scope = App.Constants.Scope,
-                RedirectUri = App.Constants.RedirectUri,
-                Browser = browser
-            };
+                var options = new OidcClientOptions
+                {
+                    Authority = App.Constants.AuthorityUri,
+                    ClientId = App.Constants.ClientId,
+                    Scope = App.Constants.Scope,
+                    RedirectUri = App.Constants.RedirectUri,
+                    Browser = browser
+                };
 
-            var oidcClient = new OidcClient(options);
+                var oidcClient = new OidcClient(options);
 
-            var loginResult = await oidcClient.LoginAsync(new LoginRequest());
+                var loginResult = await oidcClient.LoginAsync(new LoginRequest());
 
-            if (loginResult.IsError)
+                if (loginResult.IsError)
+                {
+                    // TODO: handle error
+                    return false;
+                }
+
+                App.Constants.AccessToken = loginResult?.AccessToken ?? string.Empty;
+
+                return true;
+            }
+            catch (System.Exception ex)
             {
-                // TODO: handle error
+                Console.WriteLine("Login failed");
+                Console.WriteLine(ex.Message);
                 return false;
             }
-
-            App.Constants.AccessToken = loginResult?.AccessToken ?? string.Empty;
-
-            return true;
         }
     }
 }

@@ -14,7 +14,7 @@
     <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
         <StackLayout>
             <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*">
-            
+
                 <Label Text="CloudyMobile"
                     Grid.Row="0"
                     SemanticProperties.HeadingLevel="Level1"
@@ -29,17 +29,23 @@
 
                 <Button Text="Add a batch"
                         Grid.Row="2"
+                        WidthRequest="300"
+                        CornerRadius="30"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         Command="{Binding AddBatchCommand}"
                         HorizontalOptions="Center" />
 
                 <Button Text="View Recipes and Styles"
                         Grid.Row="3"
+                        WidthRequest="300"
+                        CornerRadius="30"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         HorizontalOptions="Center" />
 
                 <Button Text="View Kegs and Locations"
                         Grid.Row="4"
+                        WidthRequest="300"
+                        CornerRadius="30"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         HorizontalOptions="Center" />
 

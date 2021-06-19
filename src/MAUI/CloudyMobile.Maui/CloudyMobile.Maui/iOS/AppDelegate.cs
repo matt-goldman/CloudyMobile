@@ -4,9 +4,9 @@ using UIKit;
 
 namespace CloudyMobile.Maui
 {
-    [Register("AppDelegate")]
-    public class AppDelegate : MauiUIApplicationDelegate<Startup>
-    {
+	[Register("AppDelegate")]
+	public class AppDelegate : MauiUIApplicationDelegate<Startup>
+	{
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             if (Microsoft.Maui.Essentials.Platform.OpenUrl(app, url, options))

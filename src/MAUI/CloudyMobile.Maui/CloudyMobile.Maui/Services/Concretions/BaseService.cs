@@ -1,4 +1,5 @@
 using CloudyMobile.Maui.Helpers;
+using Maui.Plugins.PageResolver;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
@@ -28,7 +29,8 @@ namespace CloudyMobile.Maui.Services.Concretions
 
         protected static void InitialiseClient()
         {
-            _client = new HttpClient(new RetryHandler());
+            var handler = Resolver.Resolve<RetryHandler>();
+            _client = new HttpClient(handler);
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.Constants.AccessToken ?? string.Empty);
         }
     }
