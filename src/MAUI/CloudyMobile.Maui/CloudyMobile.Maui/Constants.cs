@@ -13,7 +13,7 @@ namespace CloudyMobile.Maui
         public string AuthorityUri = "https://cloudymobile.azurewebsites.net/";
 
         public string ClientId = "CloudyMobile.Maui";
-        
+
         public string Scope = "openid profile CloudMobile.APIAPI offline_access";
     }
 }

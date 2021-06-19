@@ -1,20 +1,20 @@
-using System;
 using CloudyMobile.Maui.ViewModels;
+using Maui.Plugins.PageResolver;
 using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 
 namespace CloudyMobile.Maui.Pages.Phone
 {
-	public partial class AddBatchPage : ContentPage, IPage
-	{
+    public partial class AddBatchPage : ContentPage, IPage
+    {
         public AddBatchViewModel ViewModel { get; set; }
 
-        public AddBatchPage()
-		{
-			InitializeComponent();
-			ViewModel = ViewModelResolver.Resolve<AddBatchViewModel>();
-			ViewModel.Navigation = Navigation;
-			BindingContext = ViewModel;
-		}
-	}
+        public AddBatchPage(AddBatchViewModel viewModel)
+        {
+            InitializeComponent();
+            ViewModel = viewModel;
+            ViewModel.Navigation = Navigation;
+            BindingContext = ViewModel;
+        }
+    }
 }

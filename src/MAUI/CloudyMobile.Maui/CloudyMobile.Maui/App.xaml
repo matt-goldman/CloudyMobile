@@ -32,6 +32,10 @@
                 <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
             </Style>
 
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource PrimaryAccentColor}"/>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

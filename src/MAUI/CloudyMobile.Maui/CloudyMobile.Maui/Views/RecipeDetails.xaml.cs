@@ -35,7 +35,7 @@ namespace CloudyMobile.Maui.Views
         }
 
         public RecipeDto Recipe
-        { 
+        {
             get { return (RecipeDto)GetValue(RecipeProperty); }
             set { SetValue(RecipeProperty, value); }
         }

@@ -1,5 +1,5 @@
 ﻿using CloudyMobile.Client;
-using CloudyMobile.Maui.Services;
+using CloudyMobile.Maui.Services.Concretions;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Internals;
 using System.Collections.ObjectModel;
@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace CloudyMobile.Maui.ViewModels
 {
-    public  class SearchRecipeViewModel : BaseViewModel
+    public class SearchRecipeViewModel : BaseViewModel
     {
         private readonly RecipeService recipeService;
 
@@ -58,7 +58,7 @@ namespace CloudyMobile.Maui.ViewModels
         public async Task RecipeSelected()
         {
             MessagingCenter.Send<object, int>(this, "RecipeSelected", RecipeDetails.Id);
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

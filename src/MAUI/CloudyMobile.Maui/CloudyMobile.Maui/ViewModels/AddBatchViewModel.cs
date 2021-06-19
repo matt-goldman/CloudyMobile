@@ -1,6 +1,8 @@
 ﻿using CloudyMobile.Client;
 using CloudyMobile.Maui.Pages.Shared;
-using CloudyMobile.Maui.Services;
+using CloudyMobile.Maui.Services.Abstractions;
+using CloudyMobile.Maui.Services.Concretions;
+using Maui.Plugins.PageResolver;
 using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ namespace CloudyMobile.Maui.ViewModels
 {
     public class AddBatchViewModel : BaseViewModel
     {
-        private readonly BatchesService batchesService;
+        private readonly IBatchService batchesService;
 
         private BatchDto _batch { get; set; } = new BatchDto
         {
@@ -38,16 +40,21 @@ namespace CloudyMobile.Maui.ViewModels
         public ICommand CancelCommand { get; set; }
         public ICommand FindRecipeCommand { get; set; }
 
+        public string ErrorMessage { get; set; }
 
-        public AddBatchViewModel(BatchesService batchesService)
+        public AddBatchViewModel(IBatchService batchService)
         {
-            this.batchesService = batchesService;
+            Title = "Add batch";
+
+            this.batchesService = batchService;
 
             MessagingCenter.Subscribe<object, int>(this, "RecipeSelected", (sender, recipeId) => SetRecipeId(recipeId));
 
-            FindRecipeCommand = new Command(async () => await Navigation.PushModalAsync(new SearchRecipePage()));
+            FindRecipeCommand = new Command(async () => await FindRecipe());
 
             AddBatchCommand = new Command(async () => await SaveBatch());
+
+            _batch.BrewDay = DateTime.Now;
         }
 
         private void SetRecipeId(int id)
@@ -59,6 +66,22 @@ namespace CloudyMobile.Maui.ViewModels
         {
             await batchesService.CreateBatch(_batch);
             await Navigation.PopAsync();
+        }
+
+        public async Task FindRecipe()
+        {
+            ErrorMessage = "Finding recipe...";
+            RaisePropertyChanged(nameof(ErrorMessage));
+
+            try
+            {
+                await Navigation.PushAsync<SearchRecipePage>();
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+                RaisePropertyChanged(nameof(ErrorMessage));
+            }
         }
     }
 }
