@@ -1,4 +1,4 @@
-﻿using CloudyMobile.Maui.Services;
+﻿using CloudyMobile.Maui.Services.Abstractions;
 using CloudyMobile.Maui.ViewModels;
 using System;
 using System.Net;
@@ -11,11 +11,12 @@ namespace CloudyMobile.Maui.Helpers
 {
     public class RetryHandler : DelegatingHandler
     {
-        private AuthService authService;
+        private IAuthService authService;
 
-        public RetryHandler()
+        public RetryHandler(IAuthService auth)
         {
-            authService = ViewModelResolver.Resolve<AuthService>();
+            //authService = ViewModelResolver.Resolve<IAuthService>();
+            authService = auth;
         }
 
 
@@ -31,7 +32,7 @@ namespace CloudyMobile.Maui.Helpers
 
                     if (response.StatusCode == HttpStatusCode.Unauthorized)
                     {
-                        if(await HandleUnauthorized())
+                        if (await HandleUnauthorized())
                         {
                             continue;
                         }
@@ -39,7 +40,7 @@ namespace CloudyMobile.Maui.Helpers
 
                     if (response.StatusCode == HttpStatusCode.ServiceUnavailable)
                     {
-                        if(i < 4)
+                        if (i < 4)
                         {
                             await Task.Delay(1000, cancellationToken);
                             i++;
@@ -49,13 +50,13 @@ namespace CloudyMobile.Maui.Helpers
 
                     return response;
                 }
-                catch (Exception ex) when(IsNetworkError(ex))
+                catch (Exception ex) when (IsNetworkError(ex))
                 {
                     // Network error
                     // Wait a bit and try again later
                     await Task.Delay(2000, cancellationToken);
                     continue;
-                } 
+                }
             }
         }
 

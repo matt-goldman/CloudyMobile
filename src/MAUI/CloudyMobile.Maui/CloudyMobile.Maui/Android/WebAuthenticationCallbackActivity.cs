@@ -1,4 +1,4 @@
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Microsoft.Maui;
@@ -12,5 +12,5 @@ namespace CloudyMobile.Maui
         DataHost = "callback")]
     public class WebAuthenticationCallbackActivity : Microsoft.Maui.Essentials.WebAuthenticatorCallbackActivity
     {
-    }   
+    }
 }
