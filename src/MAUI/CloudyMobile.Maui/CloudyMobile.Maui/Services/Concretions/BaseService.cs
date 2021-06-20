@@ -29,9 +29,9 @@ namespace CloudyMobile.Maui.Services.Concretions
 
         protected static void InitialiseClient()
         {
-            var handler = Resolver.Resolve<RetryHandler>();
-            _client = new HttpClient(handler);
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.Constants.AccessToken ?? string.Empty);
+            //var handler = Resolver.Resolve<RetryHandler>();
+            _client = new HttpClient();// handler);
+            //_client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.Constants.AccessToken ?? string.Empty);
         }
     }
 }

@@ -2,6 +2,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:views="clr-namespace:CloudyMobile.Maui.Views"
        x:DataType="views:RecipeDetails"
+       x:Name="recipeDetails"
        x:Class="CloudyMobile.Maui.Views.RecipeDetails"
        BackgroundColor="{DynamicResource EntryBackgroundColor}"
        BorderColor="{DynamicResource PrimaryAccentColor}">
@@ -10,9 +11,11 @@
                HorizontalTextAlignment="Center"
                Grid.Row="0"
                FontSize="22"
+               BindingContext="{x:Reference Name=recipeDetails}"
                Text="{Binding Recipe.Name}"/>
 
         <Image Source="{Binding Recipe.Style.ImageUrl}"
+               BindingContext="{x:Reference Name=recipeDetails}"
                Grid.Row="1"
                WidthRequest="300"
                HeightRequest="300"/>
@@ -21,21 +24,25 @@
                HorizontalTextAlignment="Center"
                Grid.Row="2"
                FontSize="16"
+               BindingContext="{x:Reference Name=recipeDetails}"
                Text="{Binding Recipe.Style.Name, StringFormat='Style: {0}'}"/>
 
         <Label HorizontalOptions="CenterAndExpand"
                HorizontalTextAlignment="Center"
                Grid.Row="3"
                FontSize="16"
+               BindingContext="{x:Reference Name=recipeDetails}"
                Text="{Binding Recipe.Notes}"/>
         
         <Button Text="Ok"
                 Grid.Row="4"
+                BindingContext="{x:Reference Name=recipeDetails}"
                 IsVisible="{Binding IsViewOnlyMode}"
                 Clicked="OkClicked"/>
 
         <StackLayout Orientation="Horizontal"
                      Grid.Row="4"
+                     BindingContext="{x:Reference Name=recipeDetails}"
                      IsVisible="{Binding IsNotViewOnlyMode}">
             <Button Text="Cancel"
                     Clicked="CancelClicked"/>

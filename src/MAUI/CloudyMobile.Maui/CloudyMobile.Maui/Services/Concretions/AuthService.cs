@@ -45,7 +45,6 @@ namespace CloudyMobile.Maui.Services.Concretions
             }
             catch (System.Exception ex)
             {
-                MessagingCenter.Send<object, ErrorAlert>(this, "ErrorCaught", new ErrorAlert { Message = ex.Message, StackTrace = ex.StackTrace.ToString() });
                 Console.WriteLine("Login failed");
                 Console.WriteLine(ex.Message);
                 return false;

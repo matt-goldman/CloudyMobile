@@ -2,6 +2,8 @@
 using CloudyMobile.Maui.Services.Concretions;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Internals;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,7 +17,7 @@ namespace CloudyMobile.Maui.ViewModels
         public string NameSearchTerm { get; set; }
         public string StyleSearchTerm { get; set; }
 
-        public ObservableCollection<RecipeDto> Results { get; set; } = new ObservableCollection<RecipeDto>();
+        public List<RecipeDto> Results { get; set; } = new List<RecipeDto>();
 
         public RecipeDto RecipeDetails { get; set; }
 
@@ -38,18 +40,48 @@ namespace CloudyMobile.Maui.ViewModels
             SearchButtonCommand = new Command(async () => await UpdateSearchResults());
             ViewRecipeDetailsCommand = new Command<RecipeDto>((recipe) => ViewRecipeDetails(recipe));
             HideRecipeDetailsCommand = new Command(() => { ShowRecipeDetails = false; RaisePropertyChanged(nameof(ShowRecipeDetails)); });
+            Results.Add(new RecipeDto
+            {
+                Name = "Test Recipe",
+                Style = new BeerStyleDto
+                {
+                    Name = "Test Style"
+                }
+            });
         }
 
         public async Task UpdateSearchResults()
         {
-            Results.Clear();
-            var results = await recipeService.SearchRecipes(NameSearchTerm, StyleSearchTerm);
+            Console.WriteLine("Getting recipe search results");
 
-            results.Recipes.ForEach(recipe => Results.Add(recipe));
+            IsBusy = true;
+            RaisePropertyChanged(nameof(IsBusy));
+
+            try
+            {
+                Results.Clear();
+                RaisePropertyChanged(nameof(Results));
+                var results = await recipeService.SearchRecipes(NameSearchTerm, StyleSearchTerm);
+
+                results.Recipes.ForEach(recipe => Results.Add(recipe));
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine("Failed to get recipes");
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.WriteLine($"Got {Results.Count} recipes");
+
+            IsBusy = false;
+            RaisePropertyChanged(nameof(IsBusy));
+
+            RaisePropertyChanged(nameof(Results));
         }
 
         public void ViewRecipeDetails(RecipeDto recipe)
         {
+            Console.WriteLine($"Recipe {recipe.Name} tapped");
             RecipeDetails = recipe;
             ShowRecipeDetails = true;
             RaisePropertyChanged(nameof(RecipeDetails), nameof(ShowRecipeDetails));

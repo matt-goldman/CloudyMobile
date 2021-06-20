@@ -13,7 +13,7 @@
     </ContentPage.Background>
     <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
         <StackLayout>
-            <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*,*,*">
+            <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*">
 
                 <Label Text="CloudyMobile"
                     Grid.Row="0"
@@ -27,25 +27,45 @@
                     FontSize="16"
                     HorizontalOptions="CenterAndExpand" />
 
+                <BoxView Grid.Row="2"
+                         WidthRequest="285"
+                         BackgroundColor="{DynamicResource PrimaryAccentColor}"
+                         HeightRequest="50"
+                         CornerRadius="25"/>
+                
                 <Button Text="Add a batch"
                         Grid.Row="2"
-                        WidthRequest="300"
-                        CornerRadius="30"
+                        WidthRequest="275"
+                        BorderWidth="0"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         Command="{Binding AddBatchCommand}"
                         HorizontalOptions="Center" />
 
-<!--                <Button Text="View Recipes and Styles"
+
+                <BoxView Grid.Row="3"
+                         WidthRequest="285"
+                         BackgroundColor="{DynamicResource PrimaryAccentColor}"
+                         HeightRequest="50"
+                         CornerRadius="25"/>
+                
+                
+                <Button Text="View Recipes and Styles"
                         Grid.Row="3"
-                        WidthRequest="300"
-                        CornerRadius="30"
+                        WidthRequest="275"
+                        BorderWidth="0"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         HorizontalOptions="Center" />
 
+                <BoxView Grid.Row="4"
+                         WidthRequest="285"
+                         BackgroundColor="{DynamicResource PrimaryAccentColor}"
+                         HeightRequest="50"
+                         CornerRadius="25"/>
+
                 <Button Text="View Kegs and Locations"
                         Grid.Row="4"
-                        WidthRequest="300"
-                        CornerRadius="30"
+                        WidthRequest="275"
+                        BorderWidth="0"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         HorizontalOptions="Center" />
 
@@ -53,22 +73,7 @@
                         Source="beer.png"
                         SemanticProperties.Description="An ice cold frothy beer"
                         WidthRequest="300"
-                        HorizontalOptions="Center" />-->
-
-                <Button Text="Log In"
-                        Command="{Binding LoginCommand}"
-                        Grid.Row="3"
-                        WidthRequest="300"
-                        CornerRadius="30"
-                        SemanticProperties.Hint="Logs you in"
                         HorizontalOptions="Center" />
-
-                <Label Grid.Row="4"
-                       Text="{Binding ErrorMessage}"/>
-
-                <Label Grid.Row="5"
-                       Grid.RowSpan="4"
-                       Text="{Binding StackTrace}"/>
 
             </Grid>
         </StackLayout>

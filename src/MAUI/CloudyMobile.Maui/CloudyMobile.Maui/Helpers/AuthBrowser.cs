@@ -11,7 +11,6 @@ namespace CloudyMobile.Maui.Helpers
     {
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options, CancellationToken cancellationToken = default)
         {
-            MessagingCenter.Send<object, ErrorAlert>(this, "ErrorCaught", new ErrorAlert { Message = $"Start uri:{options.StartUrl}", StackTrace = $"Redirect: {App.Constants.RedirectUri}" });
             WebAuthenticatorResult authResult = await WebAuthenticator.AuthenticateAsync(new Uri(options.StartUrl), new Uri(App.Constants.RedirectUri));
 
             return new BrowserResult()

@@ -17,10 +17,10 @@ namespace CloudyMobile.Maui
             BindingContext = ViewModel;
         }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            await ViewModel.CheckAuthStatus();
-        }
+        //protected override async void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    await ViewModel.CheckAuthStatus();
+        //}
     }
 }

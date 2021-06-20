@@ -23,10 +23,4 @@ namespace CloudyMobile.Maui
 			return new Microsoft.Maui.Controls.Window(new NavigationPage(new MainPage()));
 		}
 	}
-
-	public class ErrorAlert
-    {
-        public string Message { get; set; }
-        public string StackTrace { get; set; }
-    }
 }
