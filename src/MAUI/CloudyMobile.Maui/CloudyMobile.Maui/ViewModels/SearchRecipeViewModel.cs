@@ -5,6 +5,9 @@ using Microsoft.Maui.Controls.Internals;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -21,10 +24,13 @@ namespace CloudyMobile.Maui.ViewModels
 
         public RecipeDto RecipeDetails { get; set; }
 
-        public bool ShowRecipeDetails { get; set; } = false;
+        public RecipeDto ResultRecipe { get; set; }
 
-        public bool RecipeDetailsVisible { get; set; } = false;
+        public bool ShowRecipeDetails { get; set; }// = false;
 
+        public bool RecipeDetailsVisible { get; set; }// = false;
+
+        public bool GotResults { get; set; }// = false;
 
         public ICommand SearchButtonCommand { get; set; }
 
@@ -34,12 +40,14 @@ namespace CloudyMobile.Maui.ViewModels
 
         public ICommand HideRecipeDetailsCommand { get; set; }
 
+        public bool TestLabelText { get; set; }
+
         public SearchRecipeViewModel(RecipeService recipeService)
         {
             this.recipeService = recipeService;
             SearchButtonCommand = new Command(async () => await UpdateSearchResults());
             ViewRecipeDetailsCommand = new Command<RecipeDto>((recipe) => ViewRecipeDetails(recipe));
-            HideRecipeDetailsCommand = new Command(() => { ShowRecipeDetails = false; RaisePropertyChanged(nameof(ShowRecipeDetails)); });
+            HideRecipeDetailsCommand = new Command(() => { ShowRecipeDetails = false; OnPropertyChanged(nameof(ShowRecipeDetails)); });
             Results.Add(new RecipeDto
             {
                 Name = "Test Recipe",
@@ -55,15 +63,22 @@ namespace CloudyMobile.Maui.ViewModels
             Console.WriteLine("Getting recipe search results");
 
             IsBusy = true;
-            RaisePropertyChanged(nameof(IsBusy));
+            OnPropertyChanged(nameof(IsBusy));
+
+            MessagingCenter.Send<object>(this, "ShowLabel");
 
             try
             {
                 Results.Clear();
-                RaisePropertyChanged(nameof(Results));
+                OnPropertyChanged(nameof(Results));
                 var results = await recipeService.SearchRecipes(NameSearchTerm, StyleSearchTerm);
 
                 results.Recipes.ForEach(recipe => Results.Add(recipe));
+
+                ResultRecipe = results.Recipes.FirstOrDefault();
+                GotResults = true;
+                RaisePropertyChanged(nameof(ResultRecipe), nameof(GotResults));
+                Console.WriteLine($"Got result {ResultRecipe.Name}");
             }
             catch (System.Exception ex)
             {
@@ -74,9 +89,9 @@ namespace CloudyMobile.Maui.ViewModels
             Console.WriteLine($"Got {Results.Count} recipes");
 
             IsBusy = false;
-            RaisePropertyChanged(nameof(IsBusy));
+            OnPropertyChanged(nameof(IsBusy));
 
-            RaisePropertyChanged(nameof(Results));
+            OnPropertyChanged(nameof(Results));
         }
 
         public void ViewRecipeDetails(RecipeDto recipe)

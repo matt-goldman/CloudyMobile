@@ -37,7 +37,7 @@ namespace CloudyMobile.Infrastructure
                             AllowedGrantTypes = GrantTypes.Code,
                             RequireClientSecret = false,
                             AllowedScopes = { "openid", "profile", "CloudyMobile.APIAPI" },
-                            RedirectUris = { "auth.com.ssw.cloudymobile.maui://callback" },
+                            RedirectUris = { "https://notused" },//{ "auth.com.ssw.cloudymobile.maui://callback" },
                             AllowOfflineAccess = true,
                             AllowAccessTokensViaBrowser = true,
                             Enabled = true

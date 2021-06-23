@@ -63,8 +63,29 @@
                     Command="{Binding SearchButtonCommand}"
                     HorizontalOptions="Center" />
 
-                <ScrollView Grid.Row="4">
-                    <StackLayout BindableLayout.ItemsSource="{Binding Source={x:Reference recipeSearchPage}, Path=BindingContext.Results}">
+                <Grid Grid.Row="4"
+                      x:Name="RecipeItem"
+                      IsVisible="{Binding GotResults}"
+                      Padding="20">
+
+                    <BoxView WidthRequest="200"
+                             BackgroundColor="{DynamicResource BackgroundGradientFinish}"
+                             CornerRadius="25"
+                             HeightRequest="50"
+                             Grid.Row="0"/>
+
+                    <Button BackgroundColor="{DynamicResource BackgroundGradientFinish}"
+                            Text="{Binding ResultRecipe.Name}"
+                            Command="{Binding ViewRecipeDetailsCommand}"
+                            CommandParameter="{Binding ResultRecipe}"
+                            HorizontalOptions="Center"
+                            Grid.Row="0"
+                            WidthRequest="150"/>
+                </Grid>
+
+                <!--<ScrollView Grid.Row="4">
+                    <StackLayout BindableLayout.ItemsSource="{Binding Source={x:Reference recipeSearchPage}, Path=BindingContext.Results}"
+                                 x:Name="ResultsList">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <Grid RowDefinitions="2*,2*"
@@ -88,7 +109,7 @@
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
-                </ScrollView>
+                </ScrollView>-->
 
                 <views:RecipeDetails Recipe="{Binding RecipeDetails}"
                                      SelectedCommand="{Binding RecipeSelectedCommand}"
@@ -105,9 +126,12 @@
                                    HorizontalOptions="CenterAndExpand"
                                    VerticalOptions="CenterAndExpand"
                                    Color="{DynamicResource PrimaryAccentColor}"
-                                   IsVisible="{Binding Source={x:Reference recipeSearchPage}, Path=BindingContext.IsBusy}"
-                                   IsRunning="{Binding Source={x:Reference recipeSearchPage}, Path=BindingContext.IsBusy}"/>
+                                   IsVisible="{Binding IsBusy}"
+                                   IsRunning="{Binding IsBusy}"/>
 
+                <Label Grid.Row="4"
+                       Text="Getting Recipes..."
+                       x:Name="RecipesLabel"/>
 
             </Grid>
         </StackLayout>
