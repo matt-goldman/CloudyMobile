@@ -1,0 +1,14 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CloudyMobile.Maui.Pages.Phone.AddSamplePage"
+             Title="{Binding Title}">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,1"
+                                 EndPoint="1,0">
+            <GradientStop Offset="0.1"
+                              Color="{DynamicResource PageBackgroundColor}" />
+            <GradientStop Offset="1.0"
+                              Color="{DynamicResource BackgroundGradientFinish}"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+</ContentPage>

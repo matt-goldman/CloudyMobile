@@ -35,11 +35,13 @@ namespace CloudyMobile.Maui
 					services.AddTransient<MainViewModel>();
 					services.AddTransient<RecipesViewModel>();
 					services.AddTransient<SearchRecipeViewModel>();
+					services.AddTransient<AddSampleViewModel>();
 
 					// register pages
 					services.AddTransient<AddBatchPage>();
 					services.AddTransient<RecipeDetailPage>();
 					services.AddTransient<SearchRecipePage>();
+					services.AddTransient<AddSamplePage>();
 
 					// register PageResolver
 					services.UsePageResolver();

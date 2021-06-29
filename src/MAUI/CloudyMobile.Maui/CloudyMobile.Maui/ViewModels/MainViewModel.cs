@@ -16,6 +16,7 @@ namespace CloudyMobile.Maui.ViewModels
         public ICommand ViewRecipesCommand { get; set; }
         public ICommand AddBatchCommand { get; set; }
         public ICommand LoginCommand { get; set; }
+        public ICommand AddSampleCommand { get; set; }
 
         public string ErrorMessage { get; set; }
 
@@ -26,6 +27,7 @@ namespace CloudyMobile.Maui.ViewModels
             this.authService = authService;
             AddBatchCommand = new Command(async () => await OpenAddBatchPage());
             LoginCommand = new Command(async () => await Login());
+            AddSampleCommand = new Command(async () => await OpenAddSamplePage());
         }
 
         public async Task CheckAuthStatus()
@@ -56,6 +58,11 @@ namespace CloudyMobile.Maui.ViewModels
         public async Task OpenAddBatchPage()
         {
             await Navigation.PushAsync<AddBatchPage>();
+        }
+
+        public async Task OpenAddSamplePage()
+        {
+            await Navigation.PushAsync<AddSamplePage>();
         }
 
         public async Task Login()

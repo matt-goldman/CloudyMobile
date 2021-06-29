@@ -31,6 +31,14 @@
                        Grid.Row="0"
                        Grid.Column="1"/>
 
+                <BoxView Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="2"
+                         WidthRequest="150"
+                         BackgroundColor="{DynamicResource PrimaryAccentColor}"
+                         HeightRequest="50"
+                         CornerRadius="25"/>
+
                 <Button Text="Find Recipe"
                         Command="{Binding FindRecipeCommand}"
                         HorizontalOptions="Center"
@@ -49,16 +57,41 @@
                 <Label Text="OG: "
                        Grid.Row="3"
                        Grid.Column="0"/>
+
+                <BoxView Grid.Row="3"
+                         Grid.Column="1"
+                         WidthRequest="400"
+                         BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                         HeightRequest="50"
+                         CornerRadius="25"/>
+
                 <Entry Text="{Binding OG}"
                        Placeholder="Enter OG..."
                        Grid.Row="3"
                        Grid.Column="1"/>
 
+                <BoxView Grid.Row="4"
+                         Grid.Column="0"
+                         WidthRequest="400"
+                         BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                         HeightRequest="50"
+                         CornerRadius="25"
+                         Grid.ColumnSpan="2"/>
+
                 <Editor Text="{Binding Notes}"
                         Placeholder="Recipe notes..."
+                        WidthRequest="350"
                         Grid.Row="4"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"/>
+
+                <BoxView Grid.Row="5"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="2"
+                         WidthRequest="150"
+                         BackgroundColor="{DynamicResource PrimaryAccentColor}"
+                         HeightRequest="50"
+                         CornerRadius="25"/>
 
                 <Button Text="Save Batch"
                         Grid.Row="5"

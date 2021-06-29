@@ -13,7 +13,7 @@
     </ContentPage.Background>
     <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
         <StackLayout>
-            <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*">
+            <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*">
 
                 <Label Text="CloudyMobile"
                     Grid.Row="0"
@@ -27,20 +27,11 @@
                     FontSize="16"
                     HorizontalOptions="CenterAndExpand" />
 
-                <BoxView Grid.Row="2"
-                         WidthRequest="285"
-                         BackgroundColor="{DynamicResource PrimaryAccentColor}"
-                         HeightRequest="50"
-                         CornerRadius="25"/>
-                
-                <Button Text="Add a batch"
-                        Grid.Row="2"
-                        WidthRequest="275"
-                        BorderWidth="0"
-                        SemanticProperties.Hint="Takes you to the Add New Batch page"
-                        Command="{Binding AddBatchCommand}"
+                <Image Grid.Row="2"
+                        Source="beer.png"
+                        SemanticProperties.Description="An ice cold frothy beer"
+                        WidthRequest="300"
                         HorizontalOptions="Center" />
-
 
                 <BoxView Grid.Row="3"
                          WidthRequest="285"
@@ -48,31 +39,54 @@
                          HeightRequest="50"
                          CornerRadius="25"/>
                 
-                
-                <Button Text="View Recipes and Styles"
+                <Button Text="Add a batch"
                         Grid.Row="3"
                         WidthRequest="275"
                         BorderWidth="0"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
+                        Command="{Binding AddBatchCommand}"
                         HorizontalOptions="Center" />
+
 
                 <BoxView Grid.Row="4"
                          WidthRequest="285"
                          BackgroundColor="{DynamicResource PrimaryAccentColor}"
                          HeightRequest="50"
                          CornerRadius="25"/>
-
-                <Button Text="View Kegs and Locations"
+                
+                
+                <Button Text="View Recipes and Styles"
                         Grid.Row="4"
                         WidthRequest="275"
                         BorderWidth="0"
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         HorizontalOptions="Center" />
 
-                <Image Grid.Row="5"
-                        Source="beer.png"
-                        SemanticProperties.Description="An ice cold frothy beer"
-                        WidthRequest="300"
+                <BoxView Grid.Row="5"
+                         WidthRequest="285"
+                         BackgroundColor="{DynamicResource PrimaryAccentColor}"
+                         HeightRequest="50"
+                         CornerRadius="25"/>
+
+                <Button Text="View Kegs and Locations"
+                        Grid.Row="5"
+                        WidthRequest="275"
+                        BorderWidth="0"
+                        SemanticProperties.Hint="Takes you to the Add New Batch page"
+                        HorizontalOptions="Center" />
+
+                <BoxView Grid.Row="6"
+                         WidthRequest="285"
+                         BackgroundColor="{DynamicResource PrimaryAccentColor}"
+                         HeightRequest="50"
+                         CornerRadius="25"/>
+
+                <Button Text="Add a Batch Sample"
+                        Grid.Row="6"
+                        WidthRequest="275"
+                        BorderWidth="0"
+                        Command="{Binding AddSampleCommand}"
+                        SemanticProperties.Hint="Takes you to the Add Add Sample page"
                         HorizontalOptions="Center" />
 
             </Grid>

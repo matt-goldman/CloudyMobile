@@ -65,5 +65,10 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="Pages\Phone\AddSamplePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 
 </Project>
