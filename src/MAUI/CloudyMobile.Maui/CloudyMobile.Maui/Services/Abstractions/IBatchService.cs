@@ -5,6 +5,7 @@ namespace CloudyMobile.Maui.Services.Abstractions
 {
     public interface IBatchService
     {
+        RecipeDto SelectedRecipe { get; set; }
         Task<int> CreateBatch(BatchDto batch);
 
         Task<BatchListVm> GetAll();

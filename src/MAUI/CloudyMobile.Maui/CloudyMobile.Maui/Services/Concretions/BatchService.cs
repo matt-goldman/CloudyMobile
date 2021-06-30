@@ -1,6 +1,5 @@
 using CloudyMobile.Client;
 using CloudyMobile.Maui.Services.Abstractions;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CloudyMobile.Maui.Services.Concretions
@@ -8,6 +7,8 @@ namespace CloudyMobile.Maui.Services.Concretions
     public class BatchService : BaseService, IBatchService
     {
         private BatchesClient batchesClient;
+
+        public RecipeDto SelectedRecipe { get; set; }
 
         public BatchService()
         {
