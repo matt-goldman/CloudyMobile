@@ -40,6 +40,16 @@ namespace CloudyMobile.Maui.ViewModels
 
         public ICommand HideRecipeDetailsCommand { get; set; }
 
+        private bool loadingRecipes = true;
+        public bool LoadingRecipes
+        {
+            get => loadingRecipes;
+            set
+            {
+                SetProperty(ref loadingRecipes, value);
+            }
+        }
+
 
         #region PendingCollectionView
 
@@ -52,9 +62,27 @@ namespace CloudyMobile.Maui.ViewModels
         public RecipeDto? ThirdResult { get; set; }
         public string ThirdResultName => ThirdResult?.Name;
 
-        public bool FirstResultVisible => FirstResult is not null;
-        public bool SecondResultVisible => SecondResult is not null;
-        public bool ThirdResultVisible => ThirdResult is not null;
+        private bool firstRecipeVisible = true;
+        private bool secondRecipeVisible = true;
+        private bool thirdRecipeVisible = true;
+
+        public bool FirstResultVisible
+        {
+            get => firstRecipeVisible;
+            set => SetProperty(ref firstRecipeVisible, value);
+        }
+
+        public bool SecondResultVisible
+        {
+            get => secondRecipeVisible;
+            set => SetProperty(ref secondRecipeVisible, value);
+        }
+
+        public bool ThirdResultVisible
+        {
+            get => thirdRecipeVisible;
+            set => SetProperty(ref thirdRecipeVisible, value);
+        }
 
         #endregion
 
@@ -67,7 +95,7 @@ namespace CloudyMobile.Maui.ViewModels
                 SearchButtonCommand = new Command(async () => await UpdateSearchResults());
                 ViewRecipeDetailsCommand = new Command<RecipeDto>((recipe) => ViewRecipeDetails(recipe));
                 HideRecipeDetailsCommand = new Command(() => { ShowRecipeDetails = false; OnPropertyChanged(nameof(ShowRecipeDetails)); });
-                RecipeSelectedCommand = new Command<RecipeDto>(async (recipe) => await RecipeSelected(recipe));
+                RecipeSelectedCommand = new Command(async () => await RecipeSelected());
             }
             catch (Exception ex)
             {
@@ -75,14 +103,22 @@ namespace CloudyMobile.Maui.ViewModels
             }
         }
 
+        public void Init()
+        {
+            LoadingRecipes = false;
+            FirstResultVisible = false;
+            SecondResultVisible = false;
+            ThirdResultVisible = false;
+        }
+
         public async Task UpdateSearchResults()
         {
             Console.WriteLine("Getting recipe search results");
 
-            IsBusy = true;
-            OnPropertyChanged(nameof(IsBusy));
+            LoadingRecipes = true;
+            //OnPropertyChanged(nameof(IsBusy));
 
-            MessagingCenter.Send<object>(this, "ShowLabel");
+            MessagingCenter.Send<object>(this, "ForceViewUpdate");
 
             try
             {
@@ -94,25 +130,36 @@ namespace CloudyMobile.Maui.ViewModels
 
                 GotResults = true;
 
-                if (Results[0] is not null)
+                if (Results.Count > 0 && Results[0] is not null)
+                {
                     FirstResult = Results[0];
+                    FirstResultVisible = true;
+                }
+                else
+                {
+                    FirstResultVisible = false;
+                }
 
                 if (Results.Count > 1 && Results[1] is not null)
                 {
                     SecondResult = Results[0];
+                    SecondResultVisible = true;
                 }
                 else
                 { 
                     SecondResult = null;
+                    SecondResultVisible = false;
                 }
 
                 if (Results.Count > 2 && Results[2] is not null)
                 {
                     ThirdResult = Results[0];
+                    ThirdResultVisible = true;
                 }
                 else
                 {
                     ThirdResult = null;
+                    ThirdResultVisible = false;
                 }
 
                 RaisePropertyChanged(
@@ -138,8 +185,8 @@ namespace CloudyMobile.Maui.ViewModels
 
             Console.WriteLine($"Got {Results.Count} recipes");
 
-            IsBusy = false;
-            OnPropertyChanged(nameof(IsBusy));
+            LoadingRecipes = false;
+            //OnPropertyChanged(nameof(IsBusy));
 
             OnPropertyChanged(nameof(Results));
         }
@@ -152,9 +199,9 @@ namespace CloudyMobile.Maui.ViewModels
             RaisePropertyChanged(nameof(RecipeDetails), nameof(ShowRecipeDetails));
         }
 
-        public async Task RecipeSelected(RecipeDto recipe)
+        public async Task RecipeSelected()
         {
-            batchService.SelectedRecipe = recipe;
+            batchService.SelectedRecipe = RecipeDetails;
             MessagingCenter.Send<object>(this, "RecipeSelected");
             await Navigation.PopAsync();
         }

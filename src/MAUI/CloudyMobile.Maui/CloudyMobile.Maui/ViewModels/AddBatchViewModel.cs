@@ -21,7 +21,13 @@ namespace CloudyMobile.Maui.ViewModels
         };
 
         public int RecipeId => _batch.RecipeId;
-        public string RecipeName => _batch.RecipeName;
+        private string recipeName;
+        public string RecipeName
+        {
+            get => recipeName;
+            set => SetProperty(ref recipeName, value);
+        }
+
         public DateTimeOffset BrewDay => _batch.BrewDay;
         public DateTimeOffset? BottleOrKegDate => _batch.BottleOrKegDate;
         public long PitchTemp => _batch.PitchTemp;
@@ -43,11 +49,11 @@ namespace CloudyMobile.Maui.ViewModels
 
         public AddBatchViewModel(IBatchService batchService)
         {
-            Title = "Add batch";
+            Title = "Add a sample";
 
             this.batchesService = batchService;
 
-            MessagingCenter.Subscribe<object, int>(this, "RecipeSelected", (sender, recipeId) => SetRecipeId(recipeId));
+            MessagingCenter.Subscribe<object>(this, "RecipeSelected", (sender) => SetRecipeId());
 
             FindRecipeCommand = new Command(async () => await FindRecipe());
 
@@ -56,9 +62,12 @@ namespace CloudyMobile.Maui.ViewModels
             _batch.BrewDay = DateTime.Now;
         }
 
-        private void SetRecipeId(int id)
+        private void SetRecipeId()
         {
-            _batch.RecipeId = id;
+            _batch.RecipeId = batchesService.SelectedRecipe.Id;
+            RecipeName = batchesService.SelectedRecipe.Name;
+            ErrorMessage = string.Empty;
+            RaisePropertyChanged(nameof(ErrorMessage));
         }
 
         public async Task SaveBatch()

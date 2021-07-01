@@ -17,44 +17,45 @@
     <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*">
 
         <Label Text="Search Recipes"
-                Grid.Row="0"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="CenterAndExpand" />
+               Grid.Row="0"
+               SemanticProperties.HeadingLevel="Level1"
+               FontSize="32"
+               HorizontalOptions="CenterAndExpand" />
 
         <BoxView Grid.Row="1"
-                        WidthRequest="285"
-                        BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                        HeightRequest="50"
-                        CornerRadius="25"/>
+                 WidthRequest="285"
+                 BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                 HeightRequest="50"
+                 CornerRadius="25"/>
 
         <Entry Text="{Binding NameSearchTerm, Mode=TwoWay}"
-                    Placeholder="Recipe name..."
-                    Grid.Row="1"
-                    SemanticProperties.Hint="Search term for matching recipes by name" 
-                    FontSize="16"
-                    WidthRequest="275"
-                    HorizontalOptions="CenterAndExpand" />
+               Placeholder="Recipe name..."
+               Grid.Row="1"
+               SemanticProperties.Hint="Search term for matching recipes by name" 
+               FontSize="16"
+               WidthRequest="275"
+               x:Name="SearchNameEntry"
+               HorizontalOptions="CenterAndExpand" />
 
         <BoxView Grid.Row="2"
-                        WidthRequest="285"
-                        BackgroundColor="{DynamicResource EntryBackgroundColor}"
-                        HeightRequest="50"
-                        CornerRadius="25"/>
+                 WidthRequest="285"
+                 BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                 HeightRequest="50"
+                 CornerRadius="25"/>
 
         <Entry Text="{Binding StyleSearchTerm, Mode=TwoWay}"
-                    Placeholder="Style name..."
-                    Grid.Row="2"
-                    SemanticProperties.Hint="Counts the number of times you click"
-                    FontSize="16"
-                    WidthRequest="275"
-                    HorizontalOptions="CenterAndExpand" />
+               Placeholder="Style name..."
+               Grid.Row="2"
+               SemanticProperties.Hint="Counts the number of times you click"
+               FontSize="16"
+               WidthRequest="275"
+               HorizontalOptions="CenterAndExpand" />
 
         <BoxView Grid.Row="3"
-                        WidthRequest="100"
-                        BackgroundColor="{DynamicResource PrimaryAccentColor}"
-                        HeightRequest="50"
-                        CornerRadius="25"/>
+                 WidthRequest="100"
+                 BackgroundColor="{DynamicResource PrimaryAccentColor}"
+                 HeightRequest="50"
+                 CornerRadius="25"/>
 
         <Button Text="Search"
                 Grid.Row="3"
@@ -89,79 +90,75 @@
                       IsVisible="{Binding FirstResultVisible}">
 
                     <BoxView WidthRequest="200"
-                                    BackgroundColor="{DynamicResource BackgroundGradientFinish}"
-                                    CornerRadius="25"
-                                    HeightRequest="50"
-                                    Grid.Row="0"/>
+                             BackgroundColor="{DynamicResource BackgroundGradientFinish}"
+                             CornerRadius="25"
+                             HeightRequest="50"
+                             Grid.Row="0"/>
 
                     <Button BackgroundColor="{DynamicResource BackgroundGradientFinish}"
-                                Text="{Binding FirstResultName}"
-                                Command="{Binding ViewRecipeDetailsCommand}"
-                                CommandParameter="{Binding FirstResult}"
-                                HorizontalOptions="Center"
-                                Grid.Row="0"
-                                WidthRequest="150"/>
+                            Text="{Binding FirstResultName}"
+                            Command="{Binding ViewRecipeDetailsCommand}"
+                            CommandParameter="{Binding FirstResult}"
+                            HorizontalOptions="Center"
+                            Grid.Row="0"
+                            WidthRequest="150"/>
                 </Grid>
 
                 <Grid Padding="20"
                       IsVisible="{Binding SecondResultVisible}">
 
                     <BoxView WidthRequest="200"
-                                    BackgroundColor="{DynamicResource BackgroundGradientFinish}"
-                                    CornerRadius="25"
-                                    HeightRequest="50"
-                                    Grid.Row="0"/>
+                             BackgroundColor="{DynamicResource BackgroundGradientFinish}"
+                             CornerRadius="25"
+                             HeightRequest="50"
+                             Grid.Row="0"/>
 
                     <Button BackgroundColor="{DynamicResource BackgroundGradientFinish}"
-                                Text="{Binding SecondResultName}"
-                                Command="{Binding ViewRecipeDetailsCommand}"
-                                CommandParameter="{Binding SecondResult}"
-                                HorizontalOptions="Center"
-                                Grid.Row="0"
-                                WidthRequest="150"/>
+                            Text="{Binding SecondResultName}"
+                            Command="{Binding ViewRecipeDetailsCommand}"
+                            CommandParameter="{Binding SecondResult}"
+                            HorizontalOptions="Center"
+                            Grid.Row="0"
+                            WidthRequest="150"/>
                 </Grid>
 
                 <Grid Padding="20"
                       IsVisible="{Binding SecondResultVisible}">
 
                     <BoxView WidthRequest="200"
-                                    BackgroundColor="{DynamicResource BackgroundGradientFinish}"
-                                    CornerRadius="25"
-                                    HeightRequest="50"
-                                    Grid.Row="0"/>
+                             BackgroundColor="{DynamicResource BackgroundGradientFinish}"
+                             CornerRadius="25"
+                             HeightRequest="50"
+                             Grid.Row="0"/>
 
                     <Button BackgroundColor="{DynamicResource BackgroundGradientFinish}"
-                                Text="{Binding ThirdResultName}"
-                                Command="{Binding ViewRecipeDetailsCommand}"
-                                CommandParameter="{Binding ThirdResult}"
-                                HorizontalOptions="Center"
-                                Grid.Row="0"
-                                WidthRequest="150"/>
+                            Text="{Binding ThirdResultName}"
+                            Command="{Binding ViewRecipeDetailsCommand}"
+                            CommandParameter="{Binding ThirdResult}"
+                            HorizontalOptions="Center"
+                            Grid.Row="0"
+                            WidthRequest="150"/>
                 </Grid>
             </StackLayout>
         </ScrollView>
 
-        <!--<views:RecipeDetails Recipe="{Binding RecipeDetails}"
-                                    SelectedCommand="{Binding RecipeSelectedCommand}"
-                                    CancelCommand="{Binding HideRecipeDetailsCommand}"
-                                    Grid.Row="0"
-                                    Grid.RowSpan="4"
-                                    IsViewOnlyMode="False"
-                                    IsVisible="{Binding ShowRecipeDetails}"
-                                    HeightRequest="350"
-                                    WidthRequest="350"/>-->
+        <views:RecipeDetails Recipe="{Binding RecipeDetails}"
+                             SelectedCommand="{Binding RecipeSelectedCommand}"
+                             CancelCommand="{Binding HideRecipeDetailsCommand}"
+                             Grid.Row="0"
+                             Grid.RowSpan="5"
+                             IsViewOnlyMode="False"
+                             IsVisible="{Binding ShowRecipeDetails}"
+                             HeightRequest="600"
+                             WidthRequest="350"/>
 
         <ActivityIndicator Grid.Row="0"
-                                Grid.RowSpan="4"
-                                HorizontalOptions="CenterAndExpand"
-                                VerticalOptions="CenterAndExpand"
-                                Color="{DynamicResource PrimaryAccentColor}"
-                                IsVisible="{Binding IsBusy}"
-                                IsRunning="{Binding IsBusy}"/>
-
-        <Label Grid.Row="4"
-                    Text="Getting Recipes..."
-                    x:Name="RecipesLabel"/>
+                           Grid.RowSpan="4"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Color="{DynamicResource PrimaryAccentColor}"
+                           IsVisible="{Binding LoadingRecipes}"
+                           IsRunning="{Binding LoadingRecipes}"/>
 
     </Grid>
 </StackLayout>

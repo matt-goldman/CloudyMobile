@@ -16,15 +16,19 @@ namespace CloudyMobile.Maui.Pages.Shared
             ViewModel.Navigation = Navigation;
             BindingContext = ViewModel;
 
-            MessagingCenter.Subscribe<object>(this, "ShowLabel", (obj) => ShowLabel());
-
-            RecipesLabel.IsVisible = false;
+            MessagingCenter.Subscribe<object>(this, "ForceViewUpdate", (obj) => ForceViewUpdate());
         }
 
-        public void ShowLabel()
+        protected override void OnAppearing()
         {
-            Console.WriteLine("Attempting to show label");
-            RecipesLabel.IsVisible = true;
+            base.OnAppearing();
+            ViewModel.Init();
+        }
+
+        private void ForceViewUpdate()
+        {
+            SearchNameEntry.Focus();
+            SearchNameEntry.Unfocus();
         }
     }
 }
