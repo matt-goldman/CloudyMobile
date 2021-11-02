@@ -1,6 +1,5 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:dh="clr-namespace:DevHops.Maui.Controls"
              x:Class="DevHops.Maui.MainPage"
              BackgroundColor="{DynamicResource SecondaryColor}">
     <ContentPage.Background>
@@ -13,7 +12,7 @@
         </LinearGradientBrush>
     </ContentPage.Background>
     <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
-        <StackLayout>
+        <VerticalStackLayout>
             <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*">
 
                 <Label Text="CloudyMobile"
@@ -29,7 +28,7 @@
                     HorizontalOptions="CenterAndExpand" />
 
                 <Image Grid.Row="2"
-                        Source="beer.png"
+                        Source="beer"
                         SemanticProperties.Description="An ice cold frothy beer"
                         WidthRequest="300"
                         HorizontalOptions="Center" />
@@ -50,22 +49,24 @@
                         SemanticProperties.Hint="Takes you to the Add New Batch page"
                         HorizontalOptions="Center" />
 
-                <Button Text="View Kegs and Locations"
-                        Grid.Row="5"
-                        WidthRequest="275"
-                        BorderWidth="0"
-                        SemanticProperties.Hint="Takes you to the Add New Batch page"
-                        HorizontalOptions="Center" />
-
                 <Button Text="Add a Batch Sample"
-                        Grid.Row="6"
+                        Grid.Row="5"
                         WidthRequest="275"
                         BorderWidth="0"
                         Command="{Binding AddSampleCommand}"
                         SemanticProperties.Hint="Takes you to the Add Add Sample page"
                         HorizontalOptions="Center" />
 
+                <Button Text="View Kegs and Locations"
+                        Grid.Row="6"
+                        WidthRequest="275"
+                        BorderWidth="0"
+                        IsVisible="{Binding IsKegVisible}"
+                        SemanticProperties.Hint="Takes you to the Add New Batch page"
+                        Command="{Binding ViewKegCommand}"
+                        HorizontalOptions="Center" />
+
             </Grid>
-        </StackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

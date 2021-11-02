@@ -1,6 +1,6 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CloudyMobile.Maui.Pages.Shared.RecipeDetailPage"
+             x:Class="DevHops.Maui.Pages.Shared.RecipeDetailPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
@@ -30,7 +30,6 @@
                 <Button Text="Click me"
                     Grid.Row="3"
                     SemanticProperties.Hint="Counts the number of times you click"
-                    Clicked="OnCounterClicked"
                     HorizontalOptions="Center" />
 
                 <Image Grid.Row="4"

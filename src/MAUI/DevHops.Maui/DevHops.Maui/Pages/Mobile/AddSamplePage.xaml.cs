@@ -6,24 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevHops.Maui.Pages.Shared
+namespace DevHops.Maui.Pages.Mobile
 {
-    public partial class SearchRecipePage : ContentPage
+    public partial class AddSamplePage : ContentPage
     {
-        public SearchRecipeViewModel ViewModel { get; set; }
+        public AddBatchViewModel ViewModel { get; set; }
 
-        public SearchRecipePage(SearchRecipeViewModel viewModel)
+        public AddSamplePage(AddBatchViewModel viewModel)
         {
             InitializeComponent();
             ViewModel = viewModel;
             ViewModel.Navigation = Navigation;
             BindingContext = ViewModel;
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            Activity.IsVisible = false;
         }
     }
 }

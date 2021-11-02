@@ -1,0 +1,22 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DevHops.Maui.Pages.Tablet.KegPage"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,1"
+                                 EndPoint="1,0">
+            <GradientStop Offset="0.1"
+                              Color="{DynamicResource PageBackgroundColor}" />
+            <GradientStop Offset="1.0"
+                              Color="{DynamicResource BackgroundGradientFinish}"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <Grid HorizontalOptions="CenterAndExpand"
+          VerticalOptions="CenterAndExpand"
+          RowDefinitions="10*,20*">
+        <Image HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+               HeightRequest="600"
+               Source="http://www.napafermentation.com/uploads/1/8/7/0/18701460/s864649013494642475_p406_i2_w500.png"/>
+    </Grid>
+</ContentPage>

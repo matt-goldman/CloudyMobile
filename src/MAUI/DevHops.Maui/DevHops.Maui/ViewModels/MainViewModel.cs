@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using DevHops.Maui.Services.Abstractions;
 using Maui.Plugins.PageResolver;
+using DevHops.Maui.Pages.Mobile;
+using DevHops.Maui.Pages.Tablet;
 
 namespace DevHops.Maui.ViewModels
 {
@@ -19,17 +21,30 @@ namespace DevHops.Maui.ViewModels
         public ICommand AddBatchCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand AddSampleCommand { get; set; }
+        public ICommand ViewKegCommand { get; set; }
 
         public string ErrorMessage { get; set; }
 
         public string StackTrace { get; set; }
 
+        public bool IsKegVisible { get; set; }
+
         public MainViewModel(IAuthService authService)
         {
+            if(DeviceInfo.Idiom == DeviceIdiom.Phone)
+            {
+                IsKegVisible = false;
+            }
+            else
+            {
+                IsKegVisible = true;
+            }
+
             this.authService = authService;
             AddBatchCommand = new Command(async () => await OpenAddBatchPage());
             LoginCommand = new Command(async () => await Login());
             AddSampleCommand = new Command(async () => await OpenAddSamplePage());
+            ViewKegCommand = new Command(async () => await Navigation.PushAsync(new KegPage()));
         }
 
         public async Task CheckAuthStatus()

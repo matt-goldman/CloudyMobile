@@ -9,11 +9,11 @@ namespace DevHops.Maui
 	{
 		public static Constants Constants { get; set; } = new Constants();
 
-		public App()
+		public App(MainPage page)
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new NavigationPage(page);
 		}
 	}
 }

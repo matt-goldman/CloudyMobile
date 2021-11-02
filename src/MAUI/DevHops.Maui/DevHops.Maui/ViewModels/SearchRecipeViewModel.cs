@@ -35,10 +35,14 @@ namespace DevHops.Maui.ViewModels
 
         public ICommand HideRecipeDetailsCommand { get; set; }
 
+        public string ResultNames { get; set; }
+
         public SearchRecipeViewModel(IRecipeService recipeService, IBatchService batchService)
         {
             this.recipeService = recipeService;
             this.batchService = batchService;
+
+            IsBusy = true;
 
             SearchButtonCommand = new Command(async () => await UpdateSearchResults());
             ViewRecipeDetailsCommand = new Command<RecipeDto>((recipe) => ViewRecipeDetails(recipe));
@@ -62,6 +66,8 @@ namespace DevHops.Maui.ViewModels
                 foreach(var rescipe in results.Recipes)
                 {
                     Results.Add(rescipe);
+                    ResultNames += $"{rescipe.Name}, ";
+                    Console.WriteLine($"Got recipe {rescipe.Name}");
                 }
             }
             catch (System.Exception ex)
@@ -76,6 +82,7 @@ namespace DevHops.Maui.ViewModels
             OnPropertyChanged(nameof(IsBusy));
 
             OnPropertyChanged(nameof(Results));
+            OnPropertyChanged(nameof(ResultNames));
         }
 
         public void ViewRecipeDetails(RecipeDto recipe)
