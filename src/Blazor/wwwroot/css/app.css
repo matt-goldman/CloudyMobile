@@ -143,8 +143,12 @@ fast-design-system-provider {
 
 .beer-card {
     width: 350px;
-    height: 500px;
+    height: 650px;
     margin-right: 5rem;
+}
+
+.beer-image {
+    height: 300px;
 }
 
 .cm-page-content {
