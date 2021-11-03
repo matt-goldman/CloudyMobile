@@ -35,20 +35,20 @@ namespace DevHops.Maui
 			builder.Services.AddSingleton<BaseService>();
 
 			// register viewmodels
-			builder.Services.AddTransient<AddBatchViewModel>();
-			builder.Services.AddTransient<BatchesViewModel>();
-			builder.Services.AddTransient<MainViewModel>();
-			builder.Services.AddTransient<RecipeViewModel>();
-			builder.Services.AddTransient<SearchRecipeViewModel>();
-			builder.Services.AddTransient<AddSampleViewModel>();
-			builder.Services.AddTransient<MainViewModel>();
+			builder.Services.AddSingleton<AddBatchViewModel>();
+			builder.Services.AddSingleton<BatchesViewModel>();
+			builder.Services.AddSingleton<MainViewModel>();
+			builder.Services.AddSingleton<RecipeViewModel>();
+			builder.Services.AddSingleton<SearchRecipeViewModel>();
+			builder.Services.AddSingleton<AddSampleViewModel>();
+			builder.Services.AddSingleton<MainViewModel>();
 
 			// register pages
-			builder.Services.AddTransient<AddBatchPage>();
-			builder.Services.AddTransient<RecipeDetailPage>();
-			builder.Services.AddTransient<SearchRecipePage>();
-			builder.Services.AddTransient<AddSamplePage>();
-			builder.Services.AddTransient<MainPage>();
+			builder.Services.AddSingleton<AddBatchPage>();
+			builder.Services.AddSingleton<RecipeDetailPage>();
+			builder.Services.AddSingleton<SearchRecipePage>();
+			builder.Services.AddSingleton<AddSamplePage>();
+			builder.Services.AddSingleton<MainPage>();
 
 			// register PageResolver
 			builder.Services.UsePageResolver();

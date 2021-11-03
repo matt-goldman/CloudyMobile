@@ -58,6 +58,9 @@
 	  <None Remove="Resources\Images\beer.png" />
 	  <None Remove="Resources\Images\beer_mug.png" />
 	  <None Remove="Resources\Images\cloud.svg" />
+	  <None Remove="Resources\Images\keg.png" />
+	  <None Remove="Resources\Images\keg_level.png" />
+	  <None Remove="Resources\Images\thermometer_cold.png" />
 	</ItemGroup>
 
 	<ItemGroup>

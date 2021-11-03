@@ -13,10 +13,126 @@
     </ContentPage.Background>
     <Grid HorizontalOptions="CenterAndExpand"
           VerticalOptions="CenterAndExpand"
-          RowDefinitions="10*,20*">
+          Margin="50"
+          ColumnDefinitions="10*,20*">
+
         <Image HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
                HeightRequest="600"
-               Source="http://www.napafermentation.com/uploads/1/8/7/0/18701460/s864649013494642475_p406_i2_w500.png"/>
+               Source="keg.png"/>
+
+        <VerticalStackLayout Grid.Column="1"
+                             VerticalOptions="CenterAndExpand">
+
+            <Label Text="Clone &amp; Wood"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Center"
+                   FontSize="48" />
+            <Label Text="SSW Newcastle, Kitchen Bar"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Title" />
+
+            <Grid HorizontalOptions="CenterAndExpand"
+                  Margin="100,0,100,0"
+                  ColumnDefinitions="2*,4*,2*,4*"
+                  RowDefinitions="2*,*">
+
+                <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Source="keg_level.png"
+                       HeightRequest="200"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       FontAttributes="Bold"
+                       TextColor="Blue"
+                       Text="12l"
+                       FontSize="Subtitle"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="63%"
+                       FontSize="Title"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Start"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Row="0"
+                       VerticalOptions="CenterAndExpand"
+                       GridLayout.Column="1"
+                       FontSize="48"
+                       Text="✔"
+                       TextColor="Green"/>
+
+                <Image Grid.Row="0"
+                       Grid.Column="2"
+                       Source="thermometer_cold.png"
+                       HeightRequest="200"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="2"
+                       Text="2° C"
+                       FontSize="Title"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Start"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Row="0"
+                       GridLayout.Column="3"
+                       VerticalOptions="Center"
+                       FontSize="48"
+                       Text="✔"
+                       TextColor="Green"/>
+
+            </Grid>
+
+            <Grid HorizontalOptions="CenterAndExpand"
+                  VerticalOptions="CenterAndExpand"
+                  ColumnDefinitions="*,*,*,*,*">
+
+                <Label Grid.Column="0"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Yellow"
+                       FontSize="100"
+                       Text="⭐"/>
+
+                <Label Grid.Column="1"
+                       TextColor="Yellow"
+                       HorizontalTextAlignment="Center"
+                       FontSize="100"
+                       Text="⭐"/>
+
+                <Label Grid.Column="2"
+                       TextColor="Yellow"
+                       HorizontalTextAlignment="Center"
+                       FontSize="100"
+                       Text="⭐"/>
+
+                <Label Grid.Column="3"
+                       TextColor="Yellow"
+                       HorizontalTextAlignment="Center"
+                       FontSize="100"
+                       Opacity="0.3"
+                       Text="⭐"/>
+
+                <Label Grid.Column="4"
+                       TextColor="Yellow"
+                       HorizontalTextAlignment="Center"
+                       FontSize="100"
+                       Opacity="0.3"
+                       Text="⭐"/>
+            </Grid>
+
+
+        </VerticalStackLayout>
+
     </Grid>
 </ContentPage>

@@ -28,9 +28,10 @@
                     HorizontalOptions="CenterAndExpand" />
 
                 <Image Grid.Row="2"
-                        Source="beer"
+                        Source="beer_mug.png"
                         SemanticProperties.Description="An ice cold frothy beer"
                         WidthRequest="300"
+                       HeightRequest="300"
                         HorizontalOptions="Center" />
 
                 <Button Text="Add a batch"
